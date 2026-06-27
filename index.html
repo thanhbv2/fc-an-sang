@@ -78,27 +78,30 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 <div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
   <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
     <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse" style="min-width:560px">
+      <table class="w-full text-sm border-collapse" style="min-width:360px">
         <thead>
           <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
-            <th class="px-3 py-3 text-left w-10 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
-            <th class="px-3 py-3 text-left">Cầu thủ</th>
-            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
-            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
-            <th class="px-3 py-3 text-center hidden sm:table-cell">T</th>
-            <th class="px-3 py-3 text-center hidden sm:table-cell">H</th>
-            <th class="px-3 py-3 text-center hidden sm:table-cell">B</th>
-            <th class="px-3 py-3 text-center hidden md:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th>
-            <th class="px-3 py-3 text-center hidden lg:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
-            <th class="px-3 py-3 text-left hidden lg:table-cell">Vòng này</th>
+            <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
+            <th class="px-2 py-2 text-left">Cầu thủ</th>
+            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
+            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
+            <th class="px-2 py-2 text-center">T</th>
+            <th class="px-2 py-2 text-center">H</th>
+            <th class="px-2 py-2 text-center">B</th>
+            <th class="px-2 py-2 text-center hidden md:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th>
+            <th class="px-2 py-2 text-center hidden lg:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
+            <th class="px-2 py-2 text-left hidden lg:table-cell">Vòng này</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
+    <p class="text-xs text-[#564334] px-3 py-2 bg-[#f9f9f9] border-t border-[#f0f0f0] sm:hidden">
+      ← Vuốt ngang để xem thêm · T=Thắng · H=Hòa · B=Thua
+    </p>
     <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
   </div>
-  <p class="text-xs text-[#564334] mt-2 text-right">T = Thắng · H = Hòa · B = Thua</p>
+  <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
 </div>
 
 <!-- YOUTUBE -->
@@ -284,16 +287,16 @@ function render(){
     var p=d[i];
     var playing=p.status!=='Không đá';
     rows+='<tr class="'+(playing?'playing':'')+' border-b" style="border-color:#f2f4f6;cursor:pointer" onclick="location.href=\'player.html?id='+slug(p.name)+'\'">';
-    rows+='<td class="px-3 py-3" '+rankColor(p.rank)+'>'+p.rank+'</td>';
-    rows+='<td class="px-3 py-3"><div style="font-weight:600;color:#191c1e">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
-    rows+='<td class="px-3 py-3 text-center" style="font-family:Anton,sans-serif;font-size:1.125rem;color:#ff8c00">'+p.pts+'</td>';
-    rows+='<td class="px-3 py-3 text-center">'+p.g+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#15803d;font-weight:500">'+p.w+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
-    rows+='<td class="px-3 py-3 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
+    rows+='<td class="px-2 py-2" '+rankColor(p.rank)+'>'+p.rank+'</td>';
+    rows+='<td class="px-2 py-2"><div style="font-weight:600;color:#191c1e;font-size:13px">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
+    rows+='<td class="px-2 py-2 text-center" style="font-family:Anton,sans-serif;font-size:1rem;color:#ff8c00">'+p.pts+'</td>';
+    rows+='<td class="px-2 py-2 text-center">'+p.g+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#15803d;font-weight:500">'+p.w+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
+    rows+='<td class="px-2 py-2 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
+    rows+='<td class="px-2 py-2 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
+    rows+='<td class="px-2 py-2 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
     rows+='</tr>';
   }
   tbody.innerHTML=rows;
