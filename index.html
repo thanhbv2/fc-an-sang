@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FC ĂN SÁNG — Bảng Xếp Hạng 2026</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
+.font-anton{font-family:"Anton",sans-serif}
+.badge-d1{background:#fff3e0;color:#904d00}
+.badge-d2{background:#e8f5e9;color:#2e7d32}
+.badge-off{background:#f5f5f5;color:#757575}
+tr.playing td:first-child{border-left:3px solid #ff8c00}
+tbody tr:hover td{background:rgba(255,140,0,.04)}
+#search:focus{outline:none;border-color:#ff8c00;box-shadow:0 0 0 2px rgba(255,140,0,.15)}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white border-b border-[#ddc1ae] shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex items-center gap-2 shrink-0">
+      <img src="images/logo.jpg" alt="FC Ăn Sáng" class="w-10 h-10 rounded-full object-cover"/>
+      <span class="font-anton text-xl text-[#ff8c00] italic tracking-wide">FC ĂN SÁNG</span>
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm font-semibold uppercase tracking-wider text-[#564334]">
+      <a href="index.html" class="text-[#ff8c00] border-b-2 border-[#ff8c00] pb-0.5">Bảng xếp hạng</a>
+      <a href="player.html" class="hover:text-[#ff8c00] transition-colors">Cầu thủ</a>
+      <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-red-600 transition-colors">
+        <span class="material-symbols-outlined text-base">smart_display</span>YouTube
+      </a>
+    </nav>
+    <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener"
+       class="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase px-3 py-2 rounded transition-colors shrink-0">
+      <span class="material-symbols-outlined text-sm">play_circle</span>
+      <span class="hidden sm:inline">YouTube</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO BANNER -->
+<div class="relative w-full" style="height:clamp(220px,45vw,420px);background:url('images/team-banner.jpg') center top/cover no-repeat;">
+  <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(25,28,30,.88),rgba(25,28,30,.55) 55%,rgba(25,28,30,.1))"></div>
+  <div class="absolute inset-0 flex items-center">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 w-full">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="images/logo.jpg" alt="" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-[#ff8c00] shadow-lg shrink-0"/>
+        <div>
+          <div class="text-[#ff8c00] text-xs font-semibold uppercase tracking-widest mb-1">Amateur Club · Big Heart</div>
+          <h1 class="font-anton text-3xl md:text-5xl text-white uppercase leading-tight">
+            ĂN SÁNG <span class="text-[#ff8c00]">PREMIER LEAGUE</span> 2026
+          </h1>
+        </div>
+      </div>
+      <div id="hero-stats" class="flex flex-wrap gap-4 text-sm text-gray-300"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+  <div class="relative w-full sm:w-72">
+    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#564334] text-lg">search</span>
+    <input id="search" type="text" placeholder="Tìm cầu thủ..." class="w-full pl-9 pr-3 py-2 border border-[#ddc1ae] rounded text-sm bg-white"/>
+  </div>
+  <div class="flex gap-2 flex-wrap">
+    <button onclick="filterStatus('all')" data-f="all" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-[#ff8c00] text-white border-[#ff8c00]">Tất cả</button>
+    <button onclick="filterStatus('doi1')" data-f="doi1" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Đội 1</button>
+    <button onclick="filterStatus('doi2')" data-f="doi2" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Đội 2</button>
+    <button onclick="filterStatus('off')" data-f="off" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Không đá</button>
+  </div>
+</div>
+
+<!-- TABLE -->
+<div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
+  <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse" style="min-width:560px">
+        <thead>
+          <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
+            <th class="px-3 py-3 text-left w-10 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
+            <th class="px-3 py-3 text-left">Cầu thủ</th>
+            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
+            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">T</th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">H</th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">B</th>
+            <th class="px-3 py-3 text-center hidden md:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th>
+            <th class="px-3 py-3 text-center hidden lg:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
+            <th class="px-3 py-3 text-left hidden lg:table-cell">Vòng này</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
+  </div>
+  <p class="text-xs text-[#564334] mt-2 text-right">T = Thắng · H = Hòa · B = Thua</p>
+</div>
+
+<!-- YOUTUBE -->
+<div class="bg-[#191c1e] py-10 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-red-500 text-2xl">play_circle</span>
+        <h2 class="font-anton text-2xl text-white uppercase tracking-wide">Khoảnh Khắc Nổi Bật</h2>
+      </div>
+      <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener"
+         class="flex items-center gap-1.5 text-xs font-bold uppercase text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded transition-colors">
+        <span class="material-symbols-outlined text-sm">smart_display</span>Xem kênh @fcansang
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="md:col-span-2 relative rounded-lg overflow-hidden" style="height:260px;background:url('images/team-banner.jpg') center top/cover no-repeat;">
+        <div class="absolute inset-0" style="background:linear-gradient(transparent 40%,rgba(0,0,0,.8))"></div>
+        <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="absolute inset-0 flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
+            <span class="material-symbols-outlined text-white text-3xl">play_arrow</span>
+          </div>
+        </a>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <div class="text-white font-semibold text-sm">Trận Cầu Tâm Điểm: FC Ăn Sáng</div>
+          <div class="text-gray-400 text-xs mt-0.5">Ăn Sáng Premier League 2026</div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-3">
+        <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex gap-3 items-center bg-[#2d3133] hover:bg-[#3a3d40] rounded-lg p-3 transition-colors group">
+          <div class="w-16 h-11 bg-[#111] rounded flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-red-500">smart_display</span></div>
+          <div><div class="text-white text-xs font-semibold group-hover:text-[#ff8c00] transition-colors">Siêu phẩm sút xa</div><div class="text-gray-500 text-xs">FC Ăn Sáng · YouTube</div></div>
+        </a>
+        <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex gap-3 items-center bg-[#2d3133] hover:bg-[#3a3d40] rounded-lg p-3 transition-colors group">
+          <div class="w-16 h-11 bg-[#111] rounded flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-red-500">smart_display</span></div>
+          <div><div class="text-white text-xs font-semibold group-hover:text-[#ff8c00] transition-colors">Vlog: Buổi tập cùng đội</div><div class="text-gray-500 text-xs">FC Ăn Sáng · YouTube</div></div>
+        </a>
+        <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex gap-3 items-center bg-[#2d3133] hover:bg-[#3a3d40] rounded-lg p-3 transition-colors group">
+          <div class="w-16 h-11 bg-[#111] rounded flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-red-500">smart_display</span></div>
+          <div><div class="text-white text-xs font-semibold group-hover:text-[#ff8c00] transition-colors">Phỏng vấn sau trận đấu</div><div class="text-gray-500 text-xs">FC Ăn Sáng · YouTube</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-[#191c1e] border-t border-[#2d3133] text-gray-400 py-8 px-4">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="images/logo.jpg" alt="" class="w-10 h-10 rounded-full object-cover"/>
+      <div>
+        <div class="font-anton text-[#ff8c00] text-lg italic">FC ĂN SÁNG</div>
+        <div class="text-xs text-gray-500">© 2026 Ăn Sáng Premier League</div>
+      </div>
+    </div>
+    <div class="flex gap-4 text-xs flex-wrap justify-center">
+      <a href="index.html" class="hover:text-[#ff8c00] transition-colors">Bảng xếp hạng</a>
+      <a href="player.html" class="hover:text-[#ff8c00] transition-colors">Cầu thủ</a>
+      <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 text-red-500 hover:text-red-400 transition-colors">
+        <span class="material-symbols-outlined text-sm">smart_display</span>YouTube
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var STANDINGS=[
+  {rank:1,name:"Kiên Y Tá",pts:59,g:32,w:10,l:15,d:7,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:2,name:"Tung Lun",pts:53,g:28,w:11,l:14,d:3,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:3,name:"Nam Action",pts:53,g:27,w:8,l:11,d:8,att:2,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:4,name:"Thắng Tóc",pts:51,g:23,w:12,l:7,d:4,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:5,name:"Hợp Tô",pts:50,g:25,w:10,l:10,d:5,att:0,pen:0,status:"Không đá"},
+  {rank:6,name:"Long Xavi",pts:50,g:25,w:10,l:11,d:4,att:1,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:7,name:"Thiệu Béo",pts:50,g:28,w:8,l:14,d:6,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:8,name:"Đại Du",pts:48,g:20,w:13,l:5,d:2,att:0,pen:0,status:"Không đá"},
+  {rank:9,name:"Thắng Cò",pts:48,g:26,w:7,l:12,d:7,att:2,pen:1,status:"Đội 1 (Thua +1)"},
+  {rank:10,name:"Thanh Bùi",pts:47,g:22,w:11,l:8,d:3,att:0,pen:0,status:"Đội 2 (Thắng +3 & +2đ 1 Hoà)"},
+  {rank:11,name:"Thành Rocket",pts:47,g:22,w:11,l:8,d:3,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:12,name:"Quân Phan",pts:44,g:23,w:8,l:10,d:5,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:13,name:"Mạnh Nát",pts:43,g:17,w:12,l:3,d:2,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:14,name:"Tú Xương",pts:42,g:21,w:6,l:8,d:7,att:2,pen:0,status:"Không đá"},
+  {rank:15,name:"Cánh Nấm",pts:40,g:18,w:10,l:6,d:2,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:16,name:"Bình Booong",pts:40,g:21,w:8,l:10,d:3,att:0,pen:0,status:"Không đá"},
+  {rank:17,name:"Hải Trà Đá",pts:40,g:18,w:8,l:5,d:5,att:1,pen:0,status:"Không đá"},
+  {rank:18,name:"Đạt 09",pts:39,g:17,w:10,l:5,d:2,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:19,name:"Ninh Cuội",pts:39,g:15,w:6,l:3,d:6,att:6,pen:0,status:"Không đá"},
+  {rank:20,name:"Luân Lốp",pts:37,g:18,w:9,l:8,d:1,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:21,name:"Khá Bảnh",pts:36,g:19,w:7,l:10,d:2,att:1,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:22,name:"Thuần Lùn",pts:35,g:16,w:9,l:5,d:2,att:0,pen:1,status:"Không đá"},
+  {rank:23,name:"Giang Toàn",pts:35,g:21,w:5,l:11,d:5,att:0,pen:1,status:"Không đá"},
+  {rank:24,name:"Oanh Còi",pts:34,g:16,w:8,l:6,d:2,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:25,name:"Luận Răng",pts:34,g:16,w:7,l:5,d:4,att:0,pen:0,status:"Không đá"},
+  {rank:26,name:"Tiến Vũ",pts:33,g:15,w:8,l:5,d:2,att:0,pen:0,status:"Không đá"},
+  {rank:27,name:"Nam Cao",pts:33,g:18,w:7,l:9,d:2,att:0,pen:1,status:"Đội 2 (Thắng +3)"},
+  {rank:28,name:"Toàn Tỏi",pts:31,g:14,w:6,l:4,d:4,att:1,pen:0,status:"Không đá"},
+  {rank:29,name:"Hương Phủi",pts:30,g:15,w:6,l:6,d:3,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:30,name:"Trường Master",pts:29,g:16,w:4,l:6,d:6,att:0,pen:1,status:"Đội 1 (Thua +1)"},
+  {rank:31,name:"Đắc Phủi",pts:28,g:12,w:8,l:4,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:32,name:"Hiếu Chu",pts:27,g:13,w:5,l:4,d:4,att:0,pen:0,status:"Không đá"},
+  {rank:33,name:"Phong Đẹo",pts:27,g:14,w:4,l:5,d:5,att:0,pen:2,status:"Đội 2 (Thắng +3)"},
+  {rank:34,name:"Khương Râu",pts:25,g:11,w:7,l:4,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:35,name:"Hiền Gà",pts:24,g:10,w:6,l:2,d:2,att:0,pen:0,status:"Không đá"},
+  {rank:36,name:"Giáp Còi",pts:24,g:13,w:5,l:7,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:37,name:"Bằng Chấy",pts:24,g:13,w:5,l:7,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:38,name:"Sang New",pts:23,g:13,w:5,l:5,d:3,att:0,pen:3,status:"Không đá"},
+  {rank:39,name:"An Tây",pts:23,g:12,w:5,l:6,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:40,name:"Hồ Cu",pts:22,g:12,w:4,l:5,d:3,att:0,pen:1,status:"Không đá"},
+  {rank:41,name:"Hải Hói",pts:20,g:11,w:4,l:6,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:42,name:"Tùng Bách",pts:19,g:9,w:4,l:3,d:2,att:0,pen:0,status:"Không đá"},
+  {rank:43,name:"Anh Hoàng",pts:18,g:9,w:4,l:4,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:44,name:"Doãn Híp",pts:17,g:8,w:4,l:3,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:45,name:"Quân Nổ",pts:17,g:9,w:2,l:3,d:4,att:0,pen:0,status:"Không đá"},
+  {rank:46,name:"Đạt 1 Phít",pts:16,g:7,w:4,l:2,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:47,name:"Phú Hổ",pts:16,g:10,w:2,l:5,d:3,att:0,pen:1,status:"Không đá"},
+  {rank:48,name:"Anh Cao",pts:15,g:8,w:4,l:4,d:0,att:0,pen:1,status:"Không đá"},
+  {rank:49,name:"Hiếu Dứa",pts:15,g:9,w:3,l:6,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:50,name:"Hoàng Royal",pts:13,g:7,w:3,l:4,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:51,name:"Quyền Bùi",pts:13,g:8,w:1,l:4,d:3,att:0,pen:0,status:"Không đá"},
+  {rank:52,name:"Luân Nổi Thất",pts:11,g:5,w:3,l:1,d:1,att:0,pen:1,status:"Không đá"},
+  {rank:53,name:"Phát Auto",pts:9,g:6,w:1,l:4,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:54,name:"Hòa Black",pts:6,g:4,w:1,l:3,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:55,name:"Ngọc Gầy",pts:4,g:2,w:1,l:1,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:56,name:"Minh Gái",pts:3,g:3,w:0,l:3,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:57,name:"Hùng Con",pts:3,g:1,w:1,l:0,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:58,name:"Anh Tuấn Jr",pts:2,g:1,w:0,l:0,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:59,name:"Linh Tinh",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:59,name:"Sơn Bạch Tạng",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"}
+];
+
+var cf='all', cs='', sortCol='rank', sortDir=1;
+
+function slug(n){
+  return n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/\u0111/g,'d').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function badge(s){
+  return s.indexOf('Đội 1')>=0?'badge-d1':s.indexOf('Đội 2')>=0?'badge-d2':'badge-off';
+}
+function winRate(p){ return p.g>0?Math.round(p.w/p.g*100):0; }
+function rankColor(r){
+  if(r===1) return 'style="font-family:Anton,sans-serif;color:#ff8c00;font-size:1rem"';
+  if(r===2) return 'style="font-family:Anton,sans-serif;color:#9ca3af;font-size:1rem"';
+  if(r===3) return 'style="font-family:Anton,sans-serif;color:#b45309;font-size:1rem"';
+  return 'style="color:#564334"';
+}
+function attCell(att){
+  return att>0
+    ? '<span style="color:#dc2626;font-weight:600">-'+att+'</span>'
+    : '<span style="color:#15803d;font-weight:600">✓</span>';
+}
+function penCell(pen){
+  return pen>0
+    ? '<span style="color:#dc2626;font-weight:600">'+pen+'</span>'
+    : '<span style="color:#d1d5db">—</span>';
+}
+function wrBadge(p){
+  var r=winRate(p);
+  var bg=r>=60?'#e8f5e9':r>=40?'#fff3e0':'#fef2f2';
+  var color=r>=60?'#15803d':r>=40?'#92400e':'#dc2626';
+  return '<span style="background:'+bg+';color:'+color+';font-weight:700;font-size:12px;padding:2px 7px;border-radius:9999px">'+r+'%</span>';
+}
+
+function render(){
+  var d=STANDINGS.filter(function(p){
+    var ms=p.name.toLowerCase().indexOf(cs.toLowerCase())>=0;
+    var mf=cf==='all'?true:cf==='doi1'?p.status.indexOf('Đội 1')>=0:cf==='doi2'?p.status.indexOf('Đội 2')>=0:p.status==='Không đá';
+    return ms&&mf;
+  });
+  d.sort(function(a,b){
+    var av=a[sortCol],bv=b[sortCol];
+    return (typeof av==='string'?av.localeCompare(bv):av-bv)*sortDir;
+  });
+  var tbody=document.getElementById('tbody');
+  if(!d.length){
+    tbody.innerHTML='';
+    document.getElementById('empty').classList.remove('hidden');
+    return;
+  }
+  document.getElementById('empty').classList.add('hidden');
+  var rows='';
+  for(var i=0;i<d.length;i++){
+    var p=d[i];
+    var playing=p.status!=='Không đá';
+    rows+='<tr class="'+(playing?'playing':'')+' border-b" style="border-color:#f2f4f6;cursor:pointer" onclick="location.href=\'player.html?id='+slug(p.name)+'\'">';
+    rows+='<td class="px-3 py-3" '+rankColor(p.rank)+'>'+p.rank+'</td>';
+    rows+='<td class="px-3 py-3"><div style="font-weight:600;color:#191c1e">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
+    rows+='<td class="px-3 py-3 text-center" style="font-family:Anton,sans-serif;font-size:1.125rem;color:#ff8c00">'+p.pts+'</td>';
+    rows+='<td class="px-3 py-3 text-center">'+p.g+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#15803d;font-weight:500">'+p.w+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
+    rows+='<td class="px-3 py-3 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
+    rows+='</tr>';
+  }
+  tbody.innerHTML=rows;
+}
+
+function sortBy(col){
+  sortDir=sortCol===col?sortDir*-1:(col==='rank'?1:-1);
+  sortCol=col;
+  ['rank','pts','g','att','pen'].forEach(function(c){
+    var e=document.getElementById('si-'+c);
+    if(e) e.textContent=c===sortCol?(sortDir===1?'↑':'↓'):'↕';
+  });
+  render();
+}
+
+function filterStatus(f){
+  cf=f;
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    var active=b.getAttribute('data-f')===f;
+    b.style.background=active?'#ff8c00':'#fff';
+    b.style.color=active?'#fff':'#564334';
+    b.style.borderColor=active?'#ff8c00':'#ddc1ae';
+  });
+  render();
+}
+
+document.getElementById('search').addEventListener('input',function(e){cs=e.target.value;render();});
+
+var top=STANDINGS[0];
+var playing=STANDINGS.filter(function(p){return p.status!=='Không đá';}).length;
+document.getElementById('hero-stats').innerHTML=
+  '<span><strong style="color:#fff">'+STANDINGS.length+'</strong> cầu thủ</span>'
+  +'<span>·</span>'
+  +'<span><strong style="color:#fff">'+playing+'</strong> đang thi đấu vòng này</span>'
+  +'<span>·</span>'
+  +'<span>Dẫn đầu: <strong style="color:#ff8c00">'+top.name+'</strong> ('+top.pts+' điểm)</span>';
+
+render();
+</script>
+</body>
+</html>
