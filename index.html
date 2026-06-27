@@ -43,20 +43,24 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 </header>
 
 <!-- HERO BANNER -->
-<div class="relative w-full" style="height:340px;background:url('images/team-banner.jpg') center 30%/cover no-repeat;">
-  <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(25,28,30,.82),rgba(25,28,30,.45) 50%,rgba(25,28,30,.05))"></div>
-  <div class="absolute inset-0 flex items-center">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 w-full">
+<div class="bg-[#191c1e] py-6 px-4">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-center">
+    <!-- Ảnh đội -->
+    <div class="w-full md:w-1/2 rounded-xl overflow-hidden shadow-lg shrink-0">
+      <img src="images/team-banner.jpg" alt="FC Ăn Sáng" style="width:100%;height:auto;display:block;"/>
+    </div>
+    <!-- Text -->
+    <div class="flex-1 text-white">
       <div class="flex items-center gap-3 mb-3">
-        <img src="images/logo.jpg" alt="" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-[#ff8c00] shadow-lg shrink-0"/>
+        <img src="images/logo.jpg" alt="" class="w-14 h-14 rounded-full object-cover border-2 border-[#ff8c00] shadow-lg shrink-0"/>
         <div>
           <div class="text-[#ff8c00] text-xs font-semibold uppercase tracking-widest mb-1">Amateur Club · Big Heart</div>
-          <h1 class="font-anton text-3xl md:text-5xl text-white uppercase leading-tight">
+          <h1 class="font-anton text-3xl md:text-4xl text-white uppercase leading-tight">
             ĂN SÁNG <span class="text-[#ff8c00]">PREMIER LEAGUE</span> 2026
           </h1>
         </div>
       </div>
-      <div id="hero-stats" class="flex flex-wrap gap-4 text-sm text-gray-300"></div>
+      <div id="hero-stats" class="flex flex-wrap gap-4 text-sm text-gray-300 mt-2"></div>
     </div>
   </div>
 </div>
@@ -239,7 +243,7 @@ function slug(n){
 function badge(s){
   return s.indexOf('Đội 1')>=0?'badge-d1':s.indexOf('Đội 2')>=0?'badge-d2':'badge-off';
 }
-function winRate(p){ return p.g>0?Math.round(p.w/p.g*100):0; }
+function winRate(p){ var total=p.w+p.d+p.l; return total>0?Math.round(p.w/total*100):0; }
 function rankColor(r){
   if(r===1) return 'style="font-family:Anton,sans-serif;color:#ff8c00;font-size:1rem"';
   if(r===2) return 'style="font-family:Anton,sans-serif;color:#9ca3af;font-size:1rem"';
