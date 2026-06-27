@@ -33,6 +33,9 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-red-600 transition-colors">
         <span class="material-symbols-outlined text-base">smart_display</span>YouTube
       </a>
+      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-blue-600 transition-colors">
+        <span class="material-symbols-outlined text-base">group</span>Facebook
+      </a>
     </nav>
     <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener"
        class="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase px-3 py-2 rounded transition-colors shrink-0">
@@ -163,6 +166,9 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       <a href="player.html" class="hover:text-[#ff8c00] transition-colors">Cầu thủ</a>
       <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 text-red-500 hover:text-red-400 transition-colors">
         <span class="material-symbols-outlined text-sm">smart_display</span>YouTube
+      </a>
+      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors">
+        <span class="material-symbols-outlined text-sm">group</span>Facebook
       </a>
     </div>
   </div>
@@ -329,14 +335,14 @@ function filterStatus(f){
 
 document.getElementById('search').addEventListener('input',function(e){cs=e.target.value;render();});
 
-var top=STANDINGS[0];
+var leader=STANDINGS[0];
 var playing=STANDINGS.filter(function(p){return p.status!=='Không đá';}).length;
 document.getElementById('hero-stats').innerHTML=
   '<span><strong style="color:#191c1e">'+STANDINGS.length+'</strong> cầu thủ</span>'
   +'<span>·</span>'
   +'<span><strong style="color:#191c1e">'+playing+'</strong> đang thi đấu</span>'
   +'<span>·</span>'
-  +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+top.name+'</strong> — '+top.pts+' điểm</span>';
+  +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+leader.name+'</strong> — '+leader.pts+' điểm</span>';
 
 render();
 </script>
