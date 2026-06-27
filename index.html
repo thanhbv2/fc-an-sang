@@ -59,7 +59,6 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
         </h1>
         <div id="hero-stats" class="flex flex-wrap gap-3 text-sm mt-1" style="color:#564334"></div>
       </div>
-      <div id="hero-stats" class="flex flex-wrap gap-4 text-sm text-gray-300"></div>
     </div>
   </div>
 </div>
@@ -82,9 +81,10 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 <div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
   <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
     <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse" style="min-width:560px">
+      <table class="w-full text-sm border-collapse" style="min-width:360px">
         <thead>
-          <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
+          <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
+            <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
             <th class="px-2 py-2 text-left">Cầu thủ</th>
             <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
             <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
@@ -99,9 +99,12 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
         <tbody id="tbody"></tbody>
       </table>
     </div>
+    <p class="text-xs text-[#564334] px-3 py-2 bg-[#f9f9f9] border-t border-[#f0f0f0] sm:hidden">
+      ← Vuốt ngang để xem thêm · T=Thắng · H=Hòa · B=Thua
+    </p>
     <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
   </div>
-  <p class="text-xs text-[#564334] mt-2 text-right">T = Thắng · H = Hòa · B = Thua</p>
+  <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
 </div>
 
 <!-- YOUTUBE -->
@@ -118,7 +121,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="md:col-span-2 relative rounded-lg overflow-hidden" style="height:260px;background:url('images/team-banner.jpg') center top/cover no-repeat;">
+      <div class="md:col-span-2 relative rounded-lg overflow-hidden" style="height:260px;background:url('images/team-banner.jpg') center 30%/cover no-repeat;">
         <div class="absolute inset-0" style="background:linear-gradient(transparent 40%,rgba(0,0,0,.8))"></div>
         <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="absolute inset-0 flex items-center justify-center">
           <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
@@ -234,7 +237,6 @@ var STANDINGS=[
   {rank:59,name:"Linh Tinh",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"},
   {rank:60,name:"Sơn Bạch Tạng",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"}
 ];
-
 var cf='all', cs='', sortCol='rank', sortDir=1;
 
 function slug(n){
@@ -244,12 +246,16 @@ function slug(n){
 function badge(s){
   return s.indexOf('Đội 1')>=0?'badge-d1':s.indexOf('Đội 2')>=0?'badge-d2':'badge-off';
 }
-function winRate(p){ return p.g>0?Math.round(p.w/p.g*100):0; }
+function winRate(p){ var total=p.w+p.l; return total>0?Math.round(p.w/total*100):0; }
+var TOP_ICONS=['','🥇','🥈','🥉','4️⃣','5️⃣'];
 function rankColor(r){
   if(r===1) return 'style="font-family:Anton,sans-serif;color:#ff8c00;font-size:1rem"';
   if(r===2) return 'style="font-family:Anton,sans-serif;color:#9ca3af;font-size:1rem"';
   if(r===3) return 'style="font-family:Anton,sans-serif;color:#b45309;font-size:1rem"';
   return 'style="color:#564334"';
+}
+function rankDisplay(r){
+  return r<=5 ? TOP_ICONS[r]+' '+r : r;
 }
 function attCell(att){
   return att>0
@@ -290,16 +296,16 @@ function render(){
     var p=d[i];
     var playing=p.status!=='Không đá';
     rows+='<tr class="'+(playing?'playing':'')+' border-b" style="border-color:#f2f4f6;cursor:pointer" onclick="location.href=\'player.html?id='+slug(p.name)+'\'">';
-    rows+='<td class="px-3 py-3" '+rankColor(p.rank)+'>'+p.rank+'</td>';
-    rows+='<td class="px-3 py-3"><div style="font-weight:600;color:#191c1e">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
-    rows+='<td class="px-3 py-3 text-center" style="font-family:Anton,sans-serif;font-size:1.125rem;color:#ff8c00">'+p.pts+'</td>';
-    rows+='<td class="px-3 py-3 text-center">'+p.g+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#15803d;font-weight:500">'+p.w+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
-    rows+='<td class="px-3 py-3 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
-    rows+='<td class="px-3 py-3 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
+    rows+='<td class="px-2 py-2" '+rankColor(p.rank)+'>'+rankDisplay(p.rank)+'</td>';
+    rows+='<td class="px-2 py-2"><div style="font-weight:600;color:#191c1e;font-size:13px">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
+    rows+='<td class="px-2 py-2 text-center" style="font-family:Anton,sans-serif;font-size:1rem;color:#ff8c00">'+p.pts+'</td>';
+    rows+='<td class="px-2 py-2 text-center">'+p.g+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#15803d;font-weight:500">'+p.w+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
+    rows+='<td class="px-2 py-2 text-center" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
+    rows+='<td class="px-2 py-2 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
+    rows+='<td class="px-2 py-2 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
+    rows+='<td class="px-2 py-2 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
     rows+='</tr>';
   }
   tbody.innerHTML=rows;
@@ -328,14 +334,14 @@ function filterStatus(f){
 
 document.getElementById('search').addEventListener('input',function(e){cs=e.target.value;render();});
 
-var top=STANDINGS[0];
+var leader=STANDINGS[0];
 var playing=STANDINGS.filter(function(p){return p.status!=='Không đá';}).length;
 document.getElementById('hero-stats').innerHTML=
-  '<span><strong style="color:#fff">'+STANDINGS.length+'</strong> cầu thủ</span>'
+  '<span><strong style="color:#191c1e">'+STANDINGS.length+'</strong> cầu thủ</span>'
   +'<span>·</span>'
-  +'<span><strong style="color:#fff">'+playing+'</strong> đang thi đấu vòng này</span>'
+  +'<span><strong style="color:#191c1e">'+playing+'</strong> đang thi đấu</span>'
   +'<span>·</span>'
-  +'<span>Dẫn đầu: <strong style="color:#ff8c00">'+top.name+'</strong> ('+top.pts+' điểm)</span>';
+  +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+leader.name+'</strong> — '+leader.pts+' điểm</span>';
 
 render();
 </script>
