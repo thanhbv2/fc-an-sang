@@ -33,9 +33,6 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-red-600 transition-colors">
         <span class="material-symbols-outlined text-base">smart_display</span>YouTube
       </a>
-      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-blue-600 transition-colors">
-        <span class="material-symbols-outlined text-base">group</span>Facebook
-      </a>
     </nav>
     <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener"
        class="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase px-3 py-2 rounded transition-colors shrink-0">
@@ -46,19 +43,20 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 </header>
 
 <!-- HERO BANNER -->
-<div style="background:#f7f9fb;padding:24px 16px 0;">
-  <div class="max-w-6xl mx-auto">
-    <div class="rounded-xl overflow-hidden shadow-lg">
-      <img src="images/team-banner.jpg" alt="FC Ăn Sáng" style="width:100%;height:auto;display:block;"/>
-    </div>
-    <div class="flex items-center gap-3 py-4">
-      <img src="images/logo.jpg" alt="" class="w-12 h-12 rounded-full object-cover border-2 border-[#ff8c00] shrink-0"/>
-      <div>
-        <h1 class="font-anton text-2xl md:text-3xl uppercase" style="color:#191c1e">
-          ĂN SÁNG <span style="color:#ff8c00">PREMIER LEAGUE</span> 2026
-        </h1>
-        <div id="hero-stats" class="flex flex-wrap gap-3 text-sm mt-1" style="color:#564334"></div>
+<div class="relative w-full" style="height:340px;background:url('images/team-banner.jpg') center 30%/cover no-repeat;">
+  <div class="absolute inset-0" style="background:linear-gradient(to right,rgba(25,28,30,.82),rgba(25,28,30,.45) 50%,rgba(25,28,30,.05))"></div>
+  <div class="absolute inset-0 flex items-center">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 w-full">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="images/logo.jpg" alt="" class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-[#ff8c00] shadow-lg shrink-0"/>
+        <div>
+          <div class="text-[#ff8c00] text-xs font-semibold uppercase tracking-widest mb-1">Amateur Club · Big Heart</div>
+          <h1 class="font-anton text-3xl md:text-5xl text-white uppercase leading-tight">
+            ĂN SÁNG <span class="text-[#ff8c00]">PREMIER LEAGUE</span> 2026
+          </h1>
+        </div>
       </div>
+      <div id="hero-stats" class="flex flex-wrap gap-4 text-sm text-gray-300"></div>
     </div>
   </div>
 </div>
@@ -81,30 +79,27 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 <div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
   <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
     <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse" style="min-width:360px">
+      <table class="w-full text-sm border-collapse" style="min-width:560px">
         <thead>
           <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
-            <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
-            <th class="px-2 py-2 text-left">Cầu thủ</th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
-            <th class="px-2 py-2 text-center">T</th>
-            <th class="px-2 py-2 text-center">H</th>
-            <th class="px-2 py-2 text-center">B</th>
-            <th class="px-2 py-2 text-center hidden md:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th>
-            <th class="px-2 py-2 text-center hidden lg:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
-            <th class="px-2 py-2 text-left hidden lg:table-cell">Vòng này</th>
+            <th class="px-3 py-3 text-left w-10 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
+            <th class="px-3 py-3 text-left">Cầu thủ</th>
+            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
+            <th class="px-3 py-3 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">T</th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">H</th>
+            <th class="px-3 py-3 text-center hidden sm:table-cell">B</th>
+            <th class="px-3 py-3 text-center hidden md:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th>
+            <th class="px-3 py-3 text-center hidden lg:table-cell cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
+            <th class="px-3 py-3 text-left hidden lg:table-cell">Vòng này</th>
           </tr>
         </thead>
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p class="text-xs text-[#564334] px-3 py-2 bg-[#f9f9f9] border-t border-[#f0f0f0] sm:hidden">
-      ← Vuốt ngang để xem thêm · T=Thắng · H=Hòa · B=Thua
-    </p>
     <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
   </div>
-  <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
+  <p class="text-xs text-[#564334] mt-2 text-right">T = Thắng · H = Hòa · B = Thua</p>
 </div>
 
 <!-- YOUTUBE -->
@@ -121,7 +116,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="md:col-span-2 relative rounded-lg overflow-hidden" style="height:260px;background:url('images/team-banner.jpg') center 30%/cover no-repeat;">
+      <div class="md:col-span-2 relative rounded-lg overflow-hidden" style="height:260px;background:url('images/team-banner.jpg') center top/cover no-repeat;">
         <div class="absolute inset-0" style="background:linear-gradient(transparent 40%,rgba(0,0,0,.8))"></div>
         <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="absolute inset-0 flex items-center justify-center">
           <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors">
@@ -167,45 +162,42 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
       <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 text-red-500 hover:text-red-400 transition-colors">
         <span class="material-symbols-outlined text-sm">smart_display</span>YouTube
       </a>
-      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors">
-        <span class="material-symbols-outlined text-sm">group</span>Facebook
-      </a>
     </div>
   </div>
 </footer>
 
 <script>
 var STANDINGS=[
-  {rank:1,name:"Kiên Y Tá",pts:59,g:32,w:10,l:15,d:7,att:0,pen:0,status:"Đội 1 (Thua +1)"},
-  {rank:2,name:"Tung Lun",pts:53,g:28,w:11,l:14,d:3,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
-  {rank:3,name:"Nam Action",pts:53,g:27,w:8,l:11,d:8,att:2,pen:0,status:"Đội 2 (Thắng +3)"},
-  {rank:4,name:"Thắng Tóc",pts:51,g:23,w:12,l:7,d:4,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:1,name:"Kiên Y Tá",pts:61,g:33,w:10,l:15,d:8,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:2,name:"Nam Action",pts:55,g:28,w:8,l:11,d:9,att:2,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:3,name:"Tung Lun",pts:53,g:28,w:11,l:14,d:3,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:4,name:"Thắng Tóc",pts:53,g:24,w:12,l:7,d:5,att:0,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
   {rank:5,name:"Hợp Tô",pts:50,g:25,w:10,l:10,d:5,att:0,pen:0,status:"Không đá"},
   {rank:6,name:"Long Xavi",pts:50,g:25,w:10,l:11,d:4,att:1,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:7,name:"Thiệu Béo",pts:50,g:28,w:8,l:14,d:6,att:0,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:8,name:"Đại Du",pts:48,g:20,w:13,l:5,d:2,att:0,pen:0,status:"Không đá"},
   {rank:9,name:"Thắng Cò",pts:48,g:26,w:7,l:12,d:7,att:2,pen:1,status:"Đội 1 (Thua +1)"},
-  {rank:10,name:"Thanh Bùi",pts:47,g:22,w:11,l:8,d:3,att:0,pen:0,status:"Đội 2 (Thắng +3 & +2đ 1 Hoà)"},
+  {rank:10,name:"Thanh Bùi",pts:47,g:22,w:11,l:8,d:3,att:0,pen:0,status:"Giữ nguyên (Đã cộng trước đó)"},
   {rank:11,name:"Thành Rocket",pts:47,g:22,w:11,l:8,d:3,att:0,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:12,name:"Quân Phan",pts:44,g:23,w:8,l:10,d:5,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
   {rank:13,name:"Mạnh Nát",pts:43,g:17,w:12,l:3,d:2,att:0,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:14,name:"Tú Xương",pts:42,g:21,w:6,l:8,d:7,att:2,pen:0,status:"Không đá"},
-  {rank:15,name:"Cánh Nấm",pts:40,g:18,w:10,l:6,d:2,att:0,pen:0,status:"Đội 1 (Thua +1)"},
-  {rank:16,name:"Bình Booong",pts:40,g:21,w:8,l:10,d:3,att:0,pen:0,status:"Không đá"},
-  {rank:17,name:"Hải Trà Đá",pts:40,g:18,w:8,l:5,d:5,att:1,pen:0,status:"Không đá"},
-  {rank:18,name:"Đạt 09",pts:39,g:17,w:10,l:5,d:2,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:15,name:"Hải Trà Đá",pts:42,g:19,w:8,l:5,d:6,att:1,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:16,name:"Đạt 09",pts:41,g:18,w:10,l:5,d:3,att:0,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:17,name:"Cánh Nấm",pts:40,g:18,w:10,l:6,d:2,att:0,pen:0,status:"Đội 1 (Thua +1)"},
+  {rank:18,name:"Bình Booong",pts:40,g:21,w:8,l:10,d:3,att:0,pen:0,status:"Không đá"},
   {rank:19,name:"Ninh Cuội",pts:39,g:15,w:6,l:3,d:6,att:6,pen:0,status:"Không đá"},
   {rank:20,name:"Luân Lốp",pts:37,g:18,w:9,l:8,d:1,att:0,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:21,name:"Khá Bảnh",pts:36,g:19,w:7,l:10,d:2,att:1,pen:0,status:"Đội 2 (Thắng +3)"},
   {rank:22,name:"Thuần Lùn",pts:35,g:16,w:9,l:5,d:2,att:0,pen:1,status:"Không đá"},
   {rank:23,name:"Giang Toàn",pts:35,g:21,w:5,l:11,d:5,att:0,pen:1,status:"Không đá"},
-  {rank:24,name:"Oanh Còi",pts:34,g:16,w:8,l:6,d:2,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
-  {rank:25,name:"Luận Răng",pts:34,g:16,w:7,l:5,d:4,att:0,pen:0,status:"Không đá"},
-  {rank:26,name:"Tiến Vũ",pts:33,g:15,w:8,l:5,d:2,att:0,pen:0,status:"Không đá"},
+  {rank:24,name:"Tiến Vũ",pts:35,g:16,w:8,l:5,d:3,att:0,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:25,name:"Oanh Còi",pts:34,g:16,w:8,l:6,d:2,att:0,pen:0,status:"Đội 2 (Thắng +3)"},
+  {rank:26,name:"Luận Răng",pts:34,g:16,w:7,l:5,d:4,att:0,pen:0,status:"Không đá"},
   {rank:27,name:"Nam Cao",pts:33,g:18,w:7,l:9,d:2,att:0,pen:1,status:"Đội 2 (Thắng +3)"},
   {rank:28,name:"Toàn Tỏi",pts:31,g:14,w:6,l:4,d:4,att:1,pen:0,status:"Không đá"},
-  {rank:29,name:"Hương Phủi",pts:30,g:15,w:6,l:6,d:3,att:0,pen:0,status:"Đội 1 (Thua +1)"},
-  {rank:30,name:"Trường Master",pts:29,g:16,w:4,l:6,d:6,att:0,pen:1,status:"Đội 1 (Thua +1)"},
+  {rank:29,name:"Trường Master",pts:31,g:17,w:4,l:6,d:7,att:0,pen:1,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:30,name:"Hương Phủi",pts:30,g:15,w:6,l:6,d:3,att:0,pen:0,status:"Đội 1 (Thua +1)"},
   {rank:31,name:"Đắc Phủi",pts:28,g:12,w:8,l:4,d:0,att:0,pen:0,status:"Không đá"},
   {rank:32,name:"Hiếu Chu",pts:27,g:13,w:5,l:4,d:4,att:0,pen:0,status:"Không đá"},
   {rank:33,name:"Phong Đẹo",pts:27,g:14,w:4,l:5,d:5,att:0,pen:2,status:"Đội 2 (Thắng +3)"},
@@ -221,11 +213,11 @@ var STANDINGS=[
   {rank:43,name:"Anh Hoàng",pts:18,g:9,w:4,l:4,d:1,att:0,pen:0,status:"Không đá"},
   {rank:44,name:"Doãn Híp",pts:17,g:8,w:4,l:3,d:1,att:0,pen:0,status:"Không đá"},
   {rank:45,name:"Quân Nổ",pts:17,g:9,w:2,l:3,d:4,att:0,pen:0,status:"Không đá"},
-  {rank:46,name:"Đạt 1 Phít",pts:16,g:7,w:4,l:2,d:1,att:0,pen:0,status:"Không đá"},
-  {rank:47,name:"Phú Hổ",pts:16,g:10,w:2,l:5,d:3,att:0,pen:1,status:"Không đá"},
-  {rank:48,name:"Anh Cao",pts:15,g:8,w:4,l:4,d:0,att:0,pen:1,status:"Không đá"},
-  {rank:49,name:"Hiếu Dứa",pts:15,g:9,w:3,l:6,d:0,att:0,pen:0,status:"Không đá"},
-  {rank:50,name:"Hoàng Royal",pts:13,g:7,w:3,l:4,d:0,att:0,pen:0,status:"Không đá"},
+  {rank:46,name:"Hoàng Royal",pts:15,g:8,w:3,l:4,d:1,att:0,pen:0,status:"Đã cộng +2đ, +1 trận, +1 Hòa"},
+  {rank:47,name:"Đạt 1 Phít",pts:16,g:7,w:4,l:2,d:1,att:0,pen:0,status:"Không đá"},
+  {rank:48,name:"Phú Hổ",pts:16,g:10,w:2,l:5,d:3,att:0,pen:1,status:"Không đá"},
+  {rank:49,name:"Anh Cao",pts:15,g:8,w:4,l:4,d:0,att:0,pen:1,status:"Không đá"},
+  {rank:50,name:"Hiếu Dứa",pts:15,g:9,w:3,l:6,d:0,att:0,pen:0,status:"Không đá"},
   {rank:51,name:"Quyền Bùi",pts:13,g:8,w:1,l:4,d:3,att:0,pen:0,status:"Không đá"},
   {rank:52,name:"Luân Nổi Thất",pts:11,g:5,w:3,l:1,d:1,att:0,pen:1,status:"Không đá"},
   {rank:53,name:"Phát Auto",pts:9,g:6,w:1,l:4,d:1,att:0,pen:0,status:"Không đá"},
@@ -235,7 +227,7 @@ var STANDINGS=[
   {rank:57,name:"Hùng Con",pts:3,g:1,w:1,l:0,d:0,att:0,pen:0,status:"Không đá"},
   {rank:58,name:"Anh Tuấn Jr",pts:2,g:1,w:0,l:0,d:1,att:0,pen:0,status:"Không đá"},
   {rank:59,name:"Linh Tinh",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"},
-  {rank:59,name:"Sơn Bạch Tạng",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"}
+  {rank:60,name:"Sơn Bạch Tạng",pts:0,g:0,w:0,l:0,d:0,att:0,pen:0,status:"Không đá"}
 ];
 
 var cf='all', cs='', sortCol='rank', sortDir=1;
@@ -247,16 +239,12 @@ function slug(n){
 function badge(s){
   return s.indexOf('Đội 1')>=0?'badge-d1':s.indexOf('Đội 2')>=0?'badge-d2':'badge-off';
 }
-function winRate(p){ var total=p.w+p.l; return total>0?Math.round(p.w/total*100):0; }
-var TOP_ICONS=['','🥇','🥈','🥉','4️⃣','5️⃣'];
+function winRate(p){ return p.g>0?Math.round(p.w/p.g*100):0; }
 function rankColor(r){
   if(r===1) return 'style="font-family:Anton,sans-serif;color:#ff8c00;font-size:1rem"';
   if(r===2) return 'style="font-family:Anton,sans-serif;color:#9ca3af;font-size:1rem"';
   if(r===3) return 'style="font-family:Anton,sans-serif;color:#b45309;font-size:1rem"';
   return 'style="color:#564334"';
-}
-function rankDisplay(r){
-  return r<=5 ? TOP_ICONS[r]+' '+r : r;
 }
 function attCell(att){
   return att>0
@@ -297,16 +285,16 @@ function render(){
     var p=d[i];
     var playing=p.status!=='Không đá';
     rows+='<tr class="'+(playing?'playing':'')+' border-b" style="border-color:#f2f4f6;cursor:pointer" onclick="location.href=\'player.html?id='+slug(p.name)+'\'">';
-    rows+='<td class="px-2 py-2" '+rankColor(p.rank)+'>'+rankDisplay(p.rank)+'</td>';
-    rows+='<td class="px-2 py-2"><div style="font-weight:600;color:#191c1e;font-size:13px">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
-    rows+='<td class="px-2 py-2 text-center" style="font-family:Anton,sans-serif;font-size:1rem;color:#ff8c00">'+p.pts+'</td>';
-    rows+='<td class="px-2 py-2 text-center">'+p.g+'</td>';
-    rows+='<td class="px-2 py-2 text-center" style="color:#15803d;font-weight:500">'+p.w+'</td>';
-    rows+='<td class="px-2 py-2 text-center" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
-    rows+='<td class="px-2 py-2 text-center" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
-    rows+='<td class="px-2 py-2 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
-    rows+='<td class="px-2 py-2 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
-    rows+='<td class="px-2 py-2 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
+    rows+='<td class="px-3 py-3" '+rankColor(p.rank)+'>'+p.rank+'</td>';
+    rows+='<td class="px-3 py-3"><div style="font-weight:600;color:#191c1e">'+p.name+'</div><div style="margin-top:2px">'+wrBadge(p)+'</div></td>';
+    rows+='<td class="px-3 py-3 text-center" style="font-family:Anton,sans-serif;font-size:1.125rem;color:#ff8c00">'+p.pts+'</td>';
+    rows+='<td class="px-3 py-3 text-center">'+p.g+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#15803d;font-weight:500">'+p.w+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden sm:table-cell" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden md:table-cell">'+attCell(p.att)+'</td>';
+    rows+='<td class="px-3 py-3 text-center hidden lg:table-cell">'+penCell(p.pen)+'</td>';
+    rows+='<td class="px-3 py-3 hidden lg:table-cell"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
     rows+='</tr>';
   }
   tbody.innerHTML=rows;
@@ -335,14 +323,14 @@ function filterStatus(f){
 
 document.getElementById('search').addEventListener('input',function(e){cs=e.target.value;render();});
 
-var leader=STANDINGS[0];
+var top=STANDINGS[0];
 var playing=STANDINGS.filter(function(p){return p.status!=='Không đá';}).length;
 document.getElementById('hero-stats').innerHTML=
-  '<span><strong style="color:#191c1e">'+STANDINGS.length+'</strong> cầu thủ</span>'
+  '<span><strong style="color:#fff">'+STANDINGS.length+'</strong> cầu thủ</span>'
   +'<span>·</span>'
-  +'<span><strong style="color:#191c1e">'+playing+'</strong> đang thi đấu</span>'
+  +'<span><strong style="color:#fff">'+playing+'</strong> đang thi đấu vòng này</span>'
   +'<span>·</span>'
-  +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+leader.name+'</strong> — '+leader.pts+' điểm</span>';
+  +'<span>Dẫn đầu: <strong style="color:#ff8c00">'+top.name+'</strong> ('+top.pts+' điểm)</span>';
 
 render();
 </script>
