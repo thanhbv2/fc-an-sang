@@ -6,21 +6,21 @@ var MATCHES = [
     date: "2026-07-05",
     result: "D2_WIN",
     team1: {
-      players: ["Thắng Cò","Luân Răng","Hương Phủi","Tú Xương","Nam Action","Thụy","Thành Rocket","Luân Lốp","Phát Auto","Trường Master","Đại Du","Cánh Nấm","Đạt 1 Phít","Hoàng Royal"]
+      players: ["Thắng Cồ","Luân Răng","Hương Phủi","Tú Xương","Nam Action","Thụy","Thành Rocket","Luân Lốp","Phát Auto","Trường Master","Đại Du","Cánh Nấm","Đạt 1 Phít","Hoàng Royal"]
     },
     team2: {
       players: ["Hiếu Chu","Luân Nổi Thất","Hiền Gà","Hồ Cu","An Tây","Thuần Lùn","Phong Đẹo","Anh Cao","Sang New","Khá Bảnh","Tung Lun","Thắng Tóc","Thiệu Béo"]
     },
-    note: "Giang Toàn nghỉ"
+    note: ""
   },
   {
     date: "2026-07-05",
     result: "DRAW",
     team1: {
-      players: ["Hương Phủi","Tung Lun","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cò","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toàn"]
+      players: ["Hương Phủi","Tung Lun","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cồ","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toán"]
     },
     team2: {
-      players: ["Hương Phủi","Tung Lun","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cò","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toàn"]
+      players: ["Hương Phủi","Tung Lun","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cồ","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toán"]
     },
     note: ""
   },
@@ -28,7 +28,7 @@ var MATCHES = [
     date: "2026-07-03",
     result: "D1_WIN",
     team1: {
-      players: ["Hoàng Royal","Long Xavi","Tung Lun","Giang Toàn","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cò","Hương Phủi"]
+      players: ["Hoàng Royal","Long Xavi","Tung Lun","Giang Toán","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cồ","Hương Phủi"]
     },
     team2: {
       players: ["Thắng Tóc","Ninh Cuội","Thuần Lùn","Phong Đẹo","Hợp Tô","Mạnh Nát","Hải Trà Đá","Phú Hổ","Tú Xương","Luân Răng","Bằng Chấy","Khá Bảnh"]
@@ -39,7 +39,7 @@ var MATCHES = [
     date: "2026-07-02",
     result: "DRAW",
     team1: {
-      players: ["Hoàng Royal","Long Xavi","Tung Lun","Giang Toàn","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cò","Hương Phủi"]
+      players: ["Hoàng Royal","Long Xavi","Tung Lun","Giang Toán","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cồ","Hương Phủi"]
     },
     team2: {
       players: ["Thắng Tóc","Ninh Cuội","Thuần Lùn","Phong Đẹo","Hợp Tô","Mạnh Nát","Hải Trà Đá","Phú Hổ","Tú Xương","Luân Răng","Bằng Chấy","Khá Bảnh"]

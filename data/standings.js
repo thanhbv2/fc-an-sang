@@ -14,7 +14,7 @@ const STANDINGS = [
   },
   {
     "rank": 2,
-    "name": "Tung Lun",
+    "name": "Tùng Lùn",
     "pts": 61,
     "g": 31,
     "w": 13,
@@ -74,7 +74,7 @@ const STANDINGS = [
   },
   {
     "rank": 7,
-    "name": "Thắng Cò",
+    "name": "Thắng Cồ",
     "pts": 53,
     "g": 29,
     "w": 7,
@@ -578,7 +578,7 @@ const STANDINGS = [
   },
   {
     "rank": 49,
-    "name": "Hiếu Dứa",
+    "name": "Hiếu Phùng",
     "pts": 17,
     "g": 10,
     "w": 3,
@@ -590,7 +590,7 @@ const STANDINGS = [
   },
   {
     "rank": 50,
-    "name": "Phú Hổ",
+    "name": "Phú Hộ",
     "pts": 17,
     "g": 11,
     "w": 2,
