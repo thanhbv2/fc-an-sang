@@ -8,192 +8,182 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <style>
-body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
+*{box-sizing:border-box}
+body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e;margin:0}
 .font-anton{font-family:"Anton",sans-serif}
-.card{background:#fff;border:1px solid #e0e3e5;border-radius:.5rem;padding:1rem}
-.win{background:#e8f5e9;color:#2e7d32;font-weight:700}
-.lose{background:#fef2f2;color:#dc2626;font-weight:700}
-.draw{background:#fff8e1;color:#92400e;font-weight:700}
+.card{background:#fff;border:1px solid #e0e3e5;border-radius:.5rem;padding:12px;margin-bottom:12px}
+.badge-win{background:#e8f5e9;color:#2e7d32;font-weight:700;font-size:11px;padding:3px 8px;border-radius:4px}
+.badge-lose{background:#fef2f2;color:#dc2626;font-weight:700;font-size:11px;padding:3px 8px;border-radius:4px}
+.badge-draw{background:#fff8e1;color:#92400e;font-weight:700;font-size:11px;padding:3px 8px;border-radius:4px}
+.pill-blue{background:#eff6ff;color:#1d4ed8;font-size:11px;padding:2px 8px;border-radius:9999px;display:inline-block;margin:2px}
+.pill-green{background:#f0fdf4;color:#15803d;font-size:11px;padding:2px 8px;border-radius:9999px;display:inline-block;margin:2px}
+/* Mobile nav */
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddc1ae;z-index:99;padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+.mob-nav a{flex:1;display:flex;flex-direction:column;align-items:center;font-size:10px;font-weight:600;color:#564334;text-decoration:none;gap:2px}
+.mob-nav a.active{color:#ff8c00}
+.mob-nav span.material-symbols-outlined{font-size:20px}
+@media(max-width:767px){
+  .mob-nav{display:flex}
+  body{padding-bottom:64px}
+  .desk-nav{display:none!important}
+}
 </style>
 </head>
-<body class="min-h-screen">
+<body>
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-white border-b border-[#ddc1ae] shadow-sm">
-  <div class="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between gap-3">
-    <a href="index.html" class="flex items-center gap-2 shrink-0">
-      <img src="images/logo.jpg" alt="FC Ăn Sáng" class="w-10 h-10 rounded-full object-cover"/>
-      <span class="font-anton text-xl text-[#ff8c00] italic tracking-wide">FC ĂN SÁNG</span>
+<header style="position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #ddc1ae;box-shadow:0 1px 3px rgba(0,0,0,.06)">
+  <div style="max-width:1152px;margin:0 auto;padding:0 16px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0">
+      <img src="images/logo.jpg" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover"/>
+      <span class="font-anton" style="font-size:18px;color:#ff8c00;font-style:italic">FC ĂN SÁNG</span>
     </a>
-    <nav class="hidden md:flex gap-5 text-sm font-semibold uppercase tracking-wider text-[#564334]">
-      <a href="index.html" class="hover:text-[#ff8c00] transition-colors">Bảng xếp hạng</a>
-      <a href="player.html" class="hover:text-[#ff8c00] transition-colors">Cầu thủ</a>
-      <a href="matches.html" class="text-[#ff8c00] border-b-2 border-[#ff8c00] pb-0.5">Kết quả</a>
-      <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-red-600 transition-colors">
-        <span class="material-symbols-outlined text-base">smart_display</span>YouTube
+    <!-- Desktop nav -->
+    <nav class="desk-nav" style="display:flex;gap:20px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#564334">
+      <a href="index.html" style="color:#564334;text-decoration:none" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#564334'">BXH</a>
+      <a href="player.html" style="color:#564334;text-decoration:none" onmouseover="this.style.color='#ff8c00'" onmouseout="this.style.color='#564334'">Cầu thủ</a>
+      <a href="matches.html" style="color:#ff8c00;text-decoration:none;border-bottom:2px solid #ff8c00;padding-bottom:2px">Kết quả</a>
+      <a href="https://www.youtube.com/@fcansang" target="_blank" style="color:#dc2626;text-decoration:none;display:flex;align-items:center;gap:3px">
+        <span class="material-symbols-outlined" style="font-size:15px">smart_display</span>YouTube
       </a>
-      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 hover:text-blue-600 transition-colors">
-        <span class="material-symbols-outlined text-base">group</span>Facebook
+      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" style="color:#1d4ed8;text-decoration:none;display:flex;align-items:center;gap:3px">
+        <span class="material-symbols-outlined" style="font-size:15px">group</span>Facebook
       </a>
     </nav>
-    <a href="index.html" class="text-sm text-[#564334] hover:text-[#ff8c00] flex items-center gap-1 transition-colors">
-      <span class="material-symbols-outlined text-base">arrow_back</span>
-      <span class="hidden sm:inline">Quay lại</span>
-    </a>
   </div>
 </header>
 
 <!-- HERO -->
-<div style="background:#191c1e;padding:2rem 1rem 1.5rem">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex items-center gap-2 mb-1">
-      <span class="material-symbols-outlined text-[#ff8c00] text-2xl">emoji_events</span>
-      <h1 class="font-anton text-3xl md:text-4xl text-white uppercase tracking-wide">Kết Quả <span style="color:#ff8c00">Trận Đấu</span></h1>
+<div style="background:#191c1e;padding:20px 16px 16px">
+  <div style="max-width:1152px;margin:0 auto">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+      <span class="material-symbols-outlined" style="color:#ff8c00;font-size:22px">emoji_events</span>
+      <h1 class="font-anton" style="font-size:clamp(22px,5vw,36px);color:#fff;text-transform:uppercase;margin:0">
+        Kết Quả <span style="color:#ff8c00">Trận Đấu</span>
+      </h1>
     </div>
-    <p id="match-summary" class="text-gray-400 text-sm mt-1"></p>
+    <p id="match-summary" style="color:#9ca3af;font-size:13px;margin:0"></p>
   </div>
 </div>
 
 <!-- CONTENT -->
-<div class="max-w-6xl mx-auto px-4 md:px-8 py-6" id="matches-container"></div>
+<div style="max-width:1152px;margin:0 auto;padding:16px" id="matches-container"></div>
 
 <!-- FOOTER -->
-<footer class="bg-[#191c1e] border-t border-[#2d3133] text-gray-400 py-8 px-4 mt-4">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="flex items-center gap-3">
-      <img src="images/logo.jpg" alt="" class="w-10 h-10 rounded-full object-cover"/>
-      <div>
-        <div class="font-anton text-[#ff8c00] text-lg italic">FC ĂN SÁNG</div>
-        <div class="text-xs text-gray-500">© 2026 Ăn Sáng Premier League</div>
-      </div>
-    </div>
-    <div class="flex gap-4 text-xs flex-wrap justify-center">
-      <a href="index.html" class="hover:text-[#ff8c00] transition-colors">Bảng xếp hạng</a>
-      <a href="player.html" class="hover:text-[#ff8c00] transition-colors">Cầu thủ</a>
-      <a href="matches.html" class="text-[#ff8c00]">Kết quả</a>
-      <a href="https://www.youtube.com/@fcansang" target="_blank" rel="noopener" class="flex items-center gap-1 text-red-500 hover:text-red-400 transition-colors">
-        <span class="material-symbols-outlined text-sm">smart_display</span>YouTube
-      </a>
-      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" rel="noopener" class="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors">
-        <span class="material-symbols-outlined text-sm">group</span>Facebook
-      </a>
+<footer style="background:#191c1e;border-top:1px solid #2d3133;color:#9ca3af;padding:24px 16px;text-align:center">
+  <div style="max-width:1152px;margin:0 auto">
+    <div class="font-anton" style="color:#ff8c00;font-size:18px;font-style:italic;margin-bottom:4px">FC ĂN SÁNG</div>
+    <div style="font-size:11px;color:#6b7280">© 2026 Ăn Sáng Premier League</div>
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap;font-size:12px">
+      <a href="index.html" style="color:#9ca3af;text-decoration:none">BXH</a>
+      <a href="player.html" style="color:#9ca3af;text-decoration:none">Cầu thủ</a>
+      <a href="matches.html" style="color:#ff8c00;text-decoration:none">Kết quả</a>
+      <a href="https://www.youtube.com/@fcansang" target="_blank" style="color:#f87171;text-decoration:none">YouTube</a>
+      <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank" style="color:#60a5fa;text-decoration:none">Facebook</a>
     </div>
   </div>
 </footer>
 
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mob-nav">
+  <a href="index.html"><span class="material-symbols-outlined">leaderboard</span>BXH</a>
+  <a href="player.html"><span class="material-symbols-outlined">group</span>Cầu thủ</a>
+  <a href="matches.html" class="active"><span class="material-symbols-outlined">sports_soccer</span>Kết quả</a>
+  <a href="https://www.youtube.com/@fcansang" target="_blank"><span class="material-symbols-outlined">smart_display</span>YouTube</a>
+  <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank"><span class="material-symbols-outlined">thumb_up</span>Facebook</a>
+</nav>
+
 <script src="data/matches.js"></script>
 <script>
-function fmtDate(d){
-  var p=d.split('-');
-  return p[2]+'/'+p[1]+'/'+p[0];
+function fmtDate(d){var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0];}
+
+function winnerBadge(r){
+  if(r==='DRAW') return '<span class="badge-draw">⚖️ HOÀ</span>';
+  if(r==='D1_WIN') return '<span class="badge-win">🏆 ĐỘI 1 THẮNG</span>';
+  return '<span class="badge-win">🏆 ĐỘI 2 THẮNG</span>';
 }
-function resultLabel(r,side){
-  if(r==='DRAW') return '<span class="draw px-2 py-0.5 rounded text-xs">HOÀ</span>';
-  if((r==='D1_WIN'&&side===1)||(r==='D2_WIN'&&side===2))
-    return '<span class="win px-2 py-0.5 rounded text-xs">THẮNG 🏆</span>';
-  return '<span class="lose px-2 py-0.5 rounded text-xs">THUA</span>';
-}
-function resultIcon(r){
-  if(r==='DRAW') return '🤝';
-  if(r==='D1_WIN') return '🏆';
-  return '🏆';
-}
-function winnerLabel(r){
-  if(r==='DRAW') return '<span class="draw px-3 py-1 rounded text-sm">⚖️ HOÀ</span>';
-  if(r==='D1_WIN') return '<span class="win px-3 py-1 rounded text-sm">🏆 ĐỘI 1 THẮNG</span>';
-  return '<span class="win px-3 py-1 rounded text-sm">🏆 ĐỘI 2 THẮNG</span>';
+function teamBadge(r,side){
+  if(r==='DRAW') return '<span class="badge-draw">HOÀ</span>';
+  var win=(r==='D1_WIN'&&side===1)||(r==='D2_WIN'&&side===2);
+  return win?'<span class="badge-win">THẮNG 🏆</span>':'<span class="badge-lose">THUA</span>';
 }
 
-// Group by date
 var byDate={};
-MATCHES.forEach(function(m){
-  if(!byDate[m.date]) byDate[m.date]=[];
-  byDate[m.date].push(m);
-});
+MATCHES.forEach(function(m){if(!byDate[m.date])byDate[m.date]=[];byDate[m.date].push(m);});
 var dates=Object.keys(byDate).sort(function(a,b){return b.localeCompare(a);});
 
-document.getElementById('match-summary').textContent=
-  MATCHES.length+' trận đấu · '+dates.length+' ngày thi đấu';
+document.getElementById('match-summary').textContent=MATCHES.length+' trận đấu · '+dates.length+' ngày';
 
 var html='';
 dates.forEach(function(date){
-  var matches=byDate[date];
-  html+='<div class="mb-8">';
-  html+='<div class="flex items-center gap-2 mb-3">';
-  html+='<span class="material-symbols-outlined text-[#ff8c00]">calendar_today</span>';
-  html+='<h2 class="font-anton text-xl uppercase" style="color:#191c1e">'+fmtDate(date)+'</h2>';
-  html+='<span class="text-xs text-[#564334] bg-[#f2f4f6] px-2 py-0.5 rounded">'+matches.length+' trận</span>';
-  html+='</div>';
+  var ms=byDate[date];
+  // Date header
+  html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;margin-top:8px">'
+    +'<span class="material-symbols-outlined" style="color:#ff8c00;font-size:18px">calendar_today</span>'
+    +'<span class="font-anton" style="font-size:18px;color:#191c1e">'+fmtDate(date)+'</span>'
+    +'<span style="font-size:11px;color:#564334;background:#f2f4f6;padding:2px 8px;border-radius:4px">'+ms.length+' trận</span>'
+    +'</div>';
 
-  matches.forEach(function(m, mi){
+  ms.forEach(function(m,mi){
     var t1=m.team1, t2=m.team2;
-    html+='<div class="card mb-4 shadow-sm">';
+    html+='<div class="card">';
 
-    // Match header
-    html+='<div class="flex items-center justify-between mb-3 pb-3" style="border-bottom:1px solid #f2f4f6">';
-    html+='<span class="text-xs font-semibold uppercase text-[#564334]">Trận '+(mi+1)+'</span>';
-    html+=winnerLabel(m.result);
-    if(m.note) html+='<span class="text-xs text-[#564334] italic">'+m.note+'</span>';
-    html+='</div>';
+    // Card header
+    html+='<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #f2f4f6">'
+      +'<span style="font-size:12px;font-weight:600;color:#564334;text-transform:uppercase">Trận '+(mi+1)+'</span>'
+      +winnerBadge(m.result)
+      +(m.note?'<span style="font-size:11px;color:#564334;font-style:italic">📝 '+m.note+'</span>':'')
+      +'</div>';
 
-    // Score board
-    html+='<div class="grid grid-cols-3 gap-2 items-center mb-4">';
+    // Score row - stacked on mobile
+    html+='<div style="display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px">';
 
     // Team 1
-    html+='<div class="text-center">';
-    html+='<div class="text-xs font-bold uppercase text-[#564334] mb-1">ĐỘI 1</div>';
-    html+=resultLabel(m.result,1);
-    html+='<div class="font-anton text-4xl mt-1" style="color:#191c1e">'+t1.players.length+'</div>';
-    html+='<div class="text-xs text-[#564334]">thành viên</div>';
-    html+='</div>';
+    html+='<div style="text-align:center;padding:8px;background:#f8faff;border-radius:8px">'
+      +'<div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;margin-bottom:4px">⚽ ĐỘI 1</div>'
+      +teamBadge(m.result,1)
+      +'<div class="font-anton" style="font-size:28px;color:#191c1e;line-height:1.2;margin-top:2px">'+t1.players.length+'</div>'
+      +'<div style="font-size:10px;color:#6b7280">người</div>'
+      +'</div>';
 
     // VS
-    html+='<div class="text-center">';
-    html+='<div class="font-anton text-3xl" style="color:#ff8c00">VS</div>';
-    if(m.result==='DRAW'){
-      html+='<div class="text-2xl mt-1">🤝</div>';
-    } else {
-      html+='<div class="text-2xl mt-1">⚔️</div>';
-    }
-    html+='</div>';
+    html+='<div style="text-align:center">'
+      +'<div class="font-anton" style="font-size:20px;color:#ff8c00">VS</div>'
+      +'<div style="font-size:18px">'+(m.result==='DRAW'?'🤝':'⚔️')+'</div>'
+      +'</div>';
 
     // Team 2
-    html+='<div class="text-center">';
-    html+='<div class="text-xs font-bold uppercase text-[#564334] mb-1">ĐỘI 2</div>';
-    html+=resultLabel(m.result,2);
-    html+='<div class="font-anton text-4xl mt-1" style="color:#191c1e">'+t2.players.length+'</div>';
-    html+='<div class="text-xs text-[#564334]">thành viên</div>';
-    html+='</div>';
-    html+='</div>';
+    html+='<div style="text-align:center;padding:8px;background:#f0fdf4;border-radius:8px">'
+      +'<div style="font-size:11px;font-weight:700;color:#15803d;text-transform:uppercase;margin-bottom:4px">⚽ ĐỘI 2</div>'
+      +teamBadge(m.result,2)
+      +'<div class="font-anton" style="font-size:28px;color:#191c1e;line-height:1.2;margin-top:2px">'+t2.players.length+'</div>'
+      +'<div style="font-size:10px;color:#6b7280">người</div>'
+      +'</div>';
 
-    // Player lists
-    html+='<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">';
+    html+='</div>'; // score grid
 
-    // Team 1 players
-    html+='<div>';
-    html+='<div class="text-xs font-semibold uppercase text-[#564334] mb-2 flex items-center gap-1">';
-    html+='<span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;display:inline-block"></span>ĐỘI 1</div>';
-    html+='<div class="flex flex-wrap gap-1">';
-    t1.players.forEach(function(p){
-      html+='<span style="background:#eff6ff;color:#1d4ed8;font-size:11px;padding:2px 7px;border-radius:9999px">'+p+'</span>';
-    });
+    // Players - stacked columns
+    html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+
+    // T1 players
+    html+='<div>'
+      +'<div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px">'
+      +'<span style="width:8px;height:8px;border-radius:50%;background:#3b82f6;display:inline-block"></span>Đội 1 ('+t1.players.length+')</div>'
+      +'<div style="display:flex;flex-wrap:wrap">';
+    t1.players.forEach(function(p){html+='<span class="pill-blue">'+p+'</span>';});
     html+='</div></div>';
 
-    // Team 2 players
-    html+='<div>';
-    html+='<div class="text-xs font-semibold uppercase text-[#564334] mb-2 flex items-center gap-1">';
-    html+='<span style="width:10px;height:10px;border-radius:50%;background:#22c55e;display:inline-block"></span>ĐỘI 2</div>';
-    html+='<div class="flex flex-wrap gap-1">';
-    t2.players.forEach(function(p){
-      html+='<span style="background:#f0fdf4;color:#15803d;font-size:11px;padding:2px 7px;border-radius:9999px">'+p+'</span>';
-    });
+    // T2 players
+    html+='<div>'
+      +'<div style="font-size:11px;font-weight:700;color:#15803d;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px">'
+      +'<span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block"></span>Đội 2 ('+t2.players.length+')</div>'
+      +'<div style="display:flex;flex-wrap:wrap">';
+    t2.players.forEach(function(p){html+='<span class="pill-green">'+p+'</span>';});
     html+='</div></div>';
 
-    html+='</div>'; // grid player lists
+    html+='</div>'; // players grid
     html+='</div>'; // card
   });
-
-  html+='</div>'; // date group
 });
 
 document.getElementById('matches-container').innerHTML=html;

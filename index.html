@@ -16,6 +16,11 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
 tr.playing td:first-child{border-left:3px solid #ff8c00}
 tbody tr:hover td{background:rgba(255,140,0,.04)}
 #search:focus{outline:none;border-color:#ff8c00;box-shadow:0 0 0 2px rgba(255,140,0,.15)}
+.mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddc1ae;z-index:99;padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+.mob-nav a{flex:1;display:flex;flex-direction:column;align-items:center;font-size:10px;font-weight:600;color:#564334;text-decoration:none;gap:2px}
+.mob-nav a.active,.mob-nav a:hover{color:#ff8c00}
+.mob-nav span.material-symbols-outlined{font-size:20px}
+@media(max-width:767px){.mob-nav{display:flex}body{padding-bottom:64px}}
 </style>
 </head>
 <body class="min-h-screen">
@@ -175,6 +180,13 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   </div>
 </footer>
 
+<nav class="mob-nav">
+  <a href="index.html" class="active"><span class="material-symbols-outlined">leaderboard</span>BXH</a>
+  <a href="player.html"><span class="material-symbols-outlined">person</span>Cầu thủ</a>
+  <a href="matches.html"><span class="material-symbols-outlined">sports_soccer</span>Kết quả</a>
+  <a href="https://www.youtube.com/@fcansang" target="_blank"><span class="material-symbols-outlined">smart_display</span>YouTube</a>
+  <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank"><span class="material-symbols-outlined">thumb_up</span>Facebook</a>
+</nav>
 <script>
 var STANDINGS=[
   {rank:1,name:"Tung Lun",pts:71,g:35,w:15,l:14,d:6,att:0,pen:0,status:"Không đá"},
