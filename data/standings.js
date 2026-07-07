@@ -278,7 +278,7 @@ const STANDINGS = [
   },
   {
     "rank": 24,
-    "name": "Giang Toàn",
+    "name": "Giang Toán",
     "pts": 39,
     "g": 24,
     "w": 5,
