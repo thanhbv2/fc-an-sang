@@ -3,6 +3,17 @@
 
 var MATCHES = [
   {
+    date: "2026-07-06",
+    result: "DRAW",
+    team1: {
+      players: ["Bằng Chấy","Khá Bảnh","Nam Action","Long Xavi","Anh Hoàng","Tú Xương","Thiệu Béo","Thanh Bùi"]
+    },
+    team2: {
+      players: ["Giang Toàn","Trường Master","Thảo mỏ lết","Quyền Bùi","Tung Lun","Hiền Gà","Hải Trà Đá","Thắng Cò"]
+    },
+    note: "16 thành viên"
+  },
+  {
     date: "2026-07-05",
     result: "D2_WIN",
     team1: {
