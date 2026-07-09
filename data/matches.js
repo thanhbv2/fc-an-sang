@@ -32,7 +32,7 @@ var MATCHES = [
     note: ""
   },
   {
-    date: "2026-07-05",
+    date: "2026-07-04",
     result: "DRAW",
     team1: {
       players: ["Hương Phủi","Tùng Lùn","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cồ","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toán"]
