@@ -6,8 +6,8 @@ var MATCHES = [
     date: "2026-07-09",
     result: "DRAW",
     team1: { players: ["Thắng Tóc","Khá Bảnh","Tùng Lùn","Giang Toán","Nam Action","Long Xavi","Hiền Gà","Sang New","Đại Du","Kiên Y Tá"] },
-    team2: { players: ["Hợp Tô","Hải Trà Đá","An Tây","Cánh Nấm","Thiệu Béo","Quyền Bùi","Thảo mỏ lết","Luân Răng","Thanh Bùi","Giáp Còi"] },
-    note: "Giáp Còi tham gia lần đầu"
+    team2: { players: ["Hợp Tô","Hải Trà Đá","An Tây","Cánh Nấm","Thiệu Béo","Quyền Bùi","Thảo mỏ lết","Luân Răng","Thanh Bùi","Ronaldo Trần"] },
+    note: "Ronaldo Trần tham gia lần đầu"
   },
   {
     date: "2026-07-06",
