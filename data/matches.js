@@ -3,6 +3,13 @@
 
 var MATCHES = [
   {
+    date: "2026-07-17",
+    result: "D2_WIN",
+    team1: { players: ["Cảnh Nấm","Luân Nổi Thất","Hải Trà Đá","Oanh Còi","Quyền Bùi","Tú Xương","Thiệu Béo","Giang Toán","Nam Action","Hợp Tô","Thành Rocket","An Tây","Kiên Y Tá","Tiến Vũ","Ngọc Gầy","Hoàng Royal","Quân Phan"] },
+    team2: { players: ["Tùng Lùn","Hiền Gà","Bằng Chấy","Thanh Bùi","Bình Booong","Luân Răng","Luân Lốp","Long Xavi","Phong Đẹo","Đoàn","Anh Hoàng","Nam Cao","Thảo mỏ lết","Thắng Tóc","Hương Phủi"] },
+    note: ""
+  },
+  {
     date: "2026-07-14",
     result: "DRAW",
     team1: { players: ["Hồ Cu","Tùng Lùn","Thắng Tóc","Đoàn","Thụy","Long Xavi","Luân Lốp","Nam Action","Hải Trà Đá","Mạnh Nát","Thanh Bùi","Bằng Chấy","Tiến Vũ","Hiếu Phùng","Quân Phan"] },
