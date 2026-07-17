@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin - Quản Lý Trận Đấu | FC ĂN SÁNG</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
+.font-anton{font-family:"Anton",sans-serif}
+.btn{padding:8px 16px;border-radius:6px;border:none;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-primary{background:#ff8c00;color:white}
+.btn-primary:hover{background:#e67e00}
+.btn-secondary{background:#e0e3e5;color:#191c1e}
+.btn-secondary:hover{background:#d0d3d5}
+.player-badge{display:inline-block;background:#eff6ff;color:#1d4ed8;padding:4px 10px;border-radius:20px;margin:2px;font-size:12px;cursor:pointer}
+.player-badge.selected{background:#1d4ed8;color:white}
+.player-badge.d2{background:#e8f5e9;color:#15803d}
+.player-badge.d2.selected{background:#15803d;color:white}
+.result-btn{padding:10px 16px;border-radius:6px;border:2px solid #ddc1ae;background:white;cursor:pointer;font-weight:600;transition:all 0.2s;margin:5px}
+.result-btn:hover{border-color:#ff8c00}
+.result-btn.active{background:#ff8c00;color:white;border-color:#ff8c00}
+.result-btn.d2{border-color:#15803d}
+.result-btn.d2.active{background:#15803d;border-color:#15803d}
+.result-btn.draw{border-color:#92400e}
+.result-btn.draw.active{background:#92400e;color:white;border-color:#92400e}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="bg-white border-b border-[#ddc1ae] shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div>
+      <h1 class="font-anton text-2xl text-[#ff8c00] italic">FC ĂN SÁNG — ADMIN</h1>
+      <p class="text-sm text-[#564334]">Quản lý trận đấu & cập nhật điểm</p>
+    </div>
+    <a href="index.html" class="text-sm text-[#ff8c00] hover:underline flex items-center gap-2">
+      <span class="material-symbols-outlined">arrow_back</span> Về trang chính
+    </a>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<div class="max-w-6xl mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    
+    <!-- FORM -->
+    <div class="lg:col-span-2">
+      <div class="bg-white border border-[#e0e3e5] rounded-lg p-6 shadow-sm">
+        <h2 class="font-anton text-lg mb-4">Thêm Trận Đấu Mới</h2>
+        
+        <!-- Date -->
+        <div class="mb-4">
+          <label class="block text-sm font-semibold mb-2">Ngày thi đấu</label>
+          <input type="date" id="matchDate" class="w-full px-3 py-2 border border-[#ddc1ae] rounded" value="2026-07-17"/>
+        </div>
+
+        <!-- Team 1 -->
+        <div class="mb-6">
+          <label class="block text-sm font-semibold text-blue-700 mb-2">👥 ĐỘI 1 - Chọn cầu thủ</label>
+          <input type="text" id="team1Search" placeholder="Tìm kiếm cầu thủ..." class="w-full px-3 py-2 border border-[#ddc1ae] rounded mb-2"/>
+          <div id="team1Players" class="flex flex-wrap gap-2 p-3 bg-blue-50 rounded min-h-24"></div>
+          <div class="text-xs text-gray-600 mt-2">Đã chọn: <span id="team1Count">0</span> cầu thủ</div>
+        </div>
+
+        <!-- Team 2 -->
+        <div class="mb-6">
+          <label class="block text-sm font-semibold text-green-700 mb-2">👥 ĐỘI 2 - Chọn cầu thủ</label>
+          <input type="text" id="team2Search" placeholder="Tìm kiếm cầu thủ..." class="w-full px-3 py-2 border border-[#ddc1ae] rounded mb-2"/>
+          <div id="team2Players" class="flex flex-wrap gap-2 p-3 bg-green-50 rounded min-h-24"></div>
+          <div class="text-xs text-gray-600 mt-2">Đã chọn: <span id="team2Count">0</span> cầu thủ</div>
+        </div>
+
+        <!-- Result -->
+        <div class="mb-6">
+          <label class="block text-sm font-semibold mb-2">⚽ Kết Quả</label>
+          <div class="flex flex-wrap gap-2">
+            <button class="result-btn" onclick="selectResult('D1_WIN')">🏆 Đội 1 Thắng</button>
+            <button class="result-btn" onclick="selectResult('D2_WIN')">🏆 Đội 2 Thắng</button>
+            <button class="result-btn draw" onclick="selectResult('DRAW')">⚖️ Hòa</button>
+          </div>
+          <div class="text-xs text-gray-600 mt-2">Kết quả: <span id="resultDisplay">Chưa chọn</span></div>
+        </div>
+
+        <!-- Notes -->
+        <div class="mb-6">
+          <label class="block text-sm font-semibold mb-2">Ghi chú (optional)</label>
+          <input type="text" id="matchNote" placeholder="VD: Cầu thủ mới tham gia..." class="w-full px-3 py-2 border border-[#ddc1ae] rounded"/>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="previewMatch()">👁️ Xem trước</button>
+          <button class="btn btn-secondary" onclick="resetForm()">↺ Đặt lại</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="lg:col-span-1">
+      <div class="bg-white border border-[#e0e3e5] rounded-lg p-6 shadow-sm sticky top-4">
+        <h2 class="font-anton text-lg mb-4">📊 Xem Trước & Lưu</h2>
+        
+        <div id="previewBox" class="hidden bg-blue-50 border border-blue-200 rounded p-4 mb-4 text-sm max-h-96 overflow-y-auto">
+          <div id="previewContent"></div>
+        </div>
+
+        <div class="text-xs text-gray-600 mb-4">
+          <p>✓ = Thắng (+3 điểm)</p>
+          <p>✗ = Thua (+1 điểm)</p>
+          <p>= = Hòa (+2 điểm)</p>
+        </div>
+
+        <div class="space-y-2">
+          <button class="w-full btn btn-primary" onclick="saveMatch()">💾 LƯU TRẬN ĐẤU</button>
+          <button class="w-full btn btn-secondary" onclick="copyToClipboard()">📋 Copy Code</button>
+          <div id="copyStatus" class="text-xs text-green-600 hidden">✓ Đã copy!</div>
+          <div id="saveStatus" class="text-xs text-center"></div>
+        </div>
+
+        <hr class="my-4">
+        
+        <div class="text-xs text-gray-600">
+          <p class="font-semibold mb-2">📝 Hướng dẫn:</p>
+          <ol class="list-decimal list-inside space-y-1 text-xs">
+            <li>Chọn ngày</li>
+            <li>Click cầu thủ để chọn</li>
+            <li>Chọn kết quả</li>
+            <li>Xem trước & lưu</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="data/standings.js"></script>
+<script>
+// Tất cả cầu thủ từ standings
+var allPlayers = STANDINGS.map(p => p.name);
+var selectedTeam1 = [];
+var selectedTeam2 = [];
+var selectedResult = null;
+
+function renderPlayerList(containerId, searchId, teamArray, otherTeam) {
+  var container = document.getElementById(containerId);
+  var searchVal = document.getElementById(searchId).value.toLowerCase();
+  
+  var filtered = allPlayers.filter(p => 
+    p.toLowerCase().includes(searchVal) && 
+    !otherTeam.includes(p)
+  );
+  
+  var html = '';
+  filtered.forEach(p => {
+    var isSelected = teamArray.includes(p);
+    var badgeClass = containerId.includes('team1') ? '' : 'd2';
+    var selectedClass = isSelected ? 'selected' : '';
+    html += '<span class="player-badge '+badgeClass+' '+selectedClass+'" onclick="togglePlayer(\''+p+'\', \''+containerId+'\')">'
+         + p + '</span>';
+  });
+  
+  container.innerHTML = html || '<span class="text-gray-400 text-sm">Không tìm thấy</span>';
+  updateCounts();
+}
+
+function togglePlayer(name, teamId) {
+  var teamArray = teamId.includes('team1') ? selectedTeam1 : selectedTeam2;
+  var otherTeam = teamId.includes('team1') ? selectedTeam2 : selectedTeam1;
+  
+  var idx = teamArray.indexOf(name);
+  if(idx >= 0) {
+    teamArray.splice(idx, 1);
+  } else {
+    if(otherTeam.includes(name)) {
+      otherTeam.splice(otherTeam.indexOf(name), 1);
+    }
+    teamArray.push(name);
+  }
+  
+  renderPlayerList(teamId, teamId.replace('Players', 'Search'), teamArray, otherTeam);
+  renderPlayerList(teamId.includes('team1') ? 'team2Players' : 'team1Players', 
+                   teamId.includes('team1') ? 'team2Search' : 'team1Search',
+                   otherTeam, teamArray);
+}
+
+function updateCounts() {
+  document.getElementById('team1Count').textContent = selectedTeam1.length;
+  document.getElementById('team2Count').textContent = selectedTeam2.length;
+}
+
+function selectResult(result) {
+  selectedResult = result;
+  document.querySelectorAll('.result-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('resultDisplay').textContent = 
+    result === 'D1_WIN' ? '🏆 Đội 1 Thắng' :
+    result === 'D2_WIN' ? '🏆 Đội 2 Thắng' : '⚖️ Hòa';
+}
+
+function resetForm() {
+  selectedTeam1 = [];
+  selectedTeam2 = [];
+  selectedResult = null;
+  document.getElementById('matchDate').value = '2026-07-17';
+  document.getElementById('matchNote').value = '';
+  document.getElementById('resultDisplay').textContent = 'Chưa chọn';
+  document.querySelectorAll('.result-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('previewBox').classList.add('hidden');
+  renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2);
+  renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1);
+}
+
+function previewMatch() {
+  if(selectedTeam1.length === 0 || selectedTeam2.length === 0 || !selectedResult) {
+    alert('Vui lòng chọn đủ: Đội 1, Đội 2, và Kết quả');
+    return;
+  }
+  
+  var html = '<strong>Ngày:</strong> ' + document.getElementById('matchDate').value + '<br>';
+  html += '<strong>Đội 1 (' + selectedTeam1.length + '):</strong><br>';
+  selectedTeam1.forEach(p => {
+    var pts = selectedResult === 'D1_WIN' ? '+3' : selectedResult === 'DRAW' ? '+2' : '+1';
+    html += '<div class="text-xs pl-2">'+p+' <span class="'+
+            (selectedResult === 'D1_WIN' ? 'text-green-600' : selectedResult === 'DRAW' ? 'text-yellow-600' : 'text-red-600')+'">'+pts+'</span></div>';
+  });
+  
+  html += '<br><strong>Đội 2 (' + selectedTeam2.length + '):</strong><br>';
+  selectedTeam2.forEach(p => {
+    var pts = selectedResult === 'D2_WIN' ? '+3' : selectedResult === 'DRAW' ? '+2' : '+1';
+    html += '<div class="text-xs pl-2">'+p+' <span class="'+
+            (selectedResult === 'D2_WIN' ? 'text-green-600' : selectedResult === 'DRAW' ? 'text-yellow-600' : 'text-red-600')+'">'+pts+'</span></div>';
+  });
+  
+  if(document.getElementById('matchNote').value) {
+    html += '<br><strong>Ghi chú:</strong> ' + document.getElementById('matchNote').value;
+  }
+  
+  document.getElementById('previewContent').innerHTML = html;
+  document.getElementById('previewBox').classList.remove('hidden');
+}
+
+function generateCode() {
+  var matchEntry = {
+    date: document.getElementById('matchDate').value,
+    result: selectedResult,
+    team1: { players: selectedTeam1 },
+    team2: { players: selectedTeam2 },
+    note: document.getElementById('matchNote').value
+  };
+  
+  var code = 'var newMatch = ' + JSON.stringify(matchEntry, null, 2) + ';\n';
+  code += '// Thêm vào đầu mảng MATCHES trong data/matches.js\n';
+  code += '// MATCHES.unshift(newMatch);\n\n';
+  
+  // Generate standings updates
+  code += '// Cập nhật standings:\n';
+  code += '// Đội thắng: +3 điểm, +1 trận, +1 thắng\n';
+  code += '// Đội thua: +1 điểm, +1 trận, +1 thua\n';
+  code += '// Hòa: +2 điểm, +1 trận, +1 hòa\n';
+  
+  if(selectedResult === 'D1_WIN') {
+    code += '\n// THẮNG (Đội 1):\n';
+    selectedTeam1.forEach(p => code += '// ' + p + ': +3 pts, +1 w\n');
+    code += '\n// THUA (Đội 2):\n';
+    selectedTeam2.forEach(p => code += '// ' + p + ': +1 pts, +1 l\n');
+  } else if(selectedResult === 'D2_WIN') {
+    code += '\n// THUA (Đội 1):\n';
+    selectedTeam1.forEach(p => code += '// ' + p + ': +1 pts, +1 l\n');
+    code += '\n// THẮNG (Đội 2):\n';
+    selectedTeam2.forEach(p => code += '// ' + p + ': +3 pts, +1 w\n');
+  } else {
+    code += '\n// HÒA (Cả hai đội):\n';
+    selectedTeam1.forEach(p => code += '// ' + p + ': +2 pts, +1 d\n');
+    selectedTeam2.forEach(p => code += '// ' + p + ': +2 pts, +1 d\n');
+  }
+  
+  return code;
+}
+
+function copyToClipboard() {
+  var code = generateCode();
+  navigator.clipboard.writeText(code).then(() => {
+    var status = document.getElementById('copyStatus');
+    status.classList.remove('hidden');
+    setTimeout(() => status.classList.add('hidden'), 2000);
+  });
+}
+
+function saveMatch() {
+  if(selectedTeam1.length === 0 || selectedTeam2.length === 0 || !selectedResult) {
+    alert('Vui lòng chọn đủ: Đội 1, Đội 2, và Kết quả');
+    return;
+  }
+  
+  var status = document.getElementById('saveStatus');
+  status.textContent = '⏳ Đang lưu...';
+  status.style.color = '#666';
+  
+  var matchData = {
+    date: document.getElementById('matchDate').value,
+    result: selectedResult,
+    team1: selectedTeam1,
+    team2: selectedTeam2,
+    note: document.getElementById('matchNote').value
+  };
+  
+  fetch('api/save-match', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(matchData)
+  })
+  .then(r => r.json())
+  .then(data => {
+    if(data.success) {
+      status.textContent = '✓ Lưu thành công! Trang sẽ tải lại...';
+      status.style.color = '#15803d';
+      setTimeout(() => location.reload(), 1500);
+    } else {
+      status.textContent = '✗ Lỗi: ' + (data.error || 'Không xác định');
+      status.style.color = '#dc2626';
+    }
+  })
+  .catch(err => {
+    status.textContent = '✗ Lỗi kết nối: ' + err.message;
+    status.style.color = '#dc2626';
+  });
+}
+
+// Initialize
+document.getElementById('team1Search').addEventListener('input', () => renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2));
+document.getElementById('team2Search').addEventListener('input', () => renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1));
+
+renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2);
+renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1);
+</script>
+</body>
+</html>
