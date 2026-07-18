@@ -19,7 +19,8 @@ var MATCHES = [
       "Đắc Phủi",
       "Hoàng Royal",
       "Đoàn",
-      "Hải Hói"
+      "Hải Hói",
+      "Tùng Lùn"
     ],
     "away": [
       "Thiệu Béo",
