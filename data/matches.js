@@ -40,20 +40,6 @@ var MATCHES = [
     "note": ""
   },
   {
-    "id": "match-1784369077598",
-    "date": "2026-07-18",
-    "home": [
-      "Tùng Lùn",
-      "Long Xavi"
-    ],
-    "away": [
-      "Thắng Tóc",
-      "Thiệu Béo"
-    ],
-    "result": "home",
-    "note": "test via curl"
-  },
-  {
     "date": "2026-07-17",
     "result": "D2_WIN",
     "team1": {
