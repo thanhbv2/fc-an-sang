@@ -3,86 +3,397 @@
 
 var MATCHES = [
   {
-    date: "2026-07-17",
-    result: "D2_WIN",
-    team1: { players: ["Cảnh Nấm","Luân Nổi Thất","Hải Trà Đá","Oanh Còi","Quyền Bùi","Tú Xương","Thiệu Béo","Giang Toán","Nam Action","Hợp Tô","Thành Rocket","An Tây","Kiên Y Tá","Tiến Vũ","Ngọc Gầy","Hoàng Royal","Quân Phan"] },
-    team2: { players: ["Tùng Lùn","Hiền Gà","Bằng Chấy","Thanh Bùi","Bình Booong","Luân Răng","Luân Lốp","Long Xavi","Phong Đẹo","Đoàn","Anh Hoàng","Nam Cao","Thảo mỏ lết","Thắng Tóc","Hương Phủi"] },
-    note: ""
+    "id": "match-1784369493015",
+    "date": "2026-07-18",
+    "home": [
+      "Nam Action",
+      "Kiên Y Tá",
+      "Thành Rocket",
+      "Tú Xương",
+      "Quân Phan",
+      "Bình Booong",
+      "Đạt 09",
+      "Trường Master",
+      "Hồ Cu",
+      "Oanh Còi",
+      "Đắc Phủi",
+      "Hoàng Royal",
+      "Đoàn",
+      "Hải Hói"
+    ],
+    "away": [
+      "Thiệu Béo",
+      "Thắng Cồ",
+      "Thanh Bùi",
+      "Hải Trà Đá",
+      "Cảnh Nấm",
+      "Hương Phủi",
+      "Luân Lốp",
+      "Mạnh Nát",
+      "Nam Cao",
+      "Phong Đẹo",
+      "Hiếu Phùng",
+      "Thảo mỏ lết",
+      "Thụy"
+    ],
+    "result": "home",
+    "note": ""
   },
   {
-    date: "2026-07-14",
-    result: "DRAW",
-    team1: { players: ["Hồ Cu","Tùng Lùn","Thắng Tóc","Đoàn","Thụy","Long Xavi","Luân Lốp","Nam Action","Hải Trà Đá","Mạnh Nát","Thanh Bùi","Bằng Chấy","Tiến Vũ","Hiếu Phùng","Quân Phan"] },
-    team2: { players: ["Kiên Y Tá","Cảnh Nấm","Hoàng Royal","Giang Toán","Phong Đẹo","Hợp Tô","Thuần Lùn","An Tây","Trường Master","Thảo mỏ lết","Bình Booong","Tú Xương","Thiệu Béo","Thắng Cồ"] },
-    note: ""
+    "id": "match-1784369077598",
+    "date": "2026-07-18",
+    "home": [
+      "Tùng Lùn",
+      "Long Xavi"
+    ],
+    "away": [
+      "Thắng Tóc",
+      "Thiệu Béo"
+    ],
+    "result": "home",
+    "note": "test via curl"
   },
   {
-    date: "2026-07-12",
-    result: "D2_WIN",
-    team1: { players: ["Đạt 1 Phít","Cánh Nấm","Phong Đẹo","Nam Action","Ronaldo Trần","Thụy","Thảo mỏ lết","Kiên Y Tá","Nam Cao","Thắng Cồ","Phú Hổ","Tú Xương","Bằng Chấy","Thiệu Béo","Giang Toán"] },
-    team2: { players: ["Thắng Tóc","Tùng Lùn","Thành Rocket","Long Xavi","Thuần Lùn","Luân Lốp","Đại Du","Anh Cao","Trường Master","Nghị","Hồ Cu","Luân Răng","Hải Trà Đá","Ngọc Gầy","Hương Phủi"] },
-    note: "Nghị tham gia lần đầu"
+    "date": "2026-07-17",
+    "result": "D2_WIN",
+    "team1": {
+      "players": [
+        "Cảnh Nấm",
+        "Luân Nổi Thất",
+        "Hải Trà Đá",
+        "Oanh Còi",
+        "Quyền Bùi",
+        "Tú Xương",
+        "Thiệu Béo",
+        "Giang Toán",
+        "Nam Action",
+        "Hợp Tô",
+        "Thành Rocket",
+        "An Tây",
+        "Kiên Y Tá",
+        "Tiến Vũ",
+        "Ngọc Gầy",
+        "Hoàng Royal",
+        "Quân Phan"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Tùng Lùn",
+        "Hiền Gà",
+        "Bằng Chấy",
+        "Thanh Bùi",
+        "Bình Booong",
+        "Luân Răng",
+        "Luân Lốp",
+        "Long Xavi",
+        "Phong Đẹo",
+        "Đoàn",
+        "Anh Hoàng",
+        "Nam Cao",
+        "Thảo mỏ lết",
+        "Thắng Tóc",
+        "Hương Phủi"
+      ]
+    },
+    "note": ""
   },
   {
-    date: "2026-07-09",
-    result: "DRAW",
-    team1: { players: ["Thắng Tóc","Khá Bảnh","Tùng Lùn","Giang Toán","Nam Action","Long Xavi","Hiền Gà","Sang New","Đại Du","Kiên Y Tá"] },
-    team2: { players: ["Hợp Tô","Hải Trà Đá","An Tây","Cánh Nấm","Thiệu Béo","Quyền Bùi","Thảo mỏ lết","Luân Răng","Thanh Bùi","Ronaldo Trần"] },
-    note: "Ronaldo Trần tham gia lần đầu"
+    "date": "2026-07-14",
+    "result": "DRAW",
+    "team1": {
+      "players": [
+        "Hồ Cu",
+        "Tùng Lùn",
+        "Thắng Tóc",
+        "Đoàn",
+        "Thụy",
+        "Long Xavi",
+        "Luân Lốp",
+        "Nam Action",
+        "Hải Trà Đá",
+        "Mạnh Nát",
+        "Thanh Bùi",
+        "Bằng Chấy",
+        "Tiến Vũ",
+        "Hiếu Phùng",
+        "Quân Phan"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Kiên Y Tá",
+        "Cảnh Nấm",
+        "Hoàng Royal",
+        "Giang Toán",
+        "Phong Đẹo",
+        "Hợp Tô",
+        "Thuần Lùn",
+        "An Tây",
+        "Trường Master",
+        "Thảo mỏ lết",
+        "Bình Booong",
+        "Tú Xương",
+        "Thiệu Béo",
+        "Thắng Cồ"
+      ]
+    },
+    "note": ""
   },
   {
-    date: "2026-07-06",
-    result: "DRAW",
-    team1: {
-      players: ["Bằng Chấy","Khá Bảnh","Nam Action","Long Xavi","Anh Hoàng","Tú Xương","Thiệu Béo","Thanh Bùi"]
+    "date": "2026-07-12",
+    "result": "D2_WIN",
+    "team1": {
+      "players": [
+        "Đạt 1 Phít",
+        "Cánh Nấm",
+        "Phong Đẹo",
+        "Nam Action",
+        "Ronaldo Trần",
+        "Thụy",
+        "Thảo mỏ lết",
+        "Kiên Y Tá",
+        "Nam Cao",
+        "Thắng Cồ",
+        "Phú Hổ",
+        "Tú Xương",
+        "Bằng Chấy",
+        "Thiệu Béo",
+        "Giang Toán"
+      ]
     },
-    team2: {
-      players: ["Giang Toán","Trường Master","Thảo mỏ lết","Quyền Bùi","Tùng Lùn","Hiền Gà","Hải Trà Đá","Thắng Cồ"]
+    "team2": {
+      "players": [
+        "Thắng Tóc",
+        "Tùng Lùn",
+        "Thành Rocket",
+        "Long Xavi",
+        "Thuần Lùn",
+        "Luân Lốp",
+        "Đại Du",
+        "Anh Cao",
+        "Trường Master",
+        "Nghị",
+        "Hồ Cu",
+        "Luân Răng",
+        "Hải Trà Đá",
+        "Ngọc Gầy",
+        "Hương Phủi"
+      ]
     },
-    note: "16 thành viên"
+    "note": "Nghị tham gia lần đầu"
   },
   {
-    date: "2026-07-05",
-    result: "D2_WIN",
-    team1: {
-      players: ["Thắng Cồ","Luân Răng","Hương Phủi","Tú Xương","Nam Action","Thụy","Thành Rocket","Luân Lốp","Phát Auto","Trường Master","Đại Du","Cánh Nấm","Đạt 1 Phít","Hoàng Royal"]
+    "date": "2026-07-09",
+    "result": "DRAW",
+    "team1": {
+      "players": [
+        "Thắng Tóc",
+        "Khá Bảnh",
+        "Tùng Lùn",
+        "Giang Toán",
+        "Nam Action",
+        "Long Xavi",
+        "Hiền Gà",
+        "Sang New",
+        "Đại Du",
+        "Kiên Y Tá"
+      ]
     },
-    team2: {
-      players: ["Hiếu Chu","Luân Nổi Thất","Hiền Gà","Hồ Cu","An Tây","Thuần Lùn","Phong Đẹo","Anh Cao","Sang New","Khá Bảnh","Tùng Lùn","Thắng Tóc","Thiệu Béo"]
+    "team2": {
+      "players": [
+        "Hợp Tô",
+        "Hải Trà Đá",
+        "An Tây",
+        "Cánh Nấm",
+        "Thiệu Béo",
+        "Quyền Bùi",
+        "Thảo mỏ lết",
+        "Luân Răng",
+        "Thanh Bùi",
+        "Ronaldo Trần"
+      ]
     },
-    note: ""
+    "note": "Ronaldo Trần tham gia lần đầu"
   },
   {
-    date: "2026-07-04",
-    result: "DRAW",
-    team1: {
-      players: ["Hương Phủi","Tùng Lùn","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cồ","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toán"]
+    "date": "2026-07-06",
+    "result": "DRAW",
+    "team1": {
+      "players": [
+        "Bằng Chấy",
+        "Khá Bảnh",
+        "Nam Action",
+        "Long Xavi",
+        "Anh Hoàng",
+        "Tú Xương",
+        "Thiệu Béo",
+        "Thanh Bùi"
+      ]
     },
-    team2: {
-      players: ["Hương Phủi","Tùng Lùn","Khá Bảnh","Thiệu Béo","Hiếu Dứa","Khoa lác","Nam Action","Thắng Cồ","Thắng Tóc","Hoàng Royal","Phong Đẹo","Giang Toán"]
+    "team2": {
+      "players": [
+        "Giang Toán",
+        "Trường Master",
+        "Thảo mỏ lết",
+        "Quyền Bùi",
+        "Tùng Lùn",
+        "Hiền Gà",
+        "Hải Trà Đá",
+        "Thắng Cồ"
+      ]
     },
-    note: ""
+    "note": "16 thành viên"
   },
   {
-    date: "2026-07-03",
-    result: "D1_WIN",
-    team1: {
-      players: ["Hoàng Royal","Long Xavi","Tùng Lùn","Giang Toán","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cồ","Hương Phủi"]
+    "date": "2026-07-05",
+    "result": "D2_WIN",
+    "team1": {
+      "players": [
+        "Thắng Cồ",
+        "Luân Răng",
+        "Hương Phủi",
+        "Tú Xương",
+        "Nam Action",
+        "Thụy",
+        "Thành Rocket",
+        "Luân Lốp",
+        "Phát Auto",
+        "Trường Master",
+        "Đại Du",
+        "Cánh Nấm",
+        "Đạt 1 Phít",
+        "Hoàng Royal"
+      ]
     },
-    team2: {
-      players: ["Thắng Tóc","Ninh Cuội","Thuần Lùn","Phong Đẹo","Hợp Tô","Mạnh Nát","Hải Trà Đá","Phú Hổ","Tú Xương","Luân Răng","Bằng Chấy","Khá Bảnh"]
+    "team2": {
+      "players": [
+        "Hiếu Chu",
+        "Luân Nổi Thất",
+        "Hiền Gà",
+        "Hồ Cu",
+        "An Tây",
+        "Thuần Lùn",
+        "Phong Đẹo",
+        "Anh Cao",
+        "Sang New",
+        "Khá Bảnh",
+        "Tùng Lùn",
+        "Thắng Tóc",
+        "Thiệu Béo"
+      ]
     },
-    note: ""
+    "note": ""
   },
   {
-    date: "2026-07-02",
-    result: "DRAW",
-    team1: {
-      players: ["Hoàng Royal","Long Xavi","Tùng Lùn","Giang Toán","Nam Action","Thành Rocket","Hồ Cu","Sang New","Anh Hoàng","Thanh Bùi","Thắng Cồ","Hương Phủi"]
+    "date": "2026-07-04",
+    "result": "DRAW",
+    "team1": {
+      "players": [
+        "Hương Phủi",
+        "Tùng Lùn",
+        "Khá Bảnh",
+        "Thiệu Béo",
+        "Hiếu Dứa",
+        "Khoa lác",
+        "Nam Action",
+        "Thắng Cồ",
+        "Thắng Tóc",
+        "Hoàng Royal",
+        "Phong Đẹo",
+        "Giang Toán"
+      ]
     },
-    team2: {
-      players: ["Thắng Tóc","Ninh Cuội","Thuần Lùn","Phong Đẹo","Hợp Tô","Mạnh Nát","Hải Trà Đá","Phú Hổ","Tú Xương","Luân Răng","Bằng Chấy","Khá Bảnh"]
+    "team2": {
+      "players": [
+        "Hương Phủi",
+        "Tùng Lùn",
+        "Khá Bảnh",
+        "Thiệu Béo",
+        "Hiếu Dứa",
+        "Khoa lác",
+        "Nam Action",
+        "Thắng Cồ",
+        "Thắng Tóc",
+        "Hoàng Royal",
+        "Phong Đẹo",
+        "Giang Toán"
+      ]
     },
-    note: ""
+    "note": ""
+  },
+  {
+    "date": "2026-07-03",
+    "result": "D1_WIN",
+    "team1": {
+      "players": [
+        "Hoàng Royal",
+        "Long Xavi",
+        "Tùng Lùn",
+        "Giang Toán",
+        "Nam Action",
+        "Thành Rocket",
+        "Hồ Cu",
+        "Sang New",
+        "Anh Hoàng",
+        "Thanh Bùi",
+        "Thắng Cồ",
+        "Hương Phủi"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Thắng Tóc",
+        "Ninh Cuội",
+        "Thuần Lùn",
+        "Phong Đẹo",
+        "Hợp Tô",
+        "Mạnh Nát",
+        "Hải Trà Đá",
+        "Phú Hổ",
+        "Tú Xương",
+        "Luân Răng",
+        "Bằng Chấy",
+        "Khá Bảnh"
+      ]
+    },
+    "note": ""
+  },
+  {
+    "date": "2026-07-02",
+    "result": "DRAW",
+    "team1": {
+      "players": [
+        "Hoàng Royal",
+        "Long Xavi",
+        "Tùng Lùn",
+        "Giang Toán",
+        "Nam Action",
+        "Thành Rocket",
+        "Hồ Cu",
+        "Sang New",
+        "Anh Hoàng",
+        "Thanh Bùi",
+        "Thắng Cồ",
+        "Hương Phủi"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Thắng Tóc",
+        "Ninh Cuội",
+        "Thuần Lùn",
+        "Phong Đẹo",
+        "Hợp Tô",
+        "Mạnh Nát",
+        "Hải Trà Đá",
+        "Phú Hổ",
+        "Tú Xương",
+        "Luân Răng",
+        "Bằng Chấy",
+        "Khá Bảnh"
+      ]
+    },
+    "note": ""
   }
 ];
