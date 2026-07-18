@@ -2,9 +2,9 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Tùng Lùn",
-    "pts": 89,
+    "pts": 86,
     "g": 42,
-    "w": 19,
+    "w": 18,
     "l": 14,
     "d": 9,
     "att": 0,

@@ -97,22 +97,44 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e;ma
 <script>
 function fmtDate(d){var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0];}
 
+function normalizeResult(r){
+  if(r==='home'||r==='D1_WIN'||r==='HOME') return 'D1_WIN';
+  if(r==='away'||r==='D2_WIN'||r==='AWAY') return 'D2_WIN';
+  return 'DRAW';
+}
+function normalizeTeam(team){
+  if(Array.isArray(team)) return {players: team};
+  if(team && Array.isArray(team.players)) return {players: team.players};
+  return {players: []};
+}
+function normalizeMatch(m){
+  return {
+    ...m,
+    team1: normalizeTeam(m.team1 || m.home || m.homeTeam),
+    team2: normalizeTeam(m.team2 || m.away || m.awayTeam),
+    result: normalizeResult(m.result)
+  };
+}
+
 function winnerBadge(r){
-  if(r==='DRAW') return '<span class="badge-draw">⚖️ HOÀ</span>';
-  if(r==='D1_WIN') return '<span class="badge-win">🏆 ĐỘI 1 THẮNG</span>';
+  var result=normalizeResult(r);
+  if(result==='DRAW') return '<span class="badge-draw">⚖️ HOÀ</span>';
+  if(result==='D1_WIN') return '<span class="badge-win">🏆 ĐỘI 1 THẮNG</span>';
   return '<span class="badge-win">🏆 ĐỘI 2 THẮNG</span>';
 }
 function teamBadge(r,side){
-  if(r==='DRAW') return '<span class="badge-draw">HOÀ</span>';
-  var win=(r==='D1_WIN'&&side===1)||(r==='D2_WIN'&&side===2);
+  var result=normalizeResult(r);
+  if(result==='DRAW') return '<span class="badge-draw">HOÀ</span>';
+  var win=(result==='D1_WIN'&&side===1)||(result==='D2_WIN'&&side===2);
   return win?'<span class="badge-win">THẮNG 🏆</span>':'<span class="badge-lose">THUA</span>';
 }
 
+var matches=(MATCHES||[]).map(normalizeMatch);
 var byDate={};
-MATCHES.forEach(function(m){if(!byDate[m.date])byDate[m.date]=[];byDate[m.date].push(m);});
+matches.forEach(function(m){if(!byDate[m.date])byDate[m.date]=[];byDate[m.date].push(m);});
 var dates=Object.keys(byDate).sort(function(a,b){return b.localeCompare(a);});
 
-document.getElementById('match-summary').textContent=MATCHES.length+' trận đấu · '+dates.length+' ngày';
+document.getElementById('match-summary').textContent=matches.length+' trận đấu · '+dates.length+' ngày';
 
 var html='';
 dates.forEach(function(date){
