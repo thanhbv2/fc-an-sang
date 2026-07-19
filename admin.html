@@ -132,6 +132,55 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
             <li>Xem trước & lưu</li>
           </ol>
         </div>
+
+        <hr class="my-4">
+
+        <!-- Edit Player Section -->
+        <div>
+          <h2 class="font-anton text-lg mb-4">✏️ Chỉnh sửa Cầu thủ</h2>
+          <div class="mb-3">
+            <label for="player-search-input" class="block text-sm font-semibold mb-1">1. Tìm kiếm (nếu cần)</label>
+            <input id="player-search-input" type="text" placeholder="Nhập tên để lọc danh sách..." class="w-full px-3 py-2 border border-[#ddc1ae] rounded text-sm mb-2">
+            <label for="player-select" class="block text-sm font-semibold mb-1">2. Chọn cầu thủ</label>
+            <select id="player-select" class="w-full px-3 py-2 border border-[#ddc1ae] rounded text-sm">
+              <option value="">-- Chọn từ danh sách --</option>
+            </select>
+          </div>
+
+          <form id="edit-player-form" class="hidden">
+            <input type="hidden" id="original-player-name" name="originalName">
+            <div class="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <label for="edit-name" class="block font-semibold text-[#564334] mb-1">Tên</label>
+                <input type="text" id="edit-name" name="name" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+              <div>
+                <label for="edit-pts" class="block font-semibold text-[#564334] mb-1">Điểm</label>
+                <input type="number" id="edit-pts" name="pts" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+              <div>
+                <label for="edit-g" class="block font-semibold text-[#564334] mb-1">Trận</label>
+                <input type="number" id="edit-g" name="g" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+              <div>
+                <label for="edit-w" class="block font-semibold text-[#564334] mb-1">Thắng</label>
+                <input type="number" id="edit-w" name="w" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+              <div>
+                <label for="edit-l" class="block font-semibold text-[#564334] mb-1">Thua</label>
+                <input type="number" id="edit-l" name="l" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+              <div>
+                <label for="edit-d" class="block font-semibold text-[#564334] mb-1">Hòa</label>
+                <input type="number" id="edit-d" name="d" class="w-full border border-gray-300 rounded px-2 py-1.5">
+              </div>
+            </div>
+            <div class="mt-4 flex justify-end gap-2">
+              <button type="submit" class="px-4 py-2 text-sm font-semibold text-white bg-[#ff8c00] rounded hover:bg-[#b86600]">Lưu</button>
+            </div>
+            <div id="edit-player-status" class="mt-2 text-center text-xs"></div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -141,6 +190,7 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
 <script>
 // Tất cả cầu thủ từ standings
 var allPlayers = STANDINGS.map(p => p.name);
+var standingsMap = new Map(STANDINGS.map(p => [p.name, p]));
 var selectedTeam1 = [];
 var selectedTeam2 = [];
 var selectedResult = null;
@@ -330,12 +380,78 @@ function saveMatch() {
   });
 }
 
+// --- Edit Player Logic ---
+function populatePlayerSelect() {
+  const select = document.getElementById('player-select');
+  allPlayers.sort((a, b) => a.localeCompare(b)).forEach(name => {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    select.appendChild(option);
+  });
+}
+
+document.getElementById('player-select').addEventListener('change', (e) => {
+  const playerName = e.target.value;
+  const form = document.getElementById('edit-player-form');
+  const status = document.getElementById('edit-player-status');
+  status.textContent = '';
+
+  if (!playerName) {
+    form.classList.add('hidden');
+    return;
+  }
+
+  const playerData = standingsMap.get(playerName);
+  if (playerData) {
+    document.getElementById('original-player-name').value = playerData.name;
+    document.getElementById('edit-name').value = playerData.name;
+    document.getElementById('edit-pts').value = playerData.pts;
+    document.getElementById('edit-g').value = playerData.g;
+    document.getElementById('edit-w').value = playerData.w;
+    document.getElementById('edit-l').value = playerData.l;
+    document.getElementById('edit-d').value = playerData.d;
+    form.classList.remove('hidden');
+  }
+});
+
+document.getElementById('edit-player-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const status = document.getElementById('edit-player-status');
+  status.textContent = '⏳ Đang lưu...';
+  status.style.color = '#666';
+
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+  ['pts', 'g', 'w', 'l', 'd'].forEach(key => data[key] = parseInt(data[key], 10));
+
+  try {
+    const res = await fetch('/api/update-player', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    if (result.success) {
+      status.textContent = '✓ Lưu thành công! Trang sẽ tải lại...';
+      status.style.color = '#15803d';
+      setTimeout(() => location.reload(), 1500);
+    } else {
+      throw new Error(result.error || 'Lỗi không xác định');
+    }
+  } catch (err) {
+    status.textContent = `✗ Lỗi: ${err.message}`;
+    status.style.color = '#dc2626';
+  }
+});
+
 // Initialize
 document.getElementById('team1Search').addEventListener('input', () => renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2));
 document.getElementById('team2Search').addEventListener('input', () => renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1));
 
 renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2);
 renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1);
+populatePlayerSelect();
 </script>
 </body>
 </html>
