@@ -4,7 +4,7 @@
 var MATCHES = [
   {
     "id": "match-1784436746097",
-    "date": "2026-07-17",
+    "date": "2026-07-19",
     "team1": {
       "players": [
         "Thanh Bùi",
@@ -35,7 +35,8 @@ var MATCHES = [
         "Bằng Chấy",
         "Phát Auto",
         "Hiền Gà",
-        "Kiên Y Tá"
+        "Kiên Y Tá",
+        "Nghị"
       ]
     },
     "result": "D2_WIN",
