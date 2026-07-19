@@ -698,10 +698,10 @@ const STANDINGS = [
   {
     "rank": 59,
     "name": "Hùng Con",
-    "pts": 3,
+    "pts": 4,
     "g": 1,
     "w": 1,
-    "l": 0,
+    "l": 1,
     "d": 0,
     "att": 0,
     "pen": 0,
