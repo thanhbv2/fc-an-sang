@@ -160,7 +160,7 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
               </div>
               <div>
                 <label for="edit-g" class="block font-semibold text-[#564334] mb-1">Trận</label>
-                <input type="number" id="edit-g" name="g" class="w-full border border-gray-300 rounded px-2 py-1.5">
+                <input type="number" id="edit-g" name="g" class="w-full border border-gray-300 rounded px-2 py-1.5 bg-gray-100" readonly>
               </div>
               <div>
                 <label for="edit-w" class="block font-semibold text-[#564334] mb-1">Thắng</label>
@@ -445,6 +445,23 @@ document.getElementById('edit-player-form').addEventListener('submit', async (e)
   }
 });
 
+function setupEditFormListeners() {
+  const form = document.getElementById('edit-player-form');
+  const w_input = form.querySelector('#edit-w');
+  const l_input = form.querySelector('#edit-l');
+  const d_input = form.querySelector('#edit-d');
+  const g_input = form.querySelector('#edit-g');
+
+  function updateGamesPlayed() {
+    const w = parseInt(w_input.value) || 0;
+    const l = parseInt(l_input.value) || 0;
+    const d = parseInt(d_input.value) || 0;
+    g_input.value = w + l + d;
+  }
+
+  [w_input, l_input, d_input].forEach(input => input.addEventListener('input', updateGamesPlayed));
+}
+
 // Initialize
 document.getElementById('team1Search').addEventListener('input', () => renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2));
 document.getElementById('team2Search').addEventListener('input', () => renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1));
@@ -452,6 +469,7 @@ document.getElementById('team2Search').addEventListener('input', () => renderPla
 renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2);
 renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1);
 populatePlayerSelect();
+setupEditFormListeners();
 </script>
 </body>
 </html>

@@ -188,6 +188,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank"><span class="material-symbols-outlined">thumb_up</span>Facebook</a>
 </nav>
 <script src="data/standings.js"></script>
+<script src="data/matches.js"></script>
 <script>
 var cf='all', cs='', sortCol='pts', sortDir=-1;
 
@@ -288,10 +289,11 @@ document.getElementById('search').addEventListener('input',function(e){cs=e.targ
 
 var leader=STANDINGS[0];
 var playing=STANDINGS.filter(function(p){return p.status!=='Không đá';}).length;
+var totalMatches = (typeof MATCHES !== 'undefined' && Array.isArray(MATCHES)) ? MATCHES.length : 0;
 document.getElementById('hero-stats').innerHTML=
   '<span><strong style="color:#191c1e">'+STANDINGS.length+'</strong> cầu thủ</span>'
   +'<span>·</span>'
-  +'<span><strong style="color:#191c1e">'+playing+'</strong> đang thi đấu</span>'
+  +'<span><strong style="color:#191c1e">'+totalMatches+'</strong> trận đã đấu</span>'
   +'<span>·</span>'
   +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+leader.name+'</strong> — '+leader.pts+' điểm</span>';
 
