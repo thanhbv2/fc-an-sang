@@ -50,16 +50,16 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
 <div id="content" class="hidden">
   <!-- Hero -->
   <div class="bg-[#191c1e] text-white">
-    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8 flex flex-col sm:flex-row gap-4 items-start sm:items-end">
-      <div id="hero-avatar" class="w-16 h-16 rounded-full bg-[#ff8c00] flex items-center justify-center shrink-0 text-white font-anton text-3xl"></div>
-      <div class="flex-1 min-w-0">
-        <div id="hero-rank" class="text-[#ff8c00] text-xs font-semibold uppercase tracking-widest mb-1"></div>
-        <h1 id="hero-name" class="font-anton text-3xl md:text-5xl uppercase leading-tight break-words"></h1>
-        <div id="hero-status" class="mt-2 inline-block text-xs px-2 py-0.5 rounded font-medium"></div>
+    <div class="max-w-6xl mx-auto px-4 md:px-8 py-8">
+      <div class="flex flex-col sm:flex-row gap-4 items-center mb-6 text-center sm:text-left">
+        <div id="hero-avatar" class="w-16 h-16 rounded-full bg-[#ff8c00] flex items-center justify-center shrink-0 text-white font-anton text-3xl"></div>
+        <div class="flex-1 min-w-0">
+          <div id="hero-rank" class="text-[#ff8c00] text-xs font-semibold uppercase tracking-widest mb-1"></div>
+          <h1 id="hero-name" class="font-anton text-3xl md:text-5xl uppercase leading-normal break-words"></h1>
+        </div>
       </div>
-      <div class="text-right shrink-0">
-        <div id="hero-pts" class="font-anton text-5xl md:text-6xl text-[#ff8c00]"></div>
-        <div class="text-xs text-gray-400 uppercase tracking-widest">Điểm</div>
+      <div id="hero-stats-bar" class="grid grid-cols-3 divide-x divide-gray-700 text-center">
+        <!-- Injected by JS -->
       </div>
     </div>
   </div>
@@ -70,53 +70,6 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
     <!-- Sidebar -->
     <aside class="md:col-span-4 flex flex-col gap-4">
 
-      <!-- Win rate donut -->
-      <div class="card border-l-4 border-l-[#ff8c00]">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#564334] mb-3">Tỷ lệ thắng</h3>
-        <div class="flex items-center justify-center py-4 relative">
-          <svg class="progress-ring w-32 h-32" viewBox="0 0 128 128">
-            <circle cx="64" cy="64" r="54" fill="none" stroke="#f2f4f6" stroke-width="12"/>
-            <circle id="win-ring" cx="64" cy="64" r="54" fill="none" stroke="#ff8c00" stroke-width="12"
-              stroke-linecap="round" stroke-dasharray="339.29" stroke-dashoffset="339.29"
-              style="transition:stroke-dashoffset 1s ease"/>
-          </svg>
-          <div class="absolute text-center">
-            <div id="win-pct" class="font-anton text-2xl text-[#ff8c00]">0%</div>
-            <div class="text-xs text-[#564334]">Thắng</div>
-          </div>
-        </div>
-        <div class="flex justify-around text-center text-xs mt-1">
-          <div><div id="sw" class="font-semibold text-green-700 text-lg">0</div><div class="text-[#564334]">Thắng</div></div>
-          <div><div id="sd" class="font-semibold text-yellow-600 text-lg">0</div><div class="text-[#564334]">Hòa</div></div>
-          <div><div id="sl" class="font-semibold text-red-600 text-lg">0</div><div class="text-[#564334]">Thua</div></div>
-        </div>
-      </div>
-
-      <!-- Stats summary -->
-      <div class="card">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#564334] mb-3">Thống kê</h3>
-        <dl class="space-y-2 text-sm divide-y divide-[#f2f4f6]">
-          <div class="flex justify-between pt-2 first:pt-0"><dt class="text-[#564334]">Số trận</dt><dd id="ss-g" class="font-semibold">—</dd></div>
-          <div class="flex justify-between pt-2"><dt class="text-[#564334]">Tổng điểm</dt><dd id="ss-pts" class="font-semibold text-[#ff8c00]">—</dd></div>
-          <div class="flex justify-between pt-2"><dt class="text-[#564334]">Điểm/trận</dt><dd id="ss-ppg" class="font-semibold">—</dd></div>
-          <div class="flex justify-between pt-2"><dt class="text-[#564334]">Vắng mặt</dt><dd id="ss-att" class="font-semibold">—</dd></div>
-          <div class="flex justify-between pt-2"><dt class="text-[#564334]">Thẻ phạt</dt><dd id="ss-pen" class="font-semibold">—</dd></div>
-        </dl>
-      </div>
-
-      <!-- Rank bar -->
-      <div class="card">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#564334] mb-3">Vị trí bảng xếp hạng</h3>
-        <div class="flex items-center gap-2">
-          <span id="bar-rank" class="font-anton text-[#ff8c00] text-xl w-10">#—</span>
-          <div class="flex-1 bg-[#f2f4f6] rounded-full h-2.5 overflow-hidden">
-            <div id="rank-bar" class="h-2.5 bg-[#ff8c00] rounded-full transition-all duration-1000" style="width:0%"></div>
-          </div>
-          <span id="bar-total" class="text-xs text-[#564334]">/0</span>
-        </div>
-        <p id="bar-desc" class="text-xs text-[#564334] mt-2"></p>
-      </div>
-
       <!-- Prev/Next -->
       <div class="flex gap-2">
         <a id="prev-link" href="#" class="flex-1 card text-center text-xs font-semibold text-[#564334] hover:text-[#ff8c00] hover:border-[#ff8c00] transition-colors truncate py-2">← <span id="prev-name">Trước</span></a>
@@ -126,30 +79,11 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
 
     <!-- Right: 6 stat cards + player grid -->
     <div class="md:col-span-8 flex flex-col gap-4">
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        <div class="card flex flex-col justify-between h-24">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Hạng</span><span class="material-symbols-outlined text-[#564334] text-lg">leaderboard</span></div>
-          <span id="c-rank" class="font-anton text-3xl">—</span>
-        </div>
-        <div class="card flex flex-col justify-between h-24 border-l-4 border-l-[#ff8c00]">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Điểm</span><span class="material-symbols-outlined text-[#ff8c00] text-lg">star</span></div>
-          <span id="c-pts" class="font-anton text-3xl text-[#ff8c00]">—</span>
-        </div>
-        <div class="card flex flex-col justify-between h-24">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Số trận</span><span class="material-symbols-outlined text-[#564334] text-lg">sports_soccer</span></div>
-          <span id="c-g" class="font-anton text-3xl">—</span>
-        </div>
-        <div class="card flex flex-col justify-between h-24 border-l-4 border-l-green-500">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Thắng</span><span class="material-symbols-outlined text-green-600 text-lg">emoji_events</span></div>
-          <span id="c-w" class="font-anton text-3xl">—</span>
-        </div>
-        <div class="card flex flex-col justify-between h-24 border-l-4 border-l-yellow-400">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Hòa</span><span class="material-symbols-outlined text-yellow-500 text-lg">handshake</span></div>
-          <span id="c-d" class="font-anton text-3xl">—</span>
-        </div>
-        <div class="card flex flex-col justify-between h-24 border-l-4 border-l-red-500">
-          <div class="flex justify-between"><span class="text-xs font-semibold uppercase text-[#564334]">Thua</span><span class="material-symbols-outlined text-red-600 text-lg">trending_down</span></div>
-          <span id="c-l" class="font-anton text-3xl">—</span>
+      <!-- Match History Timeline -->
+      <div class="card">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-[#564334] mb-4">Lịch sử thi đấu</h3>
+        <div id="match-timeline" class="relative border-l-2 border-gray-200 ml-2 pl-6">
+          <!-- Timeline items will be injected here by JS -->
         </div>
       </div>
 
@@ -184,6 +118,7 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
 </footer>
 
 <script src="data/standings.js"></script>
+<script src="data/matches.js"></script>
 <script>
 function slug(n){return n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 
@@ -201,42 +136,25 @@ if(idx===-1){
   document.getElementById('hero-avatar').textContent=p.name.charAt(0);
   document.getElementById('hero-rank').textContent='#'+p.rank+' · Ăn Sáng Premier League 2026';
   document.getElementById('hero-name').textContent=p.name.toUpperCase();
-  document.getElementById('hero-pts').textContent=p.pts;
-  const se=document.getElementById('hero-status');
-  se.textContent=p.status;
-  se.style.cssText=p.status.includes('Đội 1')?'background:#fff3e0;color:#904d00':p.status.includes('Đội 2')?'background:#e8f5e9;color:#2e7d32':'background:#f5f5f5;color:#757575';
 
-  // Stat cards
-  document.getElementById('c-rank').textContent=p.rank;
-  document.getElementById('c-pts').textContent=p.pts;
-  document.getElementById('c-g').textContent=p.g;
-  document.getElementById('c-w').textContent=p.w;
-  document.getElementById('c-d').textContent=p.d;
-  document.getElementById('c-l').textContent=p.l;
-
-  // Sidebar
-  document.getElementById('sw').textContent=p.w;
-  document.getElementById('sd').textContent=p.d;
-  document.getElementById('sl').textContent=p.l;
-  document.getElementById('ss-g').textContent=p.g;
-  document.getElementById('ss-pts').textContent=p.pts;
-  document.getElementById('ss-ppg').textContent=p.g>0?(p.pts/p.g).toFixed(1):'0.0';
-  document.getElementById('ss-att').textContent=p.att>0?p.att+' buổi':'Không';
-  const pe=document.getElementById('ss-pen');
-  pe.textContent=p.pen>0?p.pen+' lần':'Không';
-  if(p.pen>0)pe.classList.add('text-red-600');
-
-  // Donut
-  const wr=p.g>0?p.w/p.g:0;
-  document.getElementById('win-pct').textContent=Math.round(wr*100)+'%';
-  setTimeout(()=>{document.getElementById('win-ring').style.strokeDashoffset=339.29*(1-wr);},100);
-
-  // Rank bar
-  const total=STANDINGS.length;
-  document.getElementById('bar-rank').textContent='#'+p.rank;
-  document.getElementById('bar-total').textContent='/'+total;
-  document.getElementById('bar-desc').textContent='Top '+Math.round(p.rank/total*100)+'% trong '+total+' cầu thủ';
-  setTimeout(()=>{document.getElementById('rank-bar').style.width=((total-p.rank+1)/total*100)+'%';},100);
+  // Stats bar
+  const totalWinLoss = p.w + p.l;
+  const wr = totalWinLoss > 0 ? p.w / totalWinLoss : 0;
+  const heroStatsBar = document.getElementById('hero-stats-bar');
+  heroStatsBar.innerHTML = `
+    <div>
+      <div class="font-anton text-4xl md:text-5xl text-white">${p.g}</div>
+      <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Trận</div>
+    </div>
+    <div>
+      <div class="font-anton text-4xl md:text-5xl text-[#ff8c00]">${p.pts}</div>
+      <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Điểm</div>
+    </div>
+    <div>
+      <div class="font-anton text-4xl md:text-5xl text-white">${Math.round(wr * 100)}%</div>
+      <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Tỷ lệ thắng</div>
+    </div>
+  `;
 
   // Prev/Next
   const prev=STANDINGS[idx-1],next=STANDINGS[idx+1];
@@ -249,6 +167,57 @@ if(idx===-1){
   document.getElementById('player-grid').innerHTML=STANDINGS.map(pl=>
     `<a href="player.html?id=${slug(pl.name)}" class="px-2 py-1 text-xs rounded border ${pl.name===p.name?'bg-[#ff8c00] text-white border-[#ff8c00] font-semibold':'border-[#ddc1ae] text-[#564334] hover:border-[#ff8c00] hover:text-[#ff8c00]'} transition-colors">${pl.name}</a>`
   ).join('');
+
+  function renderTimeline(playerName) {
+    const timelineContainer = document.getElementById('match-timeline');
+    if (typeof MATCHES === 'undefined' || !Array.isArray(MATCHES)) {
+      timelineContainer.innerHTML = '<p class="text-xs text-gray-500">Không có dữ liệu trận đấu.</p>';
+      return;
+    }
+
+    const playerMatches = MATCHES.filter(match => {
+      const team1Players = match.team1?.players || match.home || [];
+      const team2Players = match.team2?.players || match.away || [];
+      return team1Players.includes(playerName) || team2Players.includes(playerName);
+    });
+
+    if (playerMatches.length === 0) {
+      timelineContainer.innerHTML = '<p class="text-xs text-gray-500">Chưa thi đấu trận nào.</p>';
+      return;
+    }
+
+    let timelineHtml = '';
+    playerMatches.forEach(match => {
+      const team1Players = match.team1?.players || match.home || [];
+      const result = match.result;
+
+      let playerResultText = '';
+      let resultClass = '';
+
+      const isInTeam1 = team1Players.includes(playerName);
+      
+      if (result === 'DRAW') {
+        playerResultText = 'Hòa';
+        resultClass = 'bg-yellow-400';
+      } else if ((isInTeam1 && (result === 'D1_WIN' || result === 'home')) || (!isInTeam1 && (result === 'D2_WIN' || result === 'away'))) {
+        playerResultText = 'Thắng';
+        resultClass = 'bg-green-500';
+      } else {
+        playerResultText = 'Thua';
+        resultClass = 'bg-red-500';
+      }
+
+      timelineHtml += `
+        <div class="relative pb-6 last:pb-0">
+          <div class="absolute -left-6 top-1 w-4 h-4 rounded-full ${resultClass} border-4 border-white"></div>
+          <p class="font-semibold text-sm">${playerResultText}</p>
+          <p class="text-xs text-gray-500">${new Date(match.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}</p>
+        </div>
+      `;
+    });
+    timelineContainer.innerHTML = timelineHtml;
+  }
+  renderTimeline(p.name);
 }
 </script>
 </body>
