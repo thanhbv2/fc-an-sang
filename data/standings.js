@@ -56,7 +56,7 @@ const STANDINGS = [
     "l": 13,
     "d": 9,
     "att": 1,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -638,9 +638,9 @@ const STANDINGS = [
   {
     "rank": 54,
     "name": "Thảo mỏ lết",
-    "pts": 13,
-    "g": 8,
-    "w": 0,
+    "pts": 16,
+    "g": 9,
+    "w": 1,
     "l": 3,
     "d": 5,
     "att": 0,
