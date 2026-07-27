@@ -152,7 +152,7 @@ const STANDINGS = [
     "l": 13,
     "d": 12,
     "att": 2,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
