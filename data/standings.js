@@ -755,26 +755,27 @@ const STANDINGS = [
     "pen": 0,
     "status": "Không đá"
   },
+  
   {
     "rank": 64,
-    "name": "Anh Tuấn Jr",
-    "pts": 2,
+    "name": "Việt Con",
+    "pts": 3,
     "g": 1,
-    "w": 0,
+    "w": 1,
     "l": 0,
-    "d": 1,
+    "d": 0,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
   },
   {
     "rank": 65,
-    "name": "Linh Tinh",
-    "pts": 0,
-    "g": 0,
+    "name": "Anh Tuấn Jr",
+    "pts": 2,
+    "g": 1,
     "w": 0,
     "l": 0,
-    "d": 0,
+    "d": 1,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
