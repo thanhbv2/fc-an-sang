@@ -134,10 +134,10 @@ const STANDINGS = [
   {
     "rank": 12,
     "name": "Đại Du",
-    "pts": 63,
-    "g": 27,
+    "pts": 64,
+    "g": 28,
     "w": 16,
-    "l": 7,
+    "l": 8,
     "d": 4,
     "att": 0,
     "pen": 0,
