@@ -16,7 +16,8 @@ var MATCHES = [
         "Quảng Nổ",
         "Anh Hoàng",
         "Khá Bảnh",
-        "Hướng Phủi"
+        "Hướng Phủi",
+        "Việt Con"
       ]
     },
     "team2": {
@@ -30,7 +31,8 @@ var MATCHES = [
         "Tú Xương",
         "Thái Bình",
         "Thiệu Béo",
-        "Quân Phan"
+        "Quân Phan",
+        "Đại du"
       ]
     },
     "result": "D1_WIN",
