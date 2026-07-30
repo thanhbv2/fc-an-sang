@@ -25,24 +25,24 @@ const STANDINGS = [
   },
   {
     "rank": 3,
-    "name": "Tùng Lùn",
-    "pts": 91,
-    "g": 44,
-    "w": 19,
-    "l": 16,
-    "d": 9,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 4,
     "name": "Kiên Y Tá",
     "pts": 92,
     "g": 49,
     "w": 15,
     "l": 21,
     "d": 13,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "rank": 4,
+    "name": "Tùng Lùn",
+    "pts": 91,
+    "g": 44,
+    "w": 19,
+    "l": 16,
+    "d": 9,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
