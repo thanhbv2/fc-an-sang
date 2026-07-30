@@ -20,7 +20,9 @@ var MATCHES = [
         "Sang New",
         "Thụy",
         "Thắng Tóc",
-        "Trung Hiếu"
+        "Trung Hiếu",
+        "Quảng Nổ",
+        "Kiên Y Tá"
       ]
     },
     "team2": {
@@ -38,7 +40,8 @@ var MATCHES = [
         "Nghị",
         "Hiếu Chu",
         "Dũng Con",
-        "Công Trang"
+        "Công Trang",
+        "Tùng Lùn"
       ]
     },
     "result": "D1_WIN",
