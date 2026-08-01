@@ -69,6 +69,40 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   </div>
 </div>
 
+<!-- STREAK SECTION -->
+<div id="streak-section" class="max-w-6xl mx-auto px-4 md:px-8 py-8">
+  <div class="flex items-center gap-2 mb-5">
+    <span class="material-symbols-outlined text-[#ff8c00] text-2xl">local_fire_department</span>
+    <h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Chuỗi Phong Độ</h2>
+    <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full ml-1">≥ 5 trận liên tiếp</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <!-- HOT STREAK -->
+    <div class="bg-white border border-[#e0e3e5] rounded-xl shadow-sm overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-[#f0f0f0]" style="background:linear-gradient(90deg,#fff8f0,#fff)">
+        <span class="text-xl">🔥</span>
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#904d00">Chuỗi thắng</span>
+      </div>
+      <div id="streak-win-list" class="divide-y divide-[#f5f5f5]">
+        <!-- filled by JS -->
+        <div class="px-4 py-3 text-sm text-[#9ca3af] italic">Đang tính...</div>
+      </div>
+    </div>
+    <!-- COLD STREAK -->
+    <div class="bg-white border border-[#e0e3e5] rounded-xl shadow-sm overflow-hidden">
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-[#f0f0f0]" style="background:linear-gradient(90deg,#f0f4ff,#fff)">
+        <span class="text-xl">🥶</span>
+        <span class="font-semibold text-sm uppercase tracking-wider" style="color:#1d4ed8">Chuỗi thua</span>
+      </div>
+      <div id="streak-loss-list" class="divide-y divide-[#f5f5f5]">
+        <!-- filled by JS -->
+        <div class="px-4 py-3 text-sm text-[#9ca3af] italic">Đang tính...</div>
+      </div>
+    </div>
+  </div>
+  <!-- <p class="text-xs text-[#9ca3af] mt-3 text-right">* Tính từ trận gần nhất, chỉ đếm trận thắng hoặc thua (bỏ hòa)</p> -->
+</div>
+
 <!-- CONTROLS -->
 <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
   <div class="relative w-full sm:w-72">
@@ -112,6 +146,8 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   </div>
   <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
 </div>
+
+
 
 <!-- YOUTUBE -->
 <div class="bg-[#191c1e] py-10 px-4">
@@ -298,6 +334,107 @@ document.getElementById('hero-stats').innerHTML=
   +'<span>🥇 Dẫn đầu: <strong style="color:#ff8c00">'+leader.name+'</strong> — '+leader.pts+' điểm</span>';
 
 render();
+
+// ── STREAK CALCULATOR ──────────────────────────────────────────────────
+(function(){
+  var MIN_STREAK = 5;
+
+  // Chuẩn hoá tên cầu thủ (lowercase, bỏ dấu) để match chéo giữa matches và standings
+  function norm(n){ return n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0111/g,'d').trim(); }
+
+  // Lấy danh sách cầu thủ 2 đội từ 1 trận (hỗ trợ cả format cũ home/away và mới team1/team2)
+  function getTeams(m){
+    var t1 = (m.team1 && m.team1.players) ? m.team1.players : (m.home || []);
+    var t2 = (m.team2 && m.team2.players) ? m.team2.players : (m.away || []);
+    return { t1: t1, t2: t2 };
+  }
+
+  // Với mỗi trận, xác định kết quả của từng cầu thủ: 'W' | 'L' | 'D'
+  // result: D1_WIN = đội 1 thắng, D2_WIN = đội 2 thắng, DRAW / home (cũ)
+  function playerResult(player, match){
+    var r = match.result;
+    var teams = getTeams(match);
+    var inT1 = teams.t1.some(function(p){ return norm(p)===norm(player); });
+    var inT2 = teams.t2.some(function(p){ return norm(p)===norm(player); });
+    if(!inT1 && !inT2) return null; // không tham gia trận này
+
+    // Xử lý format cũ (result === 'home')
+    if(r === 'home'){ return inT1 ? 'W' : 'L'; }
+    if(r === 'away'){ return inT2 ? 'W' : 'L'; }
+    if(r === 'D1_WIN'){ return inT1 ? 'W' : 'L'; }
+    if(r === 'D2_WIN'){ return inT2 ? 'W' : 'L'; }
+    if(r === 'DRAW'){ return 'D'; }
+    return null;
+  }
+
+  // MATCHES đã sắp xếp mới nhất trước → duyệt từ đầu là gần nhất
+  // Tính chuỗi hiện tại (streak) của một cầu thủ: bỏ qua hòa
+  function calcStreak(playerName){
+    var streak = 0;
+    var type = null; // 'W' hoặc 'L'
+    for(var i = 0; i < MATCHES.length; i++){
+      var res = playerResult(playerName, MATCHES[i]);
+      if(res === null) continue;      // không chơi trận này, bỏ qua
+      if(res === 'D') continue;       // hòa không tính vào streak
+
+      if(type === null){
+        type = res;
+        streak = 1;
+      } else if(res === type){
+        streak++;
+      } else {
+        break; // chuỗi bị gián đoạn
+      }
+    }
+    return { streak: streak, type: type };
+  }
+
+  // Tính streak cho tất cả cầu thủ trong STANDINGS
+  var winStreaks = [], lossStreaks = [];
+  STANDINGS.forEach(function(p){
+    var s = calcStreak(p.name);
+    if(s.streak >= MIN_STREAK){
+      var entry = { name: p.name, streak: s.streak, rank: p.rank };
+      if(s.type === 'W') winStreaks.push(entry);
+      else if(s.type === 'L') lossStreaks.push(entry);
+    }
+  });
+
+  winStreaks.sort(function(a,b){ return b.streak - a.streak; });
+  lossStreaks.sort(function(a,b){ return b.streak - a.streak; });
+
+  function renderStreakList(containerId, items, isWin){
+    var el = document.getElementById(containerId);
+    if(!items.length){
+      el.innerHTML = '<div class="px-4 py-4 text-sm text-[#9ca3af] italic text-center">Không có cầu thủ nào đạt chuỗi ' + MIN_STREAK + '+ trận.</div>';
+      return;
+    }
+    var html = '';
+    items.forEach(function(item, idx){
+      var flames = '';
+      for(var f = 0; f < Math.min(item.streak, 10); f++) flames += isWin ? '🔥' : '🥶';
+      var badgeBg  = isWin ? '#fff3e0' : '#eff6ff';
+      var badgeClr = isWin ? '#904d00' : '#1d4ed8';
+      var numClr   = isWin ? '#ff8c00' : '#2563eb';
+      html += '<div class="flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa] transition-colors" style="cursor:pointer" onclick="location.href=\'player.html?id='+slug(item.name)+'\'">'
+        + '<div class="w-7 text-center font-bold text-xs" style="color:#9ca3af">' + (idx+1) + '</div>'
+        + '<div class="flex-1 min-w-0">'
+        +   '<div class="font-semibold text-sm truncate" style="color:#191c1e">' + item.name + '</div>'
+        +   '<div class="text-xs mt-0.5" style="color:#9ca3af">Hạng #' + item.rank + ' BXH</div>'
+        + '</div>'
+        + '<div class="flex items-center gap-2 shrink-0">'
+        +   '<span class="text-sm tracking-tighter">' + flames + '</span>'
+        +   '<span class="font-bold text-lg px-2 py-0.5 rounded-lg" style="background:'+badgeBg+';color:'+numClr+'">' + item.streak + '</span>'
+        + '</div>'
+        + '</div>';
+    });
+    el.innerHTML = html;
+  }
+
+  renderStreakList('streak-win-list',  winStreaks,  true);
+  renderStreakList('streak-loss-list', lossStreaks, false);
+})();
+// ── END STREAK ─────────────────────────────────────────────────────────
 </script>
 </body>
 </html>
