@@ -337,64 +337,69 @@ render();
 
 // ── STREAK CALCULATOR ──────────────────────────────────────────────────
 (function(){
-  var MIN_STREAK = 5;
+  var MIN_STREAK = 4;
 
-  // Chuẩn hoá tên cầu thủ (lowercase, bỏ dấu) để match chéo giữa matches và standings
-  function norm(n){ return n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\u0111/g,'d').trim(); }
+  // Chuẩn hoá: bỏ dấu, lowercase, trim khoảng trắng thừa
+  function norm(n){
+    return n.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/\u0111/g,'d')
+      .replace(/\s+/g,' ').trim();
+  }
 
-  // Lấy danh sách cầu thủ 2 đội từ 1 trận (hỗ trợ cả format cũ home/away và mới team1/team2)
+  // Build bảng tra norm→tên gốc từ STANDINGS để tránh lỗi chính tả giữa 2 nguồn
+  var normToStanding = {};
+  STANDINGS.forEach(function(p){ normToStanding[norm(p.name)] = p; });
+
+  // Lấy 2 đội từ trận, hỗ trợ cả format cũ (home/away) lẫn mới (team1/team2)
   function getTeams(m){
     var t1 = (m.team1 && m.team1.players) ? m.team1.players : (m.home || []);
     var t2 = (m.team2 && m.team2.players) ? m.team2.players : (m.away || []);
     return { t1: t1, t2: t2 };
   }
 
-  // Với mỗi trận, xác định kết quả của từng cầu thủ: 'W' | 'L' | 'D'
-  // result: D1_WIN = đội 1 thắng, D2_WIN = đội 2 thắng, DRAW / home (cũ)
-  function playerResult(player, match){
+  // Trả về 'W' | 'L' | 'D' | null cho một cầu thủ trong một trận
+  function playerResult(normName, match){
     var r = match.result;
     var teams = getTeams(match);
-    var inT1 = teams.t1.some(function(p){ return norm(p)===norm(player); });
-    var inT2 = teams.t2.some(function(p){ return norm(p)===norm(player); });
-    if(!inT1 && !inT2) return null; // không tham gia trận này
-
-    // Xử lý format cũ (result === 'home')
-    if(r === 'home'){ return inT1 ? 'W' : 'L'; }
-    if(r === 'away'){ return inT2 ? 'W' : 'L'; }
-    if(r === 'D1_WIN'){ return inT1 ? 'W' : 'L'; }
-    if(r === 'D2_WIN'){ return inT2 ? 'W' : 'L'; }
-    if(r === 'DRAW'){ return 'D'; }
+    var inT1 = teams.t1.some(function(p){ return norm(p) === normName; });
+    var inT2 = teams.t2.some(function(p){ return norm(p) === normName; });
+    if(!inT1 && !inT2) return null;
+    if(r === 'home' || r === 'D1_WIN') return inT1 ? 'W' : 'L';
+    if(r === 'away' || r === 'D2_WIN') return inT2 ? 'W' : 'L';
+    if(r === 'DRAW') return 'D';
     return null;
   }
 
-  // MATCHES đã sắp xếp mới nhất trước → duyệt từ đầu là gần nhất
-  // Tính chuỗi hiện tại (streak) của một cầu thủ: bỏ qua hòa
-  function calcStreak(playerName){
-    var streak = 0;
-    var type = null; // 'W' hoặc 'L'
+  // Tính streak hiện tại (từ trận mới nhất). Hòa và trận vắng mặt đều bị bỏ qua
+  function calcStreak(normName){
+    var streak = 0, type = null;
     for(var i = 0; i < MATCHES.length; i++){
-      var res = playerResult(playerName, MATCHES[i]);
-      if(res === null) continue;      // không chơi trận này, bỏ qua
-      if(res === 'D') continue;       // hòa không tính vào streak
-
-      if(type === null){
-        type = res;
-        streak = 1;
-      } else if(res === type){
-        streak++;
-      } else {
-        break; // chuỗi bị gián đoạn
-      }
+      var res = playerResult(normName, MATCHES[i]);
+      if(res === null || res === 'D') continue;
+      if(type === null){ type = res; streak = 1; }
+      else if(res === type){ streak++; }
+      else break;
     }
     return { streak: streak, type: type };
   }
 
-  // Tính streak cho tất cả cầu thủ trong STANDINGS
+  // Thu thập tất cả tên xuất hiện trong MATCHES (bao gồm cả người chưa có trong STANDINGS)
+  var allNorms = {};
+  MATCHES.forEach(function(m){
+    var teams = getTeams(m);
+    teams.t1.concat(teams.t2).forEach(function(p){ allNorms[norm(p)] = p; });
+  });
+
   var winStreaks = [], lossStreaks = [];
-  STANDINGS.forEach(function(p){
-    var s = calcStreak(p.name);
+  Object.keys(allNorms).forEach(function(normName){
+    var s = calcStreak(normName);
     if(s.streak >= MIN_STREAK){
-      var entry = { name: p.name, streak: s.streak, rank: p.rank };
+      // Ưu tiên tên từ STANDINGS, fallback về tên gốc trong MATCHES
+      var standing = normToStanding[normName];
+      var displayName = standing ? standing.name : allNorms[normName];
+      var rank = standing ? standing.rank : null;
+      var entry = { name: displayName, streak: s.streak, rank: rank };
       if(s.type === 'W') winStreaks.push(entry);
       else if(s.type === 'L') lossStreaks.push(entry);
     }
@@ -406,25 +411,33 @@ render();
   function renderStreakList(containerId, items, isWin){
     var el = document.getElementById(containerId);
     if(!items.length){
-      el.innerHTML = '<div class="px-4 py-4 text-sm text-[#9ca3af] italic text-center">Không có cầu thủ nào đạt chuỗi ' + MIN_STREAK + '+ trận.</div>';
+      el.innerHTML = '<div class="px-4 py-5 text-sm text-[#9ca3af] italic text-center">Chưa có chuỗi ' + MIN_STREAK + '+ trận nào.</div>';
       return;
     }
     var html = '';
     items.forEach(function(item, idx){
-      var flames = '';
-      for(var f = 0; f < Math.min(item.streak, 10); f++) flames += isWin ? '🔥' : '🥶';
-      var badgeBg  = isWin ? '#fff3e0' : '#eff6ff';
-      var badgeClr = isWin ? '#904d00' : '#1d4ed8';
-      var numClr   = isWin ? '#ff8c00' : '#2563eb';
-      html += '<div class="flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa] transition-colors" style="cursor:pointer" onclick="location.href=\'player.html?id='+slug(item.name)+'\'">'
-        + '<div class="w-7 text-center font-bold text-xs" style="color:#9ca3af">' + (idx+1) + '</div>'
+      var dotCount = Math.min(item.streak, 8);
+      var dots = '';
+      for(var f = 0; f < dotCount; f++){
+        var opacity = 0.35 + (f / dotCount) * 0.65; // tăng dần độ đậm
+        var dotClr = isWin ? 'rgba(255,140,0,'+opacity+')' : 'rgba(37,99,235,'+opacity+')';
+        dots += '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+dotClr+';margin-right:2px;vertical-align:middle"></span>';
+      }
+      var badgeBg = isWin ? '#fff3e0' : '#eff6ff';
+      var numClr  = isWin ? '#ff8c00' : '#2563eb';
+      var rankStr = item.rank ? '#' + item.rank + ' BXH' : 'Khách mời';
+      html +=
+        '<div class="flex items-center gap-3 px-4 py-3 hover:bg-[#fafafa] transition-colors" style="cursor:pointer" onclick="location.href=\'player.html?id='+slug(item.name)+'\'">'
+        + '<div class="w-6 text-center font-bold text-xs" style="color:#d1d5db">' + (idx+1) + '</div>'
         + '<div class="flex-1 min-w-0">'
         +   '<div class="font-semibold text-sm truncate" style="color:#191c1e">' + item.name + '</div>'
-        +   '<div class="text-xs mt-0.5" style="color:#9ca3af">Hạng #' + item.rank + ' BXH</div>'
+        +   '<div class="flex items-center gap-1.5 mt-1">' + dots + '</div>'
         + '</div>'
         + '<div class="flex items-center gap-2 shrink-0">'
-        +   '<span class="text-sm tracking-tighter">' + flames + '</span>'
-        +   '<span class="font-bold text-lg px-2 py-0.5 rounded-lg" style="background:'+badgeBg+';color:'+numClr+'">' + item.streak + '</span>'
+        +   '<div class="text-right">'
+        +     '<div class="font-bold text-xl leading-none" style="color:'+numClr+'">' + item.streak + '</div>'
+        +     '<div class="text-xs mt-0.5" style="color:#9ca3af">' + rankStr + '</div>'
+        +   '</div>'
         + '</div>'
         + '</div>';
     });

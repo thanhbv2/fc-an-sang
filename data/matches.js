@@ -453,7 +453,7 @@ var MATCHES = [
     "team1": {
       "players": [
         "Đạt 1 Phít",
-        "Cánh Nấm",
+        "Cảnh Nấm",
         "Phong Dẹo",
         "Nam Action",
         "Ronaldo Trần",
@@ -512,7 +512,7 @@ var MATCHES = [
         "Hợp Tô",
         "Hải Trà Đá",
         "An Tây",
-        "Cánh Nấm",
+        "Cảnh Nấm",
         "Thiệu Béo",
         "Quyền Bùi",
         "Thảo mỏ lết",
@@ -568,7 +568,7 @@ var MATCHES = [
         "Phát Auto",
         "Trường Master",
         "Đại Du",
-        "Cánh Nấm",
+        "Cảnh Nấm",
         "Đạt 1 Phít",
         "Hoàng Royal"
       ]
