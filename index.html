@@ -97,7 +97,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
             <th class="px-2 py-2 text-center">T</th>
             <th class="px-2 py-2 text-center">H</th>
             <th class="px-2 py-2 text-center">B</th>
-            <!-- <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C.Cần <span id="si-att"></span></th> -->
+            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C <span id="si-att"></span></th>
             <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">Phạt <span id="si-pen"></span></th>
             <!-- <th class="px-2 py-2 text-left">Vòng này</th> -->
           </tr>
@@ -212,12 +212,12 @@ function rankDisplay(r){
 }
 function attCell(att){
   return att>0
-    ? '<span style="color:#dc2626;font-weight:600">-'+att+'</span>'
-    : '<span style="color:#15803d;font-weight:600">✓</span>';
+    ? '<span style="color:#15803d;font-weight:600">+'+att+'</span>'
+    : '<span style="color:#d1d5db">—</span>';
 }
 function penCell(pen){
   return pen>0
-    ? '<span style="color:#dc2626;font-weight:600">'+pen+'</span>'
+    ? '<span style="color:#dc2626;font-weight:600">-'+pen+'</span>'
     : '<span style="color:#d1d5db">—</span>';
 }
 function wrBadge(p){
@@ -256,7 +256,7 @@ function render(){
     rows+='<td class="px-2 py-2 text-center" style="color:#15803d;font-weight:500">'+p.w+'</td>';
     rows+='<td class="px-2 py-2 text-center" style="color:#ca8a04;font-weight:500">'+p.d+'</td>';
     rows+='<td class="px-2 py-2 text-center" style="color:#dc2626;font-weight:500">'+p.l+'</td>';
-    // rows+='<td class="px-2 py-2 text-center">'+attCell(p.att)+'</td>';
+    rows+='<td class="px-2 py-2 text-center">'+attCell(p.att)+'</td>';
     rows+='<td class="px-2 py-2 text-center">'+penCell(p.pen)+'</td>';
     // rows+='<td class="px-2 py-2"><span class="text-xs px-2 py-0.5 rounded font-medium '+badge(p.status)+'">'+p.status+'</span></td>';
     rows+='</tr>';
