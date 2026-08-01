@@ -31,7 +31,7 @@ const STANDINGS = [
     "w": 14,
     "l": 19,
     "d": 16,
-    "att": 2,
+    "att": 3,
     "pen": 0,
     "status": "Không đá"
   },
@@ -55,7 +55,7 @@ const STANDINGS = [
     "w": 18,
     "l": 14,
     "d": 9,
-    "att": 1,
+    "att": 2,
     "pen": 1,
     "status": "Không đá"
   },
@@ -67,7 +67,7 @@ const STANDINGS = [
     "w": 13,
     "l": 18,
     "d": 13,
-    "att": 2,
+    "att": 3,
     "pen": 1,
     "status": "Không đá"
   },
@@ -79,7 +79,7 @@ const STANDINGS = [
     "w": 14,
     "l": 18,
     "d": 11,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
@@ -103,7 +103,7 @@ const STANDINGS = [
     "w": 13,
     "l": 10,
     "d": 10,
-    "att": 1,
+    "att": 2,
     "pen": 0,
     "status": "Không đá"
   },
@@ -151,7 +151,7 @@ const STANDINGS = [
     "w": 8,
     "l": 16,
     "d": 12,
-    "att": 2,
+    "att": 3,
     "pen": 1,
     "status": "Không đá"
   },
@@ -187,7 +187,7 @@ const STANDINGS = [
     "w": 12,
     "l": 13,
     "d": 6,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
@@ -295,7 +295,7 @@ const STANDINGS = [
     "w": 9,
     "l": 10,
     "d": 8,
-    "att": 0,
+    "att": 1,
     "pen": 2,
     "status": "Không đá"
   },
@@ -331,7 +331,7 @@ const STANDINGS = [
     "w": 11,
     "l": 8,
     "d": 3,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
@@ -355,7 +355,7 @@ const STANDINGS = [
     "w": 8,
     "l": 11,
     "d": 5,
-    "att": 0,
+    "att": 1,
     "pen": 1,
     "status": "Không đá"
   },
@@ -691,7 +691,7 @@ const STANDINGS = [
     "w": 2,
     "l": 3,
     "d": 0,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
