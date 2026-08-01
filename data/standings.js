@@ -26,7 +26,7 @@ const STANDINGS = [
   {
     "rank": 3,
     "name": "Nam Action",
-    "pts": 93,
+    "pts": 96,
     "g": 49,
     "w": 14,
     "l": 19,
@@ -50,7 +50,7 @@ const STANDINGS = [
   {
     "rank": 5,
     "name": "Long Xavi",
-    "pts": 86,
+    "pts": 87,
     "g": 41,
     "w": 18,
     "l": 14,
@@ -62,7 +62,7 @@ const STANDINGS = [
   {
     "rank": 6,
     "name": "Thắng Cồ",
-    "pts": 83,
+    "pts": 85,
     "g": 44,
     "w": 13,
     "l": 18,
@@ -74,7 +74,7 @@ const STANDINGS = [
   {
     "rank": 7,
     "name": "Thiệu Béo",
-    "pts": 82,
+    "pts": 83,
     "g": 43,
     "w": 14,
     "l": 18,
@@ -98,7 +98,7 @@ const STANDINGS = [
   {
     "rank": 9,
     "name": "Hải Trà Đá",
-    "pts": 69,
+    "pts": 71,
     "g": 33,
     "w": 13,
     "l": 10,
@@ -146,7 +146,7 @@ const STANDINGS = [
   {
     "rank": 13,
     "name": "Tú Xương",
-    "pts": 64,
+    "pts": 66,
     "g": 36,
     "w": 8,
     "l": 16,
@@ -158,7 +158,7 @@ const STANDINGS = [
   {
     "rank": 14,
     "name": "Khá Bảnh",
-    "pts": 63,
+    "pts": 64,
     "g": 33,
     "w": 11,
     "l": 14,
@@ -182,7 +182,7 @@ const STANDINGS = [
   {
     "rank": 16,
     "name": "Quân Phan",
-    "pts": 61,
+    "pts": 62,
     "g": 31,
     "w": 12,
     "l": 13,
@@ -218,7 +218,7 @@ const STANDINGS = [
   {
     "rank": 19,
     "name": "Bình Booong",
-    "pts": 56,
+    "pts": 55,
     "g": 27,
     "w": 12,
     "l": 10,
@@ -230,7 +230,7 @@ const STANDINGS = [
   {
     "rank": 20,
     "name": "Giang Toán",
-    "pts": 56,
+    "pts": 55,
     "g": 33,
     "w": 6,
     "l": 16,
@@ -242,7 +242,7 @@ const STANDINGS = [
   {
     "rank": 21,
     "name": "Sang New",
-    "pts": 55,
+    "pts": 52,
     "g": 25,
     "w": 12,
     "l": 7,
@@ -254,7 +254,7 @@ const STANDINGS = [
   {
     "rank": 22,
     "name": "Thuần Lùn",
-    "pts": 55,
+    "pts": 54,
     "g": 25,
     "w": 13,
     "l": 8,
@@ -266,7 +266,7 @@ const STANDINGS = [
   {
     "rank": 23,
     "name": "Trưởng Master",
-    "pts": 55,
+    "pts": 54,
     "g": 29,
     "w": 8,
     "l": 11,
@@ -289,8 +289,8 @@ const STANDINGS = [
   },
   {
     "rank": 25,
-    "name": "Phong Đẹo",
-    "pts": 53,
+    "name": "Phong Dẹo",
+    "pts": 52,
     "g": 27,
     "w": 9,
     "l": 10,
@@ -326,7 +326,7 @@ const STANDINGS = [
   {
     "rank": 28,
     "name": "Oanh Còi",
-    "pts": 47,
+    "pts": 48,
     "g": 22,
     "w": 11,
     "l": 8,
@@ -338,7 +338,7 @@ const STANDINGS = [
   {
     "rank": 29,
     "name": "Nam Cao",
-    "pts": 46,
+    "pts": 45,
     "g": 25,
     "w": 9,
     "l": 13,
@@ -446,7 +446,7 @@ const STANDINGS = [
   {
     "rank": 38,
     "name": "Ninh Cuội",
-    "pts": 36,
+    "pts": 42,
     "g": 17,
     "w": 6,
     "l": 4,
@@ -506,7 +506,7 @@ const STANDINGS = [
   {
     "rank": 43,
     "name": "Toàn Tỏi",
-    "pts": 31,
+    "pts": 32,
     "g": 15,
     "w": 6,
     "l": 5,
@@ -554,7 +554,7 @@ const STANDINGS = [
   {
     "rank": 47,
     "name": "Anh Cao",
-    "pts": 23,
+    "pts": 22,
     "g": 11,
     "w": 6,
     "l": 5,
@@ -590,7 +590,7 @@ const STANDINGS = [
   {
     "rank": 50,
     "name": "Thảo mỏ lết",
-    "pts": 23,
+    "pts": 24,
     "g": 12,
     "w": 3,
     "l": 4,
@@ -625,8 +625,8 @@ const STANDINGS = [
   },
   {
     "rank": 53,
-    "name": "Phú Hổ",
-    "pts": 20,
+    "name": "Phú Hộ",
+    "pts": 19,
     "g": 13,
     "w": 2,
     "l": 8,
@@ -638,7 +638,7 @@ const STANDINGS = [
   {
     "rank": 54,
     "name": "Luân Nội Thất",
-    "pts": 18,
+    "pts": 17,
     "g": 8,
     "w": 4,
     "l": 2,
@@ -686,7 +686,7 @@ const STANDINGS = [
   {
     "rank": 58,
     "name": "Thái Bình",
-    "pts": 9,
+    "pts": 10,
     "g": 7,
     "w": 2,
     "l": 3,
@@ -794,7 +794,7 @@ const STANDINGS = [
   {
     "rank": 67,
     "name": "Công Trang",
-    "pts": 2,
+    "pts": 3,
     "g": 2,
     "w": 0,
     "l": 2,
