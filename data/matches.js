@@ -43,7 +43,8 @@ var MATCHES = [
         "Thắng Cồ",
         "Thanh Bùi",
         "Thiện",
-        "Thiệu Béo"
+        "Thiệu Béo",
+        "Hai Trà Đá"
       ]
     },
     "result": "D2_WIN",

@@ -67,7 +67,7 @@ const STANDINGS = [
     "w": 13,
     "l": 18,
     "d": 13,
-    "att": 1,
+    "att": 2,
     "pen": 1,
     "status": "Không đá"
   },
@@ -97,6 +97,18 @@ const STANDINGS = [
   },
   {
     "rank": 9,
+    "name": "Hải Trà Đá",
+    "pts": 69,
+    "g": 33,
+    "w": 13,
+    "l": 10,
+    "d": 10,
+    "att": 1,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "rank": 10,
     "name": "Đại Du",
     "pts": 67,
     "g": 29,
@@ -108,7 +120,7 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 10,
+    "rank": 11,
     "name": "Thành Rocket",
     "pts": 67,
     "g": 32,
@@ -116,18 +128,6 @@ const STANDINGS = [
     "l": 13,
     "d": 3,
     "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 11,
-    "name": "Hải Trà Đá",
-    "pts": 66,
-    "g": 32,
-    "w": 12,
-    "l": 10,
-    "d": 10,
-    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
