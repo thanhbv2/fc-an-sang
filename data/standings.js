@@ -746,7 +746,7 @@ const STANDINGS = [
   {
     "rank": 63,
     "name": "Ngọc Gầy",
-    "pts": 7,
+    "pts": 6,
     "g": 3,
     "w": 2,
     "l": 1,
