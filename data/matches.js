@@ -3,6 +3,46 @@
 
 var MATCHES = [
   {
+    "id": "match-1785848179038",
+    "date": "2026-08-04",
+    "team1": {
+      "players": [
+        "Thắng Tóc",
+        "Nam Action",
+        "Thụy",
+        "Phong Dẹo",
+        "An Tây",
+        "Anh Tuấn Jr",
+        "Ronaldo Trần",
+        "Quảng Nổ",
+        "Trưởng Master",
+        "Quân Phan",
+        "Cảnh Nấm",
+        "Hoàng Royal"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Công Trang",
+        "Việt Con",
+        "Tú Xương",
+        "Luân Lốp",
+        "Thuần Lùn",
+        "Thiện",
+        "Thái Bình",
+        "Thắng Cồ",
+        "Hiền Gà",
+        "Hải Trà Đá",
+        "Kiên Y Tá",
+        "Hướng Phủi",
+        "Tùng Lùn",
+        "Đạt 1 Phít"
+      ]
+    },
+    "result": "DRAW",
+    "note": ""
+  },
+  {
     "id": "match-1785764663964",
     "date": "2026-08-03",
     "team1": {
@@ -197,7 +237,8 @@ var MATCHES = [
         "Anh Hoàng",
         "Khá Bảnh",
         "Hướng Phủi",
-        "Việt Con"
+        "Việt Con",
+        "Phan Đức"
       ]
     },
     "team2": {
@@ -386,7 +427,9 @@ var MATCHES = [
         "Luân Lốp",
         "Hoàng Royal",
         "Tùng Lùn",
-        "Hùng Con"
+        "Hùng Con",
+        "Phan Đức",
+        "Hiếu Bùi"
       ]
     },
     "team2": {
