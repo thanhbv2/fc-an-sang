@@ -840,7 +840,7 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 70,
+    "rank": 71,
     "name": "Hiếu Bùi",
     "pts": 2,
     "g": 1,
@@ -850,9 +850,9 @@ const STANDINGS = [
     "att": 0,
     "pen": 0,
     "status": "Không đá"
-  }
+  },
   {
-    "rank": 70,
+    "rank": 72,
     "name": "Trường",
     "pts": 1,
     "g": 1,
