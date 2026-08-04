@@ -18,7 +18,9 @@ var MATCHES = [
         "Trưởng Master",
         "Quân Phan",
         "Cảnh Nấm",
-        "Hoàng Royal"
+        "Hoàng Royal",
+        "Phan Đức",
+        "Hiếu Bùi"
       ]
     },
     "team2": {
@@ -75,7 +77,8 @@ var MATCHES = [
         "Bình Booong",
         "Cảnh Nấm",
         "Kiên Y Tá",
-        "Thái Bình"
+        "Thái Bình",
+        "Phan Đức"
       ]
     },
     "result": "D1_WIN",
@@ -238,7 +241,6 @@ var MATCHES = [
         "Khá Bảnh",
         "Hướng Phủi",
         "Việt Con",
-        "Phan Đức"
       ]
     },
     "team2": {
@@ -428,8 +430,7 @@ var MATCHES = [
         "Hoàng Royal",
         "Tùng Lùn",
         "Hùng Con",
-        "Phan Đức",
-        "Hiếu Bùi"
+        
       ]
     },
     "team2": {
