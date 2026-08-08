@@ -20,7 +20,7 @@ var MATCHES = [
         "Thắng Tóc",
         "Hải Hói",
         "Anh Tuấn Jr",
-        
+        "Cương Quý"      
       ]
     },
     "team2": {
