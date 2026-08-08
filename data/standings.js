@@ -2,9 +2,9 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Nam Action",
-    "pts": 109,
-    "g": 54,
-    "w": 17,
+    "pts": 112,
+    "g": 55,
+    "w": 18,
     "l": 19,
     "d": 18,
     "att": 3,
