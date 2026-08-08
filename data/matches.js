@@ -19,7 +19,8 @@ var MATCHES = [
         "Long Xavi",
         "Thắng Tóc",
         "Hải Hói",
-        "Anh Tuấn Jr"
+        "Anh Tuấn Jr",
+        "Đắc Phủi"
       ]
     },
     "team2": {

@@ -470,9 +470,9 @@ const STANDINGS = [
   {
     "rank": 40,
     "name": "Đắc Phủi",
-    "pts": 38,
-    "g": 18,
-    "w": 10,
+    "pts": 41,
+    "g": 19,
+    "w": 11,
     "l": 8,
     "d": 0,
     "att": 0,
