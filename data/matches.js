@@ -20,7 +20,7 @@ var MATCHES = [
         "Thắng Tóc",
         "Hải Hói",
         "Anh Tuấn Jr",
-        "Đắc Phủi"
+        
       ]
     },
     "team2": {
@@ -37,7 +37,8 @@ var MATCHES = [
         "Đoàn",
         "Quân Phan",
         "Phong Dẹo",
-        "Khương Râu"
+        "Khương Râu",
+        "Đắc Phủi"
       ]
     },
     "result": "D2_WIN",
