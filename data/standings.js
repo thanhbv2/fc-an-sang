@@ -62,9 +62,9 @@ const STANDINGS = [
   {
     "rank": 6,
     "name": "Thiệu Béo",
-    "pts": 93,
-    "g": 48,
-    "w": 16,
+    "pts": 96,
+    "g": 49,
+    "w": 17,
     "l": 20,
     "d": 12,
     "att": 1,

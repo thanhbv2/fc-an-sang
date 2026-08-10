@@ -74,7 +74,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   <div class="flex items-center gap-2 mb-5">
     <span class="material-symbols-outlined text-[#ff8c00] text-2xl">local_fire_department</span>
     <h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Chuỗi Phong Độ</h2>
-    <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full ml-1">≥ 5 trận liên tiếp</span>
+    <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full ml-1">≥ 4 trận liên tiếp</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
     <!-- HOT STREAK -->
@@ -218,9 +218,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
 
 <nav class="mob-nav">
   <a href="index.html" class="active"><span class="material-symbols-outlined">leaderboard</span>BXH</a>
-
   <a href="player.html"><span class="material-symbols-outlined">person</span>Cầu thủ</a>
-  <a href="player.html"><span class="material-symbols-outlined">group</span>Cầu thủ</a>
   <a href="matches.html"><span class="material-symbols-outlined">sports_soccer</span>Kết quả</a>
   <a href="https://www.youtube.com/@fcansang" target="_blank"><span class="material-symbols-outlined">smart_display</span>YouTube</a>
   <a href="https://www.facebook.com/share/g/1LPt3kkL61/?mibextid=wwXIfr" target="_blank"><span class="material-symbols-outlined">thumb_up</span>Facebook</a>
@@ -339,7 +337,7 @@ render();
 
 // ── STREAK CALCULATOR ──────────────────────────────────────────────────
 (function(){
-  var MIN_STREAK = 5;
+  var MIN_STREAK = 4;
 
   // Chuẩn hoá: bỏ dấu, lowercase, trim khoảng trắng thừa
   function norm(n){

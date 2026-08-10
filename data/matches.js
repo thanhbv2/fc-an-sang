@@ -89,7 +89,8 @@ var MATCHES = [
         "Quân Phan",
         "Phong Dẹo",
         "Khương Râu",
-        "Đắc Phủi"
+        "Đắc Phủi",
+        "Thiệu Béo"
       ]
     },
     "result": "D2_WIN",

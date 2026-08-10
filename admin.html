@@ -54,8 +54,8 @@ body{font-family:"Hanken Grotesk",sans-serif;background:#f7f9fb;color:#191c1e}
         
         <!-- Date -->
         <div class="mb-4">
-          <label class="block text-sm font-semibold mb-2">Ngày thi đấu</label>
-          <input type="date" id="matchDate" class="w-full px-3 py-2 border border-[#ddc1ae] rounded" value="2026-07-17"/>
+          <label for="matchDate" class="block text-sm font-semibold mb-2">Ngày thi đấu</label>
+          <input type="date" id="matchDate" class="w-full px-3 py-2 border border-[#ddc1ae] rounded"/>
         </div>
 
         <!-- Team 1 -->
@@ -288,7 +288,7 @@ function resetForm() {
   selectedTeam1 = [];
   selectedTeam2 = [];
   selectedResult = null;
-  document.getElementById('matchDate').value = '2026-07-17';
+  document.getElementById('matchDate').value = new Date().toISOString().slice(0, 10);
   document.getElementById('matchNote').value = '';
   document.getElementById('resultDisplay').textContent = 'Chưa chọn';
   document.querySelectorAll('.result-btn').forEach(b => b.classList.remove('active'));
@@ -589,6 +589,7 @@ document.getElementById('team1Search').addEventListener('input', () => renderPla
 document.getElementById('team2Search').addEventListener('input', () => renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1));
 
 renderPlayerList('team1Players', 'team1Search', selectedTeam1, selectedTeam2);
+document.getElementById('matchDate').value = new Date().toISOString().slice(0, 10); // Set default date to today
 renderPlayerList('team2Players', 'team2Search', selectedTeam2, selectedTeam1);
 populatePlayerSelect();
 setupEditFormListeners();
