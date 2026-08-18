@@ -52,7 +52,7 @@ var MATCHES = [
     "team2": {
       "players": [
         "Anh Hoàng",
-        "Thắng Tóc",
+        "Thắng Cồ",
         "Bằng Chấy",
         "Thiệu Béo",
         "Công Trang",

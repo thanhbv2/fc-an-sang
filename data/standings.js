@@ -2,11 +2,11 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Thắng Tóc",
-    "pts": 127,
-    "g": 57,
+    "pts": 125,
+    "g": 56,
     "w": 28,
     "l": 15,
-    "d": 14,
+    "d": 13,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
@@ -37,6 +37,18 @@ const STANDINGS = [
   },
   {
     "rank": 4,
+    "name": "Thắng Cồ",
+    "pts": 117,
+    "g": 57,
+    "w": 21,
+    "l": 20,
+    "d": 16,
+    "att": 3,
+    "pen": 1,
+    "status": "Không đá"
+  },
+  {
+    "rank": 5,
     "name": "Kiên Y Tá",
     "pts": 116,
     "g": 61,
@@ -45,18 +57,6 @@ const STANDINGS = [
     "d": 17,
     "att": 0,
     "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 5,
-    "name": "Thắng Cồ",
-    "pts": 115,
-    "g": 56,
-    "w": 21,
-    "l": 20,
-    "d": 15,
-    "att": 3,
-    "pen": 1,
     "status": "Không đá"
   },
   {
