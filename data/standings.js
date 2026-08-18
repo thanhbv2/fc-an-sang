@@ -62,13 +62,13 @@ const STANDINGS = [
   {
     "rank": 6,
     "name": "Long Xavi",
-    "pts": 110,
+    "pts": 109,
     "g": 51,
     "w": 24,
     "l": 17,
     "d": 10,
     "att": 2,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -338,13 +338,13 @@ const STANDINGS = [
   {
     "rank": 29,
     "name": "Nam Cao",
-    "pts": 58,
+    "pts": 57,
     "g": 31,
     "w": 12,
     "l": 15,
     "d": 4,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -518,25 +518,25 @@ const STANDINGS = [
   {
     "rank": 44,
     "name": "Hải Hói",
-    "pts": 36,
+    "pts": 35,
     "g": 19,
     "w": 8,
     "l": 10,
     "d": 1,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
     "rank": 45,
     "name": "Thảo mỏ lết",
-    "pts": 36,
+    "pts": 35,
     "g": 19,
     "w": 6,
     "l": 8,
     "d": 5,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -566,13 +566,13 @@ const STANDINGS = [
   {
     "rank": 48,
     "name": "Thiện",
-    "pts": 32,
+    "pts": 30,
     "g": 14,
     "w": 8,
     "l": 2,
     "d": 3,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -698,13 +698,13 @@ const STANDINGS = [
   {
     "rank": 59,
     "name": "Phan Đức",
-    "pts": 18,
+    "pts": 16,
     "g": 9,
     "w": 3,
     "l": 3,
     "d": 3,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -722,13 +722,13 @@ const STANDINGS = [
   {
     "rank": 61,
     "name": "Anh Tuấn Jr",
-    "pts": 15,
+    "pts": 13,
     "g": 10,
     "w": 1,
     "l": 6,
     "d": 3,
     "att": 0,
-    "pen": 0,
+    "pen": 2,
     "status": "Không đá"
   },
   {
