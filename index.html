@@ -461,9 +461,12 @@ render();
         return;
     }
 
+    // Xác định tháng cần tính toán (tháng trước đó đã kết thúc)
     const latestMatchDate = new Date(MATCHES[0].date);
-    const currentMonth = latestMatchDate.getMonth();
-    const currentYear = latestMatchDate.getFullYear();
+    const calculationBaseDate = new Date(latestMatchDate.getFullYear(), latestMatchDate.getMonth(), 1);
+    calculationBaseDate.setMonth(calculationBaseDate.getMonth() - 1);
+    const targetMonth = calculationBaseDate.getMonth();
+    const targetYear = calculationBaseDate.getFullYear();
 
     const monthlyStats = {};
 
@@ -475,7 +478,7 @@ render();
 
     MATCHES.forEach(match => {
         const matchDate = new Date(match.date);
-        if (matchDate.getFullYear() === currentYear && matchDate.getMonth() === currentMonth) {
+        if (matchDate.getFullYear() === targetYear && matchDate.getMonth() === targetMonth) {
             const teams = getTeamsFromMatch(match);
             const result = match.result;
 
@@ -511,7 +514,7 @@ render();
     const container = document.getElementById('potm-section');
 
     if (container && playerOfTheMonth && playerOfTheMonth.wins > 0) {
-        const monthYear = `Tháng ${currentMonth + 1}, ${currentYear}`;
+        const monthYear = `Tháng ${targetMonth + 1}, ${targetYear}`;
         const standingInfo = STANDINGS.find(p => p.name === playerOfTheMonth.name);
         const playerRank = standingInfo ? `#${standingInfo.rank} BXH` : 'Khách mời';
         const playerAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(playerOfTheMonth.name)}&background=ff8c00&color=fff&font-size=0.5&bold=true`;
