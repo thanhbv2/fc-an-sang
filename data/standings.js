@@ -440,7 +440,7 @@ const STANDINGS = [
     "l": 8,
     "d": 4,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -572,7 +572,7 @@ const STANDINGS = [
     "l": 2,
     "d": 3,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -644,7 +644,7 @@ const STANDINGS = [
     "l": 9,
     "d": 4,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -704,7 +704,7 @@ const STANDINGS = [
     "l": 3,
     "d": 3,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -752,7 +752,7 @@ const STANDINGS = [
     "l": 2,
     "d": 1,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
