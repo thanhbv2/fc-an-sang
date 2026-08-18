@@ -469,6 +469,7 @@ render();
     const targetYear = calculationBaseDate.getFullYear();
 
     const monthlyStats = {};
+    let totalMatchesInMonth = 0;
 
     function getTeamsFromMatch(m) {
         const t1 = (m.team1 && m.team1.players) ? m.team1.players : (m.home || []);
@@ -478,27 +479,37 @@ render();
 
     MATCHES.forEach(match => {
         const matchDate = new Date(match.date);
-        if (matchDate.getFullYear() === targetYear && matchDate.getMonth() === targetMonth) {
+        if (matchDate.getFullYear() === targetYear && matchDate.getMonth() === targetMonth) { // Lọc trận trong tháng T-1
+            totalMatchesInMonth++;
             const teams = getTeamsFromMatch(match);
             const result = match.result;
+            const isDraw = result === 'DRAW';
 
-            const processPlayer = (name, isWinner) => {
+            const processPlayer = (name, outcome) => { // outcome: 'win', 'loss', 'draw'
                 if (!name || typeof name !== 'string' || name.trim() === '') return;
                 const trimmedName = name.trim();
                 if (!monthlyStats[trimmedName]) {
-                    monthlyStats[trimmedName] = { name: trimmedName, wins: 0, games: 0 };
+                    monthlyStats[trimmedName] = { name: trimmedName, wins: 0, games: 0, losses: 0 };
                 }
                 monthlyStats[trimmedName].games++;
-                if (isWinner) {
+                if (outcome === 'win') {
                     monthlyStats[trimmedName].wins++;
+                } else if (outcome === 'loss') {
+                    monthlyStats[trimmedName].losses++;
                 }
             };
 
             const isD1Win = result === 'D1_WIN' || result === 'home';
-            const isD2Win = result === 'D2_WIN' || result === 'away';
-
-            teams.t1.forEach(p => processPlayer(p, isD1Win));
-            teams.t2.forEach(p => processPlayer(p, isD2Win));
+            if (isDraw) {
+                teams.t1.forEach(p => processPlayer(p, 'draw'));
+                teams.t2.forEach(p => processPlayer(p, 'draw'));
+            } else if (isD1Win) {
+                teams.t1.forEach(p => processPlayer(p, 'win'));
+                teams.t2.forEach(p => processPlayer(p, 'loss'));
+            } else { // D2_WIN
+                teams.t1.forEach(p => processPlayer(p, 'loss'));
+                teams.t2.forEach(p => processPlayer(p, 'win'));
+            }
         }
     });
 
@@ -518,13 +529,24 @@ render();
         const standingInfo = STANDINGS.find(p => p.name === playerOfTheMonth.name);
         const playerRank = standingInfo ? `#${standingInfo.rank} BXH` : 'Khách mời';
         const playerAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(playerOfTheMonth.name)}&background=ff8c00&color=fff&font-size=0.5&bold=true`;
+        const totalWinLoss = playerOfTheMonth.wins + playerOfTheMonth.losses;
+        const winRate = totalWinLoss > 0 ? Math.round((playerOfTheMonth.wins / totalWinLoss) * 100) : 0;
 
         container.innerHTML = `
-            <div class="flex items-center gap-2 mb-5"><span class="material-symbols-outlined text-[#ff8c00] text-2xl">workspace_premium</span><h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Cầu Thủ Của Tháng</h2><span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full ml-1">${monthYear}</span></div>
+            <div class="flex items-center gap-2 mb-5">
+              <span class="material-symbols-outlined text-[#ff8c00] text-2xl">workspace_premium</span>
+              <h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Cầu Thủ Của Tháng</h2>
+              <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full ml-1">${monthYear}</span>
+              <span class="text-xs text-[#2e7d32] font-medium bg-[#e8f5e9] px-2 py-0.5 rounded-full ml-auto">${totalMatchesInMonth} trận</span>
+            </div>
             <div class="bg-white border border-[#e0e3e5] rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row items-center p-5 gap-5 hover:bg-orange-50/50 transition-colors" style="cursor:pointer" onclick="location.href='player.html?id=${slug(playerOfTheMonth.name)}'">
                 <div class="shrink-0"><img src="${playerAvatar}" alt="${playerOfTheMonth.name}" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md"/></div>
                 <div class="flex-1 text-center md:text-left"><div class="font-anton text-3xl" style="color:#ff8c00">${playerOfTheMonth.name}</div><div class="font-semibold text-sm mt-1" style="color:#564334">${playerRank}</div></div>
-                <div class="flex gap-6 text-center"><div><div class="font-anton text-4xl" style="color:#15803d">${playerOfTheMonth.wins}</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận thắng</div></div><div><div class="font-anton text-4xl" style="color:#191c1e">${playerOfTheMonth.games}</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận đã đấu</div></div></div>
+                <div class="flex gap-6 text-center">
+                    <div><div class="font-anton text-4xl" style="color:#15803d">${playerOfTheMonth.wins}</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận thắng</div></div>
+                    <div><div class="font-anton text-4xl" style="color:#191c1e">${playerOfTheMonth.games}</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận đã đấu</div></div>
+                    <div><div class="font-anton text-4xl" style="color:#ca8a04">${winRate}<span class="text-2xl align-top">%</span></div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Tỷ lệ thắng</div></div>
+                </div>
             </div>
         `;
     }
