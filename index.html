@@ -103,53 +103,91 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
   <!-- <p class="text-xs text-[#9ca3af] mt-3 text-right">* Tính từ trận gần nhất, chỉ đếm trận thắng hoặc thua (bỏ hòa)</p> -->
 </div>
 
-<!-- PLAYER OF THE MONTH -->
+<!-- VINH DANH THÁNG -->
 <div id="potm-section" class="max-w-6xl mx-auto px-4 md:px-8 pb-8">
   <!-- Filled by JS -->
 </div>
 
-<!-- CONTROLS -->
-<div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-  <div class="relative w-full sm:w-72">
-    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#564334] text-lg">search</span>
-    <input id="search" type="text" placeholder="Tìm cầu thủ..." class="w-full pl-9 pr-3 py-2 border border-[#ddc1ae] rounded text-sm bg-white"/>
+<!-- TAB BAR -->
+<div class="max-w-6xl mx-auto px-4 md:px-8 pt-2">
+  <div class="flex gap-1 border-b border-[#e0e3e5]">
+    <button id="tab-bxh" onclick="switchTab('bxh')"
+      class="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold border-b-2 border-[#ff8c00] text-[#ff8c00] -mb-px transition-colors">
+      <span class="material-symbols-outlined text-base">leaderboard</span>Bảng Xếp Hạng
+    </button>
+    <button id="tab-tom" onclick="switchTab('tom')"
+      class="flex items-center gap-1.5 px-4 py-2.5 text-sm font-semibold border-b-2 border-transparent text-[#564334] -mb-px hover:text-[#ff8c00] transition-colors">
+      <span class="material-symbols-outlined text-base">workspace_premium</span>Top of Month
+    </button>
   </div>
-  <!-- <div class="flex gap-2 flex-wrap">
-    <button onclick="filterStatus('all')" data-f="all" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-[#ff8c00] text-white border-[#ff8c00]">Tất cả</button>
-    <button onclick="filterStatus('doi1')" data-f="doi1" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Đội 1</button>
-    <button onclick="filterStatus('doi2')" data-f="doi2" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Đội 2</button>
-    <button onclick="filterStatus('off')" data-f="off" class="fbtn px-3 py-1.5 text-xs font-semibold uppercase rounded border bg-white text-[#564334] border-[#ddc1ae]">Không đá</button>
-  </div> -->
 </div>
 
-<!-- TABLE -->
-<div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
-  <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse" style="min-width:360px">
-        <thead>
-          <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
-            <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
-            <th class="px-2 py-2 text-left">Cầu thủ</th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
-            <th class="px-2 py-2 text-center">T</th>
-            <th class="px-2 py-2 text-center">H</th>
-            <th class="px-2 py-2 text-center">B</th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C <span id="si-att"></span></th>
-            <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">P <span id="si-pen"></span></th>
-            <!-- <th class="px-2 py-2 text-left">Vòng này</th> -->
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
+<!-- TAB: BẢNG XẾP HẠNG -->
+<div id="panel-bxh">
+  <!-- CONTROLS -->
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+    <div class="relative w-full sm:w-72">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#564334] text-lg">search</span>
+      <input id="search" type="text" placeholder="Tìm cầu thủ..." class="w-full pl-9 pr-3 py-2 border border-[#ddc1ae] rounded text-sm bg-white"/>
     </div>
-    <p class="text-xs text-[#564334] px-3 py-2 bg-[#f9f9f9] border-t border-[#f0f0f0] sm:hidden">
-      ← Vuốt ngang để xem thêm · T=Thắng · H=Hòa · B=Thua
-    </p>
-    <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
   </div>
-  <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
+  <!-- TABLE -->
+  <div class="max-w-6xl mx-auto px-4 md:px-8 pb-10">
+    <div class="bg-white border border-[#e0e3e5] rounded-lg overflow-hidden shadow-sm">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse" style="min-width:360px">
+          <thead>
+            <tr class="bg-[#f2f4f6] border-b border-[#e0e3e5] text-xs font-semibold uppercase tracking-wider text-[#564334]">
+              <th class="px-2 py-2 text-left w-8 cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('rank')"># <span id="si-rank"></span></th>
+              <th class="px-2 py-2 text-left">Cầu thủ</th>
+              <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pts')">Điểm <span id="si-pts"></span></th>
+              <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('g')">Trận <span id="si-g"></span></th>
+              <th class="px-2 py-2 text-center">T</th>
+              <th class="px-2 py-2 text-center">H</th>
+              <th class="px-2 py-2 text-center">B</th>
+              <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('att')">C <span id="si-att"></span></th>
+              <th class="px-2 py-2 text-center cursor-pointer hover:text-[#ff8c00]" onclick="sortBy('pen')">P <span id="si-pen"></span></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <p class="text-xs text-[#564334] px-3 py-2 bg-[#f9f9f9] border-t border-[#f0f0f0] sm:hidden">
+        ← Vuốt ngang để xem thêm · T=Thắng · H=Hòa · B=Thua
+      </p>
+      <div id="empty" class="hidden py-14 text-center text-sm text-[#564334]">Không tìm thấy cầu thủ nào.</div>
+    </div>
+    <p class="text-xs text-[#564334] mt-2 text-right hidden sm:block">T = Thắng · H = Hòa · B = Thua</p>
+  </div>
+</div>
+
+<!-- TAB: TOP OF MONTH -->
+<div id="panel-tom" class="hidden">
+  <div class="max-w-6xl mx-auto px-4 md:px-8 py-6">
+    <!-- Header + month selector -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <span class="material-symbols-outlined text-[#ff8c00] text-2xl">emoji_events</span>
+      <h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Top of Month</h2>
+      <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full">Nhiều trận thắng nhất</span>
+      <div class="ml-auto flex items-center gap-2">
+        <button id="tom-prev" onclick="tomNav(-1)"
+          class="w-8 h-8 rounded-full border border-[#ddc1ae] flex items-center justify-center hover:bg-[#fff3e0] hover:border-[#ff8c00] transition-colors">
+          <span class="material-symbols-outlined text-sm text-[#564334]">chevron_left</span>
+        </button>
+        <span id="tom-label" class="text-sm font-semibold text-[#191c1e] min-w-[110px] text-center"></span>
+        <button id="tom-next" onclick="tomNav(1)"
+          class="w-8 h-8 rounded-full border border-[#ddc1ae] flex items-center justify-center hover:bg-[#fff3e0] hover:border-[#ff8c00] transition-colors">
+          <span class="material-symbols-outlined text-sm text-[#564334]">chevron_right</span>
+        </button>
+      </div>
+    </div>
+    <!-- Month summary badges -->
+    <div id="tom-summary" class="flex flex-wrap gap-2 mb-5"></div>
+    <!-- Top list -->
+    <div id="tom-list" class="bg-white border border-[#e0e3e5] rounded-xl shadow-sm overflow-hidden"></div>
+    <!-- Month history nav -->
+    <div id="tom-months-nav" class="mt-5 flex flex-wrap gap-2"></div>
+  </div>
 </div>
 
 
@@ -551,6 +589,211 @@ render();
         `;
     }
 })();
+</script>
+<script>
+// ── TAB SWITCHER ────────────────────────────────────────────────────────
+function switchTab(tab) {
+  var tabs = ['bxh', 'tom'];
+  tabs.forEach(function(t) {
+    var btn   = document.getElementById('tab-' + t);
+    var panel = document.getElementById('panel-' + t);
+    var active = t === tab;
+    btn.classList.toggle('border-[#ff8c00]', active);
+    btn.classList.toggle('text-[#ff8c00]', active);
+    btn.classList.toggle('border-transparent', !active);
+    btn.classList.toggle('text-[#564334]', !active);
+    if (panel) panel.classList.toggle('hidden', !active);
+  });
+  if (tab === 'tom') tomRender();
+}
+
+// ── TOP OF MONTH ENGINE ─────────────────────────────────────────────────
+(function() {
+  if (typeof MATCHES === 'undefined' || !MATCHES.length) return;
+
+  // Tập hợp tất cả tháng có trận
+  var monthKeys = [];
+  var monthSet  = {};
+  MATCHES.forEach(function(m) {
+    var d = new Date(m.date);
+    var key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+    if (!monthSet[key]) { monthSet[key] = true; monthKeys.push(key); }
+  });
+  // Sắp xếp mới nhất trước
+  monthKeys.sort(function(a, b) { return b.localeCompare(a); });
+
+  var tomIdx = 0; // index trong monthKeys đang hiển thị
+
+  function getTeams(m) {
+    var t1 = (m.team1 && m.team1.players) ? m.team1.players : (m.home || []);
+    var t2 = (m.team2 && m.team2.players) ? m.team2.players : (m.away || []);
+    return { t1: t1, t2: t2 };
+  }
+
+  function calcMonth(key) {
+    var parts = key.split('-');
+    var yr = parseInt(parts[0]), mo = parseInt(parts[1]) - 1;
+    var stats = {}, totalMatches = 0;
+
+    MATCHES.forEach(function(m) {
+      var d = new Date(m.date);
+      if (d.getFullYear() !== yr || d.getMonth() !== mo) return;
+      totalMatches++;
+      var teams = getTeams(m);
+      var result = m.result;
+      var isDraw = result === 'DRAW';
+      var isD1Win = result === 'D1_WIN' || result === 'home';
+
+      function add(name, outcome) {
+        if (!name || !name.trim()) return;
+        var n = name.trim();
+        if (!stats[n]) stats[n] = { name: n, wins: 0, draws: 0, losses: 0, games: 0 };
+        stats[n].games++;
+        if (outcome === 'win')  stats[n].wins++;
+        else if (outcome === 'draw') stats[n].draws++;
+        else                    stats[n].losses++;
+      }
+
+      if (isDraw) {
+        teams.t1.forEach(function(p) { add(p, 'draw'); });
+        teams.t2.forEach(function(p) { add(p, 'draw'); });
+      } else if (isD1Win) {
+        teams.t1.forEach(function(p) { add(p, 'win'); });
+        teams.t2.forEach(function(p) { add(p, 'loss'); });
+      } else {
+        teams.t1.forEach(function(p) { add(p, 'loss'); });
+        teams.t2.forEach(function(p) { add(p, 'win'); });
+      }
+    });
+
+    var arr = Object.values(stats);
+    arr.sort(function(a, b) {
+      if (b.wins !== a.wins) return b.wins - a.wins;
+      return b.games - a.games;
+    });
+    return { players: arr, totalMatches: totalMatches };
+  }
+
+  var MEDAL = ['🥇', '🥈', '🥉'];
+  var RANK_COLORS = ['#ff8c00', '#9ca3af', '#b45309'];
+
+  function tomRenderMonth() {
+    var key = monthKeys[tomIdx];
+    var parts = key.split('-');
+    var mo = parseInt(parts[1]), yr = parseInt(parts[0]);
+    var label = 'Tháng ' + mo + ' / ' + yr;
+
+    document.getElementById('tom-label').textContent = label;
+    document.getElementById('tom-prev').disabled = tomIdx >= monthKeys.length - 1;
+    document.getElementById('tom-next').disabled = tomIdx <= 0;
+
+    var data = calcMonth(key);
+    var top = data.players.slice(0, 10);
+    var topWins = top.length ? top[0].wins : 0;
+
+    // Summary badges
+    document.getElementById('tom-summary').innerHTML =
+      '<span class="flex items-center gap-1 text-xs font-medium bg-white border border-[#e0e3e5] rounded-full px-3 py-1 shadow-sm">'
+      + '<span class="material-symbols-outlined text-sm text-[#ff8c00]">sports_soccer</span>'
+      + '<strong>' + data.totalMatches + '</strong>&nbsp;trận trong tháng'
+      + '</span>'
+      + '<span class="flex items-center gap-1 text-xs font-medium bg-white border border-[#e0e3e5] rounded-full px-3 py-1 shadow-sm">'
+      + '<span class="material-symbols-outlined text-sm text-[#15803d]">group</span>'
+      + '<strong>' + data.players.length + '</strong>&nbsp;cầu thủ tham gia'
+      + '</span>'
+      + (topWins > 0
+        ? '<span class="flex items-center gap-1 text-xs font-medium bg-[#fff3e0] border border-[#ff8c00] rounded-full px-3 py-1">'
+          + '🏆 Cao nhất: <strong style="color:#ff8c00">' + topWins + '</strong>&nbsp;trận thắng'
+          + '</span>'
+        : '');
+
+    // Top list
+    if (!top.length) {
+      document.getElementById('tom-list').innerHTML =
+        '<div class="px-5 py-10 text-center text-sm text-[#9ca3af] italic">Không có dữ liệu cho tháng này.</div>';
+    } else {
+      var topWinner = top[0];
+      var avatarUrl = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(topWinner.name)
+        + '&background=ff8c00&color=fff&font-size=0.5&bold=true';
+
+      var html = '';
+
+      // Hero card - #1
+      html += '<div class="p-5 border-b border-[#f0f0f0]" style="background:linear-gradient(135deg,#fff8f0 0%,#fff 60%)">';
+      html += '<div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">';
+      html += '<div class="relative shrink-0"><img src="' + avatarUrl + '" alt="' + topWinner.name
+            + '" class="w-20 h-20 rounded-full border-4 shadow-md" style="border-color:#ff8c00"/>'
+            + '<span class="absolute -top-1 -right-1 text-xl">🏆</span></div>';
+      html += '<div class="flex-1 text-center sm:text-left">';
+      html += '<div class="font-anton text-3xl leading-tight" style="color:#ff8c00">' + topWinner.name + '</div>';
+      var si = STANDINGS.find(function(p) { return p.name === topWinner.name; });
+      html += '<div class="text-sm font-semibold mt-0.5" style="color:#564334">' + (si ? '#' + si.rank + ' BXH' : 'Khách mời') + '</div>';
+      html += '</div>';
+      html += '<div class="flex gap-5 text-center shrink-0">';
+      html += '<div><div class="font-anton text-4xl leading-none" style="color:#15803d">' + topWinner.wins + '</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Thắng</div></div>';
+      html += '<div><div class="font-anton text-4xl leading-none" style="color:#191c1e">' + topWinner.games + '</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận</div></div>';
+      var wr = (topWinner.wins + topWinner.losses) > 0
+        ? Math.round(topWinner.wins / (topWinner.wins + topWinner.losses) * 100) : 0;
+      html += '<div><div class="font-anton text-4xl leading-none" style="color:#ca8a04">' + wr + '<span class="text-2xl align-top">%</span></div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Win%</div></div>';
+      html += '</div>';
+      html += '</div></div>';
+
+      // Rank 2-10
+      html += '<div class="divide-y divide-[#f5f5f5]">';
+      for (var i = 1; i < top.length; i++) {
+        var p = top[i];
+        var wrP = (p.wins + p.losses) > 0 ? Math.round(p.wins / (p.wins + p.losses) * 100) : 0;
+        var medal = i < 3 ? MEDAL[i] : (i + 1) + '.';
+        var rankClr = i < 3 ? RANK_COLORS[i] : '#9ca3af';
+        var sip = STANDINGS.find(function(s) { return s.name === p.name; });
+        html += '<div class="flex items-center gap-3 px-5 py-3 hover:bg-[#fafafa] transition-colors" style="cursor:pointer" onclick="location.href=\'player.html?id=' + slug(p.name) + '\'">';
+        html += '<div class="w-7 text-center font-bold text-sm shrink-0" style="color:' + rankClr + '">' + medal + '</div>';
+        html += '<div class="flex-1 min-w-0">';
+        html += '<div class="font-semibold text-sm" style="color:#191c1e">' + p.name + '</div>';
+        html += '<div class="text-xs mt-0.5" style="color:#9ca3af">' + (sip ? '#' + sip.rank + ' BXH' : 'Khách mời') + '</div>';
+        html += '</div>';
+        html += '<div class="flex items-center gap-4 shrink-0 text-right">';
+        html += '<div><div class="font-bold text-lg leading-none" style="color:#15803d">' + p.wins + '</div><div class="text-xs" style="color:#9ca3af">thắng</div></div>';
+        html += '<div><div class="font-semibold text-sm leading-none" style="color:#564334">' + p.games + '</div><div class="text-xs" style="color:#9ca3af">trận</div></div>';
+        html += '<div><div class="text-xs font-bold rounded-full px-2 py-0.5" style="background:' + (wrP>=60?'#e8f5e9':wrP>=40?'#fff3e0':'#fef2f2') + ';color:' + (wrP>=60?'#15803d':wrP>=40?'#92400e':'#dc2626') + '">' + wrP + '%</div></div>';
+        html += '</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+
+      document.getElementById('tom-list').innerHTML = html;
+    }
+
+    // Month history chips
+    var chipsHtml = '';
+    monthKeys.forEach(function(k, idx) {
+      var kParts = k.split('-');
+      var kLabel = 'T' + parseInt(kParts[1]) + '/' + kParts[0];
+      var active = idx === tomIdx;
+      chipsHtml += '<button onclick="tomGoTo(' + idx + ')" class="px-3 py-1.5 text-xs font-semibold rounded-full border transition-colors '
+        + (active
+          ? 'bg-[#ff8c00] text-white border-[#ff8c00]'
+          : 'bg-white text-[#564334] border-[#ddc1ae] hover:border-[#ff8c00] hover:text-[#ff8c00]')
+        + '">' + kLabel + '</button>';
+    });
+    document.getElementById('tom-months-nav').innerHTML = chipsHtml;
+  }
+
+  window.tomRender = tomRenderMonth;
+
+  window.tomNav = function(dir) {
+    var newIdx = tomIdx + dir;
+    if (newIdx < 0 || newIdx >= monthKeys.length) return;
+    tomIdx = newIdx;
+    tomRenderMonth();
+  };
+
+  window.tomGoTo = function(idx) {
+    tomIdx = idx;
+    tomRenderMonth();
+  };
+})();
+// ── END TOP OF MONTH ────────────────────────────────────────────────────
 </script>
 </body>
 </html>
