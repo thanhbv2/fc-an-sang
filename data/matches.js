@@ -3,6 +3,46 @@
 
 var MATCHES = [
   {
+    "id": "match-1787790770926",
+    "date": "2026-08-27",
+    "team1": {
+      "players": [
+        "Nam Action",
+        "Bình Booong",
+        "Công Trang",
+        "Giang Toán",
+        "Kiên Y Tá",
+        "Long Xavi",
+        "Quân Phan",
+        "Thắng Cồ",
+        "Thắng Tóc",
+        "Thành Rocket",
+        "Thiện",
+        "Thuần Lùn",
+        "Trưởng Master"
+      ]
+    },
+    "team2": {
+      "players": [
+        "An Tây",
+        "Bằng Chấy",
+        "Đại Du",
+        "Hòa Black",
+        "Hoàng Royal",
+        "Khương Râu",
+        "Oanh Còi",
+        "Phan Đức",
+        "Phong Dẹo",
+        "Thanh Bùi",
+        "Thụy",
+        "Tú Xương",
+        "Tùng Lùn"
+      ]
+    },
+    "result": "D1_WIN",
+    "note": ""
+  },
+  {
     "id": "match-1787752691773",
     "date": "2026-08-26",
     "team1": {
