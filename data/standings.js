@@ -696,18 +696,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 59,
-    "name": "Tùng Bách",
-    "pts": 22,
-    "g": 10,
-    "w": 5,
-    "l": 3,
-    "d": 2,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
     "rank": 60,
     "name": "Hòa Black",
     "pts": 21,
@@ -799,30 +787,6 @@ const STANDINGS = [
     "w": 1,
     "l": 4,
     "d": 2,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 68,
-    "name": "Việt Con",
-    "pts": 10,
-    "g": 6,
-    "w": 1,
-    "l": 3,
-    "d": 2,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 69,
-    "name": "Hiếu 2K",
-    "pts": 7,
-    "g": 3,
-    "w": 2,
-    "l": 1,
-    "d": 0,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
