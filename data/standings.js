@@ -14,13 +14,13 @@ const STANDINGS = [
   {
     "rank": 2,
     "name": "Nam Action",
-    "pts": 135,
+    "pts": 134,
     "g": 69,
     "w": 22,
     "l": 27,
     "d": 20,
     "att": 3,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -170,13 +170,13 @@ const STANDINGS = [
   {
     "rank": 15,
     "name": "Giang Toán",
-    "pts": 82,
+    "pts": 81,
     "g": 44,
     "w": 13,
     "l": 18,
     "d": 13,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -206,13 +206,13 @@ const STANDINGS = [
   {
     "rank": 18,
     "name": "Phong Dẹo",
-    "pts": 79,
+    "pts": 78,
     "g": 41,
     "w": 15,
     "l": 17,
     "d": 9,
     "att": 1,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
