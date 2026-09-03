@@ -826,5 +826,17 @@ const STANDINGS = [
     "att": 0,
     "pen": 0,
     "status": "Không đá"
+  },
+  {
+    "rank": 70,
+    "name": "Bách Trần",
+    "pts": 2,
+    "g": 1,
+    "w": 0,
+    "l": 0,
+    "d": 1,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
   }
 ];
