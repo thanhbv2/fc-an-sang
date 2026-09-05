@@ -482,13 +482,13 @@ const STANDINGS = [
   {
     "rank": 41,
     "name": "Ninh Cuội",
-    "pts": 45,
+    "pts": 44,
     "g": 18,
     "w": 7,
     "l": 4,
     "d": 7,
     "att": 6,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -518,13 +518,13 @@ const STANDINGS = [
   {
     "rank": 44,
     "name": "Thiện",
-    "pts": 42,
+    "pts": 41,
     "g": 19,
     "w": 12,
     "l": 2,
     "d": 4,
     "att": 0,
-    "pen": 4,
+    "pen": 5,
     "status": "Không đá"
   },
   {
@@ -626,13 +626,13 @@ const STANDINGS = [
   {
     "rank": 53,
     "name": "Phan Đức",
-    "pts": 30,
+    "pts": 29,
     "g": 17,
     "w": 6,
     "l": 8,
     "d": 3,
     "att": 0,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
@@ -734,25 +734,25 @@ const STANDINGS = [
   {
     "rank": 62,
     "name": "Cương Quý",
-    "pts": 16,
+    "pts": 15,
     "g": 9,
     "w": 3,
     "l": 5,
     "d": 1,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
     "rank": 63,
     "name": "Anh Tuấn Jr",
-    "pts": 14,
+    "pts": 13,
     "g": 11,
     "w": 1,
     "l": 7,
     "d": 3,
     "att": 0,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
