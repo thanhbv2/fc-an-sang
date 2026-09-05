@@ -218,13 +218,13 @@ const STANDINGS = [
   {
     "rank": 19,
     "name": "Phong Dẹo",
-    "pts": 83,
+    "pts": 82,
     "g": 45,
     "w": 15,
     "l": 20,
     "d": 10,
     "att": 1,
-    "pen": 3,
+    "pen": 4,
     "status": "Không đá"
   },
   {
@@ -506,13 +506,13 @@ const STANDINGS = [
   {
     "rank": 43,
     "name": "Thiện",
-    "pts": 43,
+    "pts": 42,
     "g": 19,
     "w": 12,
     "l": 2,
     "d": 4,
     "att": 0,
-    "pen": 3,
+    "pen": 4,
     "status": "Không đá"
   },
   {
