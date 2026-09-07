@@ -12,7 +12,8 @@ var MATCHES = [
         "Thắng Cồ",
         "Thiệu Béo",
         "Phan Đức",
-        "Hải Trà Đá"
+        "Hải Trà Đá",
+        "Ánh"
       ]
     },
     "team2": {
