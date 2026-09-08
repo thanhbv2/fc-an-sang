@@ -3,6 +3,35 @@
 
 var MATCHES = [
   {
+    "id": "match-1788872946983",
+    "date": "2026-09-08",
+    "team1": {
+      "players": [
+        "Nam Action",
+        "Kiên Y Tá",
+        "Long Xavi",
+        "Hải Hói",
+        "Tú Xương",
+        "Hướng Phủi",
+        "Hải Trà Đá",
+        "Thái Bình"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Thắng Cồ",
+        "Thanh Bùi",
+        "Thắng Tóc",
+        "Sang New",
+        "Quân Phan",
+        "Đạt 09",
+        "Nam Cao"
+      ]
+    },
+    "result": "DRAW",
+    "note": ""
+  },
+  {
     "id": "match-1788785668919",
     "date": "2026-09-07",
     "team1": {
