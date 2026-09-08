@@ -4,7 +4,7 @@
 var MATCHES = [
   {
     "id": "match-1788785668919",
-    "date": "2026-09-06",
+    "date": "2026-09-07",
     "team1": {
       "players": [
         "Sang New",
