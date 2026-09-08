@@ -176,7 +176,7 @@ tbody tr:hover td{background:rgba(255,140,0,.04)}
     <div class="flex flex-wrap items-center gap-3 mb-6">
       <span class="material-symbols-outlined text-[#ff8c00] text-2xl">emoji_events</span>
       <h2 class="font-anton text-2xl uppercase tracking-wide" style="color:#191c1e">Top of Month</h2>
-      <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full">Nhiều trận thắng nhất</span>
+      <span class="text-xs text-[#564334] font-medium bg-[#fff3e0] px-2 py-0.5 rounded-full">W×3 + H×2 + B×1 + C − P</span>
       <div class="ml-auto flex items-center gap-2">
         <button id="tom-prev" onclick="tomNav(-1)"
           class="w-8 h-8 rounded-full border border-[#ddc1ae] flex items-center justify-center hover:bg-[#fff3e0] hover:border-[#ff8c00] transition-colors">
@@ -674,10 +674,18 @@ function switchTab(tab) {
       }
     });
 
+    // Tính điểm: W*3 + D*2 + L*1 + C - P
+    // C (att) và P (pen) lấy từ STANDINGS nếu có, nhưng ở cấp tháng không có dữ liệu chi tiết
+    // → dùng số liệu tháng: chỉ W/D/L trong tháng, không có C/P cấp tháng nên C=P=0
+    Object.values(stats).forEach(function(s) {
+      s.pts = s.wins * 3 + s.draws * 2 + s.losses * 1;
+    });
+
     var arr = Object.values(stats);
     arr.sort(function(a, b) {
-      if (b.wins !== a.wins) return b.wins - a.wins;
-      return b.games - a.games;
+      if (b.pts !== a.pts) return b.pts - a.pts;       // 1. Điểm cao hơn
+      if (b.wins !== a.wins) return b.wins - a.wins;   // 2. Thắng nhiều hơn
+      return b.games - a.games;                        // 3. Trận đã đấu nhiều hơn
     });
     return { players: arr, totalMatches: totalMatches };
   }
@@ -709,9 +717,9 @@ function switchTab(tab) {
       + '<span class="material-symbols-outlined text-sm text-[#15803d]">group</span>'
       + '<strong>' + data.players.length + '</strong>&nbsp;cầu thủ tham gia'
       + '</span>'
-      + (topWins > 0
+      + (top.length > 0 && top[0].pts > 0
         ? '<span class="flex items-center gap-1 text-xs font-medium bg-[#fff3e0] border border-[#ff8c00] rounded-full px-3 py-1">'
-          + '🏆 Cao nhất: <strong style="color:#ff8c00">' + topWins + '</strong>&nbsp;trận thắng'
+          + '🏆 Cao nhất: <strong style="color:#ff8c00">' + top[0].pts + '</strong>&nbsp;điểm'
           + '</span>'
         : '');
 
@@ -738,6 +746,7 @@ function switchTab(tab) {
       html += '<div class="text-sm font-semibold mt-0.5" style="color:#564334">' + (si ? '#' + si.rank + ' BXH' : 'Khách mời') + '</div>';
       html += '</div>';
       html += '<div class="flex gap-5 text-center shrink-0">';
+      html += '<div><div class="font-anton text-4xl leading-none" style="color:#ff8c00">' + topWinner.pts + '</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Điểm</div></div>';
       html += '<div><div class="font-anton text-4xl leading-none" style="color:#15803d">' + topWinner.wins + '</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Thắng</div></div>';
       html += '<div><div class="font-anton text-4xl leading-none" style="color:#191c1e">' + topWinner.games + '</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Trận</div></div>';
       var wr = (topWinner.wins + topWinner.losses) > 0
@@ -761,6 +770,7 @@ function switchTab(tab) {
         html += '<div class="text-xs mt-0.5" style="color:#9ca3af">' + (sip ? '#' + sip.rank + ' BXH' : 'Khách mời') + '</div>';
         html += '</div>';
         html += '<div class="flex items-center gap-4 shrink-0 text-right">';
+        html += '<div><div class="font-bold text-lg leading-none" style="color:#ff8c00">' + p.pts + '</div><div class="text-xs" style="color:#9ca3af">điểm</div></div>';
         html += '<div><div class="font-bold text-lg leading-none" style="color:#15803d">' + p.wins + '</div><div class="text-xs" style="color:#9ca3af">thắng</div></div>';
         html += '<div><div class="font-semibold text-sm leading-none" style="color:#564334">' + p.games + '</div><div class="text-xs" style="color:#9ca3af">trận</div></div>';
         html += '<div><div class="text-xs font-bold rounded-full px-2 py-0.5" style="background:' + (wrP>=60?'#e8f5e9':wrP>=40?'#fff3e0':'#fef2f2') + ';color:' + (wrP>=60?'#15803d':wrP>=40?'#92400e':'#dc2626') + '">' + wrP + '%</div></div>';
