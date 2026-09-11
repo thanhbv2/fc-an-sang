@@ -672,18 +672,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 57,
-    "name": "Quân Nổ",
-    "pts": 27,
-    "g": 14,
-    "w": 4,
-    "l": 5,
-    "d": 5,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
     "rank": 58,
     "name": "Phát 88",
     "pts": 24,
@@ -765,18 +753,6 @@ const STANDINGS = [
     "d": 1,
     "att": 0,
     "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 65,
-    "name": "Dũng Con",
-    "pts": 13,
-    "g": 5,
-    "w": 3,
-    "l": 2,
-    "d": 1,
-    "att": 0,
-    "pen": 1,
     "status": "Không đá"
   },
   {
