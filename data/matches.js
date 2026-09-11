@@ -198,7 +198,7 @@ var MATCHES = [
         "Mạnh Nát",
         "Hiền Gà",
         "Hải Trà Đá",
-        "Phú Hổ",
+        "Phú Hộ",
         "Hoàng Royal",
         "Hướng Phủi"
       ]
@@ -344,7 +344,7 @@ var MATCHES = [
         "Thụy",
         "Nam Action",
         "Giang Toán",
-        "Phú Hổ",
+        "Phú Hộ",
         "Ronaldo Trần",
         "Hiền Gà",
         "Phát Auto",
@@ -425,7 +425,7 @@ var MATCHES = [
         "Kiên Y Tá",
         "Khương Râu",
         "Luân Lốp",
-        "Phú Hổ",
+        "Phú Hộ",
         "Oanh Còi",
         "Giang Toán"
       ]
@@ -490,7 +490,7 @@ var MATCHES = [
         "Quân Phan",
         "Tú Xương",
         "Long Xavi",
-        "Phú Hổ"
+        "Phú Hộ"
       ]
     },
     "result": "D1_WIN",
@@ -672,7 +672,7 @@ var MATCHES = [
       "players": [
         "Thắng Cồ",
         "Bình Booong",
-        "Phú Hổ",
+        "Phú Hộ",
         "Hòa Black",
         "Luân Răng",
         "Cảnh Nấm",
@@ -822,7 +822,7 @@ var MATCHES = [
     "date": "2026-08-14",
     "team1": {
       "players": [
-        "Phú Hổ",
+        "Phú Hộ",
         "Đắc Phủi",
         "Quảng Nổ",
         "Quyền Bùi",
@@ -879,7 +879,7 @@ var MATCHES = [
         "Thụy",
         "Cương Quý",
         "Bằng Chấy",
-        "Phú Hổ"
+        "Phú Hộ"
       ]
     },
     "team2": {
@@ -1778,7 +1778,7 @@ var MATCHES = [
         "Kiên Y Tá",
         "Nam Cao",
         "Thắng Cồ",
-        "Phú Hổ",
+        "Phú Hộ",
         "Tú Xương",
         "Bằng Chấy",
         "Thiệu Béo",
@@ -1973,7 +1973,7 @@ var MATCHES = [
         "Hợp Tô",
         "Mạnh Nát",
         "Hải Trà Đá",
-        "Phú Hổ",
+        "Phú Hộ",
         "Tú Xương",
         "Luân Răng",
         "Bằng Chấy",
@@ -2010,7 +2010,7 @@ var MATCHES = [
         "Hợp Tô",
         "Mạnh Nát",
         "Hải Trà Đá",
-        "Phú Hổ",
+        "Phú Hộ",
         "Tú Xương",
         "Luân Răng",
         "Bằng Chấy",

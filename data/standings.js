@@ -649,7 +649,7 @@ const STANDINGS = [
   },
   {
     "rank": 55,
-    "name": "Phú Hổ",
+    "name": "Phú Hộ",
     "pts": 30,
     "g": 20,
     "w": 4,
