@@ -826,5 +826,17 @@ const STANDINGS = [
     "att": 0,
     "pen": 0,
     "status": "Không đá"
-  }
+  },
+  {
+    "rank": 70,
+    "name": "Dương",
+    "pts": 1,
+    "g": 0,
+    "w": 0,
+    "l": 1,
+    "d": 0,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
+  },
 ];
