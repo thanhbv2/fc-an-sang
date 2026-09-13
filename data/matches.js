@@ -17,7 +17,6 @@ var MATCHES = [
         "Khương Râu",
         "Thảo mỏ lết",
         "Hợp Tô",
-        "Nam Cao",
         "Đạt 1 Phít",
         "Cương Quý",
         "Thắng Tóc",

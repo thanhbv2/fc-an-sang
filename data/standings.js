@@ -302,9 +302,9 @@ const STANDINGS = [
   {
     "rank": 26,
     "name": "Nam Cao",
-    "pts": 72,
-    "g": 41,
-    "w": 14,
+    "pts": 69,
+    "g": 40,
+    "w": 13,
     "l": 22,
     "d": 5,
     "att": 0,
@@ -482,13 +482,13 @@ const STANDINGS = [
   {
     "rank": 41,
     "name": "Thiện",
-    "pts": 51,
+    "pts": 50,
     "g": 24,
     "w": 14,
     "l": 4,
     "d": 5,
     "att": 0,
-    "pen": 5,
+    "pen": 6,
     "status": "Không đá"
   },
   {
