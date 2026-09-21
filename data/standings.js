@@ -206,13 +206,13 @@ const STANDINGS = [
   {
     "rank": 18,
     "name": "Giang Toán",
-    "pts": 93,
+    "pts": 92,
     "g": 52,
     "w": 14,
     "l": 23,
     "d": 15,
     "att": 0,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
@@ -470,25 +470,25 @@ const STANDINGS = [
   {
     "rank": 40,
     "name": "Thiện",
-    "pts": 54,
+    "pts": 53,
     "g": 26,
     "w": 14,
     "l": 4,
     "d": 7,
     "att": 0,
-    "pen": 6,
+    "pen": 7,
     "status": "Không đá"
   },
   {
     "rank": 41,
     "name": "Ninh Cuội",
-    "pts": 53,
+    "pts": 52,
     "g": 23,
     "w": 8,
     "l": 6,
     "d": 9,
     "att": 6,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
