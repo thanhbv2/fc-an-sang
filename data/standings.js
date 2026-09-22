@@ -2,9 +2,9 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Thắng Tóc",
-    "pts": 170,
-    "g": 77,
-    "w": 38,
+    "pts": 173,
+    "g": 78,
+    "w": 39,
     "l": 22,
     "d": 17,
     "att": 0,
@@ -839,9 +839,8 @@ const STANDINGS = [
     "pen": 1,
     "status": "Không đá"
   },
-  {
-    "rank": 71,
-    "name": "Bách Trần",
+3 8
+    "rank": 71,9    "name": "Bách Trần",
     "pts": 2,
     "g": 1,
     "w": 0,

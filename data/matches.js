@@ -56,7 +56,8 @@ var MATCHES = [
         "Hoàng Royal",
         "Tùng Lùn",
         "Bằng Chấy",
-        "Phát 88"
+        "Phát 88",
+        "Thắng Tóc"
       ]
     },
     "team2": {
