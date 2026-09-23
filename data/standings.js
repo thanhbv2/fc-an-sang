@@ -86,13 +86,13 @@ const STANDINGS = [
   {
     "rank": 8,
     "name": "Hải Trà Đá",
-    "pts": 128,
+    "pts": 127,
     "g": 64,
     "w": 23,
     "l": 25,
     "d": 16,
     "att": 2,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
