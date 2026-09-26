@@ -398,13 +398,13 @@ const STANDINGS = [
   {
     "rank": 34,
     "name": "An Tây",
-    "pts": 65,
+    "pts": 64,
     "g": 32,
     "w": 13,
     "l": 12,
     "d": 7,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -434,13 +434,13 @@ const STANDINGS = [
   {
     "rank": 37,
     "name": "Thiện",
-    "pts": 62,
+    "pts": 61,
     "g": 30,
     "w": 16,
     "l": 5,
     "d": 8,
     "att": 0,
-    "pen": 7,
+    "pen": 8,
     "status": "Không đá"
   },
   {
