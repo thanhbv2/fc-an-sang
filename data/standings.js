@@ -446,13 +446,13 @@ const STANDINGS = [
   {
     "rank": 38,
     "name": "Thiện",
-    "pts": 61,
+    "pts": 60,
     "g": 30,
     "w": 16,
     "l": 5,
     "d": 8,
     "att": 0,
-    "pen": 8,
+    "pen": 9,
     "status": "Không đá"
   },
   {
