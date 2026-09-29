@@ -3,6 +3,39 @@
 
 var MATCHES = [
   {
+    "id": "match-1790686893637",
+    "date": "2026-09-28",
+    "team1": {
+      "players": [
+        "Anh Cao",
+        "Cương Quý",
+        "Quân Phan",
+        "Lê Trung",
+        "Long Xavi",
+        "Thụy",
+        "Thiệu Béo",
+        "Nam Cao",
+        "Ninh Cuội",
+        "Hải Trà Đá"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Thắng Cồ",
+        "Nam Action",
+        "Kiên Y Tá",
+        "Công Trang",
+        "Thiện",
+        "Bình Booong",
+        "Thắng Tóc",
+        "Dương",
+        "Anh Hoàng"
+      ]
+    },
+    "result": "DRAW",
+    "note": ""
+  },
+  {
     "id": "match-1790481551217",
     "date": "2026-09-27",
     "team1": {

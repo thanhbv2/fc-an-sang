@@ -2,11 +2,11 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Thắng Cồ",
-    "pts": 184,
-    "g": 86,
+    "pts": 186,
+    "g": 87,
     "w": 36,
     "l": 26,
-    "d": 24,
+    "d": 25,
     "att": 3,
     "pen": 1,
     "status": "Không đá"
@@ -14,11 +14,11 @@ const STANDINGS = [
   {
     "rank": 2,
     "name": "Thắng Tóc",
-    "pts": 180,
-    "g": 81,
+    "pts": 182,
+    "g": 82,
     "w": 40,
     "l": 22,
-    "d": 19,
+    "d": 20,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
@@ -26,11 +26,11 @@ const STANDINGS = [
   {
     "rank": 3,
     "name": "Nam Action",
-    "pts": 178,
-    "g": 90,
+    "pts": 180,
+    "g": 91,
     "w": 30,
     "l": 33,
-    "d": 27,
+    "d": 28,
     "att": 3,
     "pen": 2,
     "status": "Không đá"
@@ -50,11 +50,11 @@ const STANDINGS = [
   {
     "rank": 5,
     "name": "Kiên Y Tá",
-    "pts": 155,
-    "g": 81,
+    "pts": 157,
+    "g": 82,
     "w": 27,
     "l": 34,
-    "d": 20,
+    "d": 21,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
@@ -62,11 +62,11 @@ const STANDINGS = [
   {
     "rank": 6,
     "name": "Long Xavi",
-    "pts": 154,
-    "g": 74,
+    "pts": 156,
+    "g": 75,
     "w": 31,
     "l": 25,
-    "d": 18,
+    "d": 19,
     "att": 2,
     "pen": 2,
     "status": "Không đá"
@@ -74,11 +74,11 @@ const STANDINGS = [
   {
     "rank": 7,
     "name": "Thiệu Béo",
-    "pts": 134,
-    "g": 68,
+    "pts": 136,
+    "g": 69,
     "w": 23,
     "l": 26,
-    "d": 19,
+    "d": 20,
     "att": 1,
     "pen": 0,
     "status": "Không đá"
@@ -86,17 +86,29 @@ const STANDINGS = [
   {
     "rank": 8,
     "name": "Hải Trà Đá",
-    "pts": 131,
-    "g": 67,
+    "pts": 133,
+    "g": 68,
     "w": 23,
     "l": 26,
-    "d": 18,
+    "d": 19,
     "att": 2,
     "pen": 2,
     "status": "Không đá"
   },
   {
     "rank": 9,
+    "name": "Quân Phan",
+    "pts": 123,
+    "g": 61,
+    "w": 22,
+    "l": 22,
+    "d": 17,
+    "att": 1,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "rank": 10,
     "name": "Thanh Bùi",
     "pts": 123,
     "g": 60,
@@ -104,18 +116,6 @@ const STANDINGS = [
     "l": 23,
     "d": 11,
     "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 10,
-    "name": "Quân Phan",
-    "pts": 121,
-    "g": 60,
-    "w": 22,
-    "l": 22,
-    "d": 16,
-    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
@@ -158,11 +158,11 @@ const STANDINGS = [
   {
     "rank": 14,
     "name": "Bình Booong",
-    "pts": 110,
-    "g": 51,
+    "pts": 112,
+    "g": 52,
     "w": 26,
     "l": 17,
-    "d": 8,
+    "d": 9,
     "att": 0,
     "pen": 1,
     "status": "Không đá"
@@ -290,11 +290,11 @@ const STANDINGS = [
   {
     "rank": 25,
     "name": "Nam Cao",
-    "pts": 80,
-    "g": 46,
+    "pts": 82,
+    "g": 47,
     "w": 14,
     "l": 24,
-    "d": 8,
+    "d": 9,
     "att": 0,
     "pen": 2,
     "status": "Không đá"
@@ -433,6 +433,18 @@ const STANDINGS = [
   },
   {
     "rank": 37,
+    "name": "Thiện",
+    "pts": 62,
+    "g": 31,
+    "w": 16,
+    "l": 5,
+    "d": 9,
+    "att": 0,
+    "pen": 9,
+    "status": "Không đá"
+  },
+  {
+    "rank": 38,
     "name": "Đạt 1 Phít",
     "pts": 61,
     "g": 28,
@@ -441,18 +453,6 @@ const STANDINGS = [
     "d": 3,
     "att": 0,
     "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 38,
-    "name": "Thiện",
-    "pts": 60,
-    "g": 30,
-    "w": 16,
-    "l": 5,
-    "d": 8,
-    "att": 0,
-    "pen": 9,
     "status": "Không đá"
   },
   {
@@ -482,11 +482,11 @@ const STANDINGS = [
   {
     "rank": 41,
     "name": "Ninh Cuội",
-    "pts": 56,
-    "g": 26,
+    "pts": 58,
+    "g": 27,
     "w": 8,
     "l": 8,
-    "d": 10,
+    "d": 11,
     "att": 6,
     "pen": 2,
     "status": "Không đá"
@@ -494,17 +494,29 @@ const STANDINGS = [
   {
     "rank": 42,
     "name": "Anh Cao",
-    "pts": 55,
-    "g": 26,
+    "pts": 57,
+    "g": 27,
     "w": 14,
     "l": 10,
-    "d": 2,
+    "d": 3,
     "att": 0,
     "pen": 1,
     "status": "Không đá"
   },
   {
     "rank": 43,
+    "name": "Anh Hoàng",
+    "pts": 51,
+    "g": 25,
+    "w": 9,
+    "l": 8,
+    "d": 8,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "rank": 44,
     "name": "Ronaldo Trần",
     "pts": 50,
     "g": 26,
@@ -516,19 +528,19 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 44,
-    "name": "Anh Hoàng",
+    "rank": 45,
+    "name": "Công Trang",
     "pts": 49,
     "g": 24,
-    "w": 9,
+    "w": 8,
     "l": 8,
-    "d": 7,
+    "d": 9,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
-    "rank": 45,
+    "rank": 46,
     "name": "Thảo mỏ lết",
     "pts": 49,
     "g": 26,
@@ -540,19 +552,19 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 46,
-    "name": "Công Trang",
-    "pts": 47,
-    "g": 23,
-    "w": 8,
-    "l": 8,
+    "rank": 47,
+    "name": "Thụy",
+    "pts": 48,
+    "g": 26,
+    "w": 7,
+    "l": 11,
     "d": 8,
     "att": 0,
-    "pen": 1,
+    "pen": 0,
     "status": "Không đá"
   },
   {
-    "rank": 47,
+    "rank": 48,
     "name": "Khương Râu",
     "pts": 47,
     "g": 23,
@@ -564,7 +576,7 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 48,
+    "rank": 49,
     "name": "Quảng Nổ",
     "pts": 47,
     "g": 21,
@@ -576,7 +588,7 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 49,
+    "rank": 50,
     "name": "Hiếu Chu",
     "pts": 46,
     "g": 24,
@@ -588,7 +600,7 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 50,
+    "rank": 51,
     "name": "Thái Bình",
     "pts": 46,
     "g": 25,
@@ -596,18 +608,6 @@ const STANDINGS = [
     "l": 10,
     "d": 4,
     "att": 1,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 51,
-    "name": "Thụy",
-    "pts": 46,
-    "g": 25,
-    "w": 7,
-    "l": 11,
-    "d": 7,
-    "att": 0,
     "pen": 0,
     "status": "Không đá"
   },
@@ -638,11 +638,11 @@ const STANDINGS = [
   {
     "rank": 54,
     "name": "Cương Quý",
-    "pts": 37,
-    "g": 20,
+    "pts": 39,
+    "g": 21,
     "w": 6,
     "l": 8,
-    "d": 6,
+    "d": 7,
     "att": 0,
     "pen": 1,
     "status": "Không đá"
@@ -721,6 +721,18 @@ const STANDINGS = [
   },
   {
     "rank": 61,
+    "name": "Dương",
+    "pts": 19,
+    "g": 10,
+    "w": 2,
+    "l": 3,
+    "d": 5,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "rank": 62,
     "name": "Anh Tuấn Jr",
     "pts": 17,
     "g": 13,
@@ -729,18 +741,6 @@ const STANDINGS = [
     "d": 3,
     "att": 0,
     "pen": 3,
-    "status": "Không đá"
-  },
-  {
-    "rank": 62,
-    "name": "Dương",
-    "pts": 17,
-    "g": 9,
-    "w": 2,
-    "l": 3,
-    "d": 4,
-    "att": 0,
-    "pen": 0,
     "status": "Không đá"
   },
   {
@@ -781,6 +781,18 @@ const STANDINGS = [
   },
   {
     "rank": 66,
+    "name": "Lê Trung",
+    "pts": 12,
+    "g": 9,
+    "w": 0,
+    "l": 5,
+    "d": 4,
+    "att": 0,
+    "pen": 1,
+    "status": "Không đá"
+  },
+  {
+    "rank": 67,
     "name": "Khoa lác",
     "pts": 11,
     "g": 7,
@@ -789,18 +801,6 @@ const STANDINGS = [
     "d": 2,
     "att": 0,
     "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 67,
-    "name": "Lê Trung",
-    "pts": 10,
-    "g": 8,
-    "w": 0,
-    "l": 5,
-    "d": 3,
-    "att": 0,
-    "pen": 1,
     "status": "Không đá"
   },
   {
