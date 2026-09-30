@@ -38,7 +38,8 @@ var MATCHES = [
         "Thắng Tóc",
         "Thanh Bùi",
         "Thiệu Béo",
-        "Trưởng Master"
+        "Trưởng Master",
+        "Tùng Lùn"
       ]
     },
     "result": "D2_WIN",
