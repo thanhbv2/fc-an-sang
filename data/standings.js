@@ -746,13 +746,13 @@ const STANDINGS = [
   {
     "rank": 63,
     "name": "Anh Tuấn Jr",
-    "pts": 17,
+    "pts": 16,
     "g": 13,
     "w": 2,
     "l": 8,
     "d": 3,
     "att": 0,
-    "pen": 3,
+    "pen": 4,
     "status": "Không đá"
   },
   {
