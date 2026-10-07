@@ -1,7 +1,40 @@
-// data/matches.js — Lịch sử trận đấu FC Ăn Sáng
+6// data/matches.js — Lịch sử trận đấu FC Ăn Sáng
 // Thêm trận mới vào đầu mảng MATCHES
 
 var MATCHES = [
+  {
+    "id": "match-1791378106554",
+    "date": "2026-10-06",
+    "team1": {
+      "players": [
+        "Bằng Chấy",
+        "Quyền Bùi",
+        "Lê Trung",
+        "Thắng Cồ",
+        "Sang New",
+        "Thiện",
+        "Thiệu Béo",
+        "Đại Du",
+        "Kiên Y Tá",
+        "Hướng Phủi"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Hiền Gà",
+        "Tú Xương",
+        "Phong Dẹo",
+        "Nam Action",
+        "Tùng Lùn",
+        "Hải Trà Đá",
+        "Hòa Black",
+        "Thắng Tóc",
+        "Quân Phan"
+      ]
+    },
+    "result": "DRAW",
+    "note": ""
+  },
   {
     "id": "match-1791109435964",
     "date": "2026-10-04",
