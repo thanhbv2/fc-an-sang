@@ -19,7 +19,8 @@ var MATCHES = [
         "Nam Cao",
         "Mạnh Nát",
         "Khương Râu",
-        "Hướng Phủi"
+        "Hướng Phủi",
+        "Tuấn Nổ"
       ]
     },
     "team2": {
