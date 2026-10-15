@@ -55,7 +55,7 @@ const STANDINGS = [
     "w": 31,
     "l": 39,
     "d": 24,
-    "att": 1,
+    "att": 2,
     "pen": 0,
     "status": "Không đá"
   },
@@ -158,12 +158,12 @@ const STANDINGS = [
   {
     "rank": 14,
     "name": "Tú Xương",
-    "pts": 131,
+    "pts": 132,
     "g": 73,
     "w": 15,
     "l": 33,
     "d": 25,
-    "att": 4,
+    "att": 5,
     "pen": 1,
     "status": "Không đá"
   },
@@ -326,12 +326,12 @@ const STANDINGS = [
   {
     "rank": 28,
     "name": "Sang New",
-    "pts": 83,
+    "pts": 84,
     "g": 39,
     "w": 18,
     "l": 10,
     "d": 11,
-    "att": 0,
+    "att": 1,
     "pen": 3,
     "status": "Không đá"
   },
