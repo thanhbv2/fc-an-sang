@@ -14,24 +14,24 @@ const STANDINGS = [
   {
     "rank": 2,
     "name": "Nam Action",
-    "pts": 201,
+    "pts": 202,
     "g": 102,
     "w": 33,
     "l": 38,
     "d": 31,
-    "att": 4,
+    "att": 5,
     "pen": 2,
     "status": "Không đá"
   },
   {
     "rank": 3,
     "name": "Thắng Cồ",
-    "pts": 201,
+    "pts": 202,
     "g": 95,
     "w": 38,
     "l": 30,
     "d": 27,
-    "att": 4,
+    "att": 5,
     "pen": 1,
     "status": "Không đá"
   },
@@ -86,12 +86,12 @@ const STANDINGS = [
   {
     "rank": 8,
     "name": "Thiệu Béo",
-    "pts": 152,
+    "pts": 153,
     "g": 77,
     "w": 26,
     "l": 29,
     "d": 22,
-    "att": 1,
+    "att": 2,
     "pen": 0,
     "status": "Không đá"
   },
@@ -110,12 +110,12 @@ const STANDINGS = [
   {
     "rank": 10,
     "name": "Đại Du",
-    "pts": 136,
+    "pts": 137,
     "g": 64,
     "w": 30,
     "l": 22,
     "d": 12,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   },
@@ -158,12 +158,12 @@ const STANDINGS = [
   {
     "rank": 14,
     "name": "Tú Xương",
-    "pts": 132,
+    "pts": 133,
     "g": 73,
     "w": 15,
     "l": 33,
     "d": 25,
-    "att": 5,
+    "att": 6,
     "pen": 1,
     "status": "Không đá"
   },
@@ -326,12 +326,12 @@ const STANDINGS = [
   {
     "rank": 28,
     "name": "Sang New",
-    "pts": 84,
+    "pts": 85,
     "g": 39,
     "w": 18,
     "l": 10,
     "d": 11,
-    "att": 1,
+    "att": 2,
     "pen": 3,
     "status": "Không đá"
   },
@@ -854,12 +854,12 @@ const STANDINGS = [
   {
     "name": "Tuấn Tú",
     "rank": 72,
-    "pts": 3,
+    "pts": 4,
     "g": 1,
     "w": 1,
     "l": 0,
     "d": 0,
-    "att": 0,
+    "att": 1,
     "pen": 0,
     "status": "Không đá"
   }
