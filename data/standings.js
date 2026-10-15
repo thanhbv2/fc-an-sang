@@ -852,12 +852,12 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "name": "Tuấn Nổ",
+    "name": "Tuấn Tú",
     "rank": 72,
-    "pts": 1,
+    "pts": 3,
     "g": 1,
-    "w": 0,
-    "l": 1,
+    "w": 1,
+    "l": 0,
     "d": 0,
     "att": 0,
     "pen": 0,

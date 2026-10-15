@@ -19,7 +19,8 @@ var MATCHES = [
         "Hợp Tô",
         "Hồ Cu",
         "Phát Auto",
-        "Tú Xương"
+        "Tú Xương",
+        "Tuấn Tú",
       ]
     },
     "team2": {
