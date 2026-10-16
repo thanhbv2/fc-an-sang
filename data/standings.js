@@ -696,18 +696,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 59,
-    "name": "Phan Đức",
-    "pts": 33,
-    "g": 20,
-    "w": 6,
-    "l": 10,
-    "d": 4,
-    "att": 0,
-    "pen": 3,
-    "status": "Không đá"
-  },
-  {
     "rank": 60,
     "name": "Phát Auto",
     "pts": 30,
@@ -768,18 +756,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 65,
-    "name": "Anh Tuấn Jr",
-    "pts": 16,
-    "g": 13,
-    "w": 2,
-    "l": 8,
-    "d": 3,
-    "att": 0,
-    "pen": 4,
-    "status": "Không đá"
-  },
-  {
     "rank": 66,
     "name": "Hiếu Bùi",
     "pts": 15,
@@ -811,18 +787,6 @@ const STANDINGS = [
     "w": 1,
     "l": 0,
     "d": 2,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 69,
-    "name": "Hùng Con",
-    "pts": 7,
-    "g": 3,
-    "w": 2,
-    "l": 1,
-    "d": 0,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
