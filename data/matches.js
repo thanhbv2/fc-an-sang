@@ -31,7 +31,8 @@ var MATCHES = [
         "Ninh Cuội",
         "Sang New",
         "Thanh Bùi",
-        "Công Trang"
+        "Công Trang",
+        "Tuấn Tú"
       ]
     },
     "result": "D2_WIN",

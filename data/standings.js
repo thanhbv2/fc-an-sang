@@ -842,9 +842,9 @@ const STANDINGS = [
   {
     "name": "Tuấn Tú",
     "rank": 71,
-    "pts": 4,
-    "g": 1,
-    "w": 1,
+    "pts": 7,
+    "g": 2,
+    "w": 2,
     "l": 0,
     "d": 0,
     "att": 1,
