@@ -37,7 +37,8 @@ var MATCHES = [
         "Quân Phan",
         "Quảng Nổ",
         "Thụy",
-        "Thiệu Béo"
+        "Thiệu Béo",
+        "Văn Hải"
       ]
     },
     "result": "D1_WIN",

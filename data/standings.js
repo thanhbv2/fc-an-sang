@@ -468,18 +468,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 40,
-    "name": "Thiện",
-    "pts": 71,
-    "g": 37,
-    "w": 16,
-    "l": 8,
-    "d": 12,
-    "att": 0,
-    "pen": 9,
-    "status": "Không đá"
-  },
-  {
     "rank": 41,
     "name": "Anh Cao",
     "pts": 68,
@@ -823,6 +811,18 @@ const STANDINGS = [
     "w": 0,
     "l": 1,
     "d": 1,
+    "att": 0,
+    "pen": 0,
+    "status": "Không đá"
+  },
+  {
+    "name": "Văn Hải",
+    "rank": 70,
+    "pts": 1,
+    "g": 1,
+    "w": 0,
+    "l": 1,
+    "d": 0,
     "att": 0,
     "pen": 0,
     "status": "Không đá"
