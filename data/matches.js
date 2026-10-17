@@ -3,6 +3,47 @@
 
 var MATCHES = [
   {
+    "id": "match-1792201055899",
+    "date": "2026-10-17",
+    "team1": {
+      "players": [
+        "Công Trang",
+        "Đại Du",
+        "Đạt 1 Phít",
+        "Đoàn",
+        "Giang Toán",
+        "Hải Hói",
+        "Mạnh Nát",
+        "Nam Cao",
+        "Ninh Cuội",
+        "Phong Dẹo",
+        "Sang New",
+        "Thanh Bùi",
+        "Trưởng Master"
+      ]
+    },
+    "team2": {
+      "players": [
+        "Thắng Cồ",
+        "Anh Cao",
+        "Bằng Chấy",
+        "Đạt 09",
+        "Hải Trà Đá",
+        "Hồ Cu",
+        "Lê Trung",
+        "Luân Lốp",
+        "Nam Action",
+        "Oanh Còi",
+        "Quân Phan",
+        "Quảng Nổ",
+        "Thụy",
+        "Thiệu Béo"
+      ]
+    },
+    "result": "D1_WIN",
+    "note": ""
+  },
+  {
     "id": "match-1792160021712",
     "date": "2026-10-15",
     "team1": {
