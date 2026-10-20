@@ -422,13 +422,13 @@ const STANDINGS = [
   {
     "rank": 36,
     "name": "An Tây",
-    "pts": 75,
+    "pts": 74,
     "g": 38,
     "w": 15,
     "l": 15,
     "d": 8,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
@@ -482,13 +482,13 @@ const STANDINGS = [
   {
     "rank": 41,
     "name": "Công Trang",
-    "pts": 70,
+    "pts": 69,
     "g": 34,
     "w": 13,
     "l": 11,
     "d": 11,
     "att": 0,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
@@ -542,13 +542,13 @@ const STANDINGS = [
   {
     "rank": 46,
     "name": "Ronaldo Trần",
-    "pts": 56,
+    "pts": 57,
     "g": 29,
     "w": 11,
     "l": 13,
     "d": 5,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -638,13 +638,13 @@ const STANDINGS = [
   {
     "rank": 54,
     "name": "Lê Trung",
-    "pts": 43,
+    "pts": 42,
     "g": 24,
     "w": 6,
     "l": 10,
     "d": 8,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
