@@ -374,13 +374,13 @@ const STANDINGS = [
   {
     "rank": 32,
     "name": "Hồ Cu",
-    "pts": 82,
+    "pts": 81,
     "g": 45,
     "w": 15,
     "l": 23,
     "d": 7,
     "att": 1,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
