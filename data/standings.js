@@ -62,13 +62,13 @@ const STANDINGS = [
   {
     "rank": 6,
     "name": "Long Xavi",
-    "pts": 185,
+    "pts": 184,
     "g": 90,
     "w": 37,
     "l": 32,
     "d": 21,
     "att": 3,
-    "pen": 3,
+    "pen": 4,
     "status": "Không đá"
   },
   {
@@ -98,13 +98,13 @@ const STANDINGS = [
   {
     "rank": 9,
     "name": "Đại Du",
-    "pts": 154,
+    "pts": 153,
     "g": 71,
     "w": 34,
     "l": 23,
     "d": 14,
     "att": 1,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -230,13 +230,13 @@ const STANDINGS = [
   {
     "rank": 20,
     "name": "Mạnh Nát",
-    "pts": 115,
+    "pts": 114,
     "g": 54,
     "w": 27,
     "l": 20,
     "d": 7,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
@@ -398,13 +398,13 @@ const STANDINGS = [
   {
     "rank": 34,
     "name": "Thuần Lùn",
-    "pts": 81,
+    "pts": 80,
     "g": 42,
     "w": 17,
     "l": 18,
     "d": 7,
     "att": 0,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
