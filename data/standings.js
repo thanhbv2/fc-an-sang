@@ -74,13 +74,13 @@ const STANDINGS = [
   {
     "rank": 7,
     "name": "Hải Trà Đá",
-    "pts": 180,
+    "pts": 179,
     "g": 89,
     "w": 35,
     "l": 31,
     "d": 23,
     "att": 2,
-    "pen": 4,
+    "pen": 5,
     "status": "Không đá"
   },
   {
@@ -482,13 +482,13 @@ const STANDINGS = [
   {
     "rank": 41,
     "name": "Anh Cao",
-    "pts": 72,
+    "pts": 71,
     "g": 35,
     "w": 17,
     "l": 14,
     "d": 4,
     "att": 0,
-    "pen": 1,
+    "pen": 2,
     "status": "Không đá"
   },
   {
