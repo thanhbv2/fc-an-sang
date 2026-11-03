@@ -456,18 +456,6 @@ const STANDINGS = [
     "status": "Không đá"
   },
   {
-    "rank": 39,
-    "name": "Hiền Gà",
-    "pts": 76,
-    "g": 36,
-    "w": 16,
-    "l": 12,
-    "d": 8,
-    "att": 0,
-    "pen": 0,
-    "status": "Không đá"
-  },
-  {
     "rank": 40,
     "name": "Đắc Phủi",
     "pts": 74,
@@ -729,18 +717,6 @@ const STANDINGS = [
     "d": 2,
     "att": 1,
     "pen": 0,
-    "status": "Không đá"
-  },
-  {
-    "rank": 62,
-    "name": "Luân Nội Thất",
-    "pts": 17,
-    "g": 8,
-    "w": 4,
-    "l": 2,
-    "d": 2,
-    "att": 0,
-    "pen": 1,
     "status": "Không đá"
   },
   {
