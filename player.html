@@ -187,7 +187,7 @@ if(idx===-1){
       const team1Players = match.team1?.players || match.home || [];
       const team2Players = match.team2?.players || match.away || [];
       return team1Players.includes(playerName) || team2Players.includes(playerName);
-    });
+    }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
     if (playerMatches.length === 0) {
       timelineContainer.innerHTML = '<p class="text-xs text-gray-500">Chưa thi đấu trận nào.</p>';
