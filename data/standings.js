@@ -2,13 +2,13 @@ const STANDINGS = [
   {
     "rank": 1,
     "name": "Nam Action",
-    "pts": 240,
+    "pts": 239,
     "g": 122,
     "w": 39,
     "l": 46,
     "d": 37,
     "att": 6,
-    "pen": 3,
+    "pen": 4,
     "status": "Không đá"
   },
   {
@@ -74,13 +74,13 @@ const STANDINGS = [
   {
     "rank": 7,
     "name": "Long Xavi",
-    "pts": 196,
+    "pts": 195,
     "g": 95,
     "w": 39,
     "l": 32,
     "d": 24,
     "att": 3,
-    "pen": 4,
+    "pen": 5,
     "status": "Không đá"
   },
   {
@@ -686,13 +686,13 @@ const STANDINGS = [
   {
     "rank": 58,
     "name": "Dương",
-    "pts": 33,
+    "pts": 32,
     "g": 17,
     "w": 5,
     "l": 6,
     "d": 6,
     "att": 0,
-    "pen": 0,
+    "pen": 1,
     "status": "Không đá"
   },
   {
