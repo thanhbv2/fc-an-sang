@@ -386,13 +386,13 @@ const STANDINGS = [
   {
     "rank": 33,
     "name": "Công Trang",
-    "pts": 92,
+    "pts": 91,
     "g": 44,
     "w": 18,
     "l": 12,
     "d": 15,
     "att": 0,
-    "pen": 4,
+    "pen": 5,
     "status": "Không đá"
   },
   {
@@ -410,13 +410,13 @@ const STANDINGS = [
   {
     "rank": 35,
     "name": "Ninh Cuội",
-    "pts": 86,
+    "pts": 85,
     "g": 39,
     "w": 15,
     "l": 11,
     "d": 13,
     "att": 6,
-    "pen": 2,
+    "pen": 3,
     "status": "Không đá"
   },
   {
