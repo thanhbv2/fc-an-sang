@@ -108,7 +108,8 @@ var MATCHES = [
         "Nam Action",
         "Sang New",
         "Thảo mỏ lết",
-        "Đắc Phủi"
+        "Đắc Phủi",
+        "Kieen Y Tá"
       ]
     },
     "team2": {

@@ -38,7 +38,7 @@ const STANDINGS = [
   {
     "rank": 4,
     "name": "Kiên Y Tá",
-    "pts": 224,
+    "pts": 226,
     "g": 110,
     "w": 43,
     "l": 41,
